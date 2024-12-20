@@ -1,0 +1,131 @@
+﻿<Window x:Class="EmployeeMaster.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Employee Portal" Height="450" Width="800">
+
+    <Window.Resources>
+        <!-- Header Style -->
+        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Sub Text Block Style -->
+        <Style x:Key="SubTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Width" Value="333"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Button Style -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Background" Value="#3b5998"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+
+        <!-- Rounded TextBox Style -->
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#303F9F"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="-1" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Rounded PasswordBox Style -->
+        <Style x:Key="RoundedPasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#303F9F"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="-1" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- TextBlock for Links -->
+        <Style x:Key="TextBlockLinkStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Column -->
+        <Grid Grid.Column="0" Background="#fff8dc" Margin="0">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                <Label Content="Welcome to the Employee Portal" Style="{StaticResource HeaderLabelStyle}" Height="47"/>
+                <TextBlock Text="Your portal to manage your employee information, tasks, and resources efficiently." 
+                           Style="{StaticResource SubTextBlockStyle}" Margin="-10,10,0,20"/>
+
+                <Label Content="New User? Join Us!" Style="{StaticResource HeaderLabelStyle}" Margin="0,50,50,0"/>
+                <TextBlock Text="Sign up now to access all the resources and tools at your fingertips!" 
+                           Style="{StaticResource SubTextBlockStyle}" Margin="-30,10,0,20"/>
+
+                <Button Content="REGISTER NOW" Style="{StaticResource ButtonStyle}" Margin="-40,10,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Right Column -->
+        <Grid Grid.Column="1" Background="#f4f4f9" Margin="0">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="352" Width="258">
+                <Image Source="C:\Users\pc\Desktop\user.png" Width="100" Height="100" Margin="0,0,0,10"/>
+                <Label Content="Employee Login" Style="{StaticResource HeaderLabelStyle}"/>
+
+                <!-- Username Input -->
+                <TextBox Style="{StaticResource RoundedTextBoxStyle}" Text="Username"
+                         Foreground="Gray" GotFocus="ClearPlaceholderText" LostFocus="RestorePlaceholderText"/>
+
+                <!-- Password Input -->
+                <PasswordBox Style="{StaticResource RoundedPasswordBoxStyle}" Password="Password"
+                             Foreground="Gray" GotFocus="ClearPasswordPlaceholder" LostFocus="RestorePasswordPlaceholder"/>
+
+                <TextBlock Style="{StaticResource TextBlockLinkStyle}" Margin="80,0,0,10">
+                    <Run Text="Don't have an account?"/>
+                    <Run Text="Sign up!" Foreground="#303F9F"/>
+                </TextBlock>
+                <Button Content="LOGIN" Style="{StaticResource ButtonStyle}" Margin="0,25" Click="Login"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
