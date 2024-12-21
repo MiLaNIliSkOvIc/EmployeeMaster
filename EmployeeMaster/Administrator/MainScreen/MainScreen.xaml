@@ -6,12 +6,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Employee Master"
-        Height="450" Width="870">
+        Height="450" Width="900">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../../Styles/Administrator/MainScreenStyles/Styles1.xaml"/>
+                <ResourceDictionary Source="../../Styles/Styles1.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -29,7 +29,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Border Height="100" Background="#DEB887" VerticalAlignment="Top" Grid.Row="0">
+                <Border Height="100"  VerticalAlignment="Top" Grid.Row="0">
                     <Image Source="C:\Users\pc\Desktop\picturesOfCars\logo.png" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" 
@@ -46,7 +46,7 @@
                 <Button Content="Settings" Style="{StaticResource SettingsButtonStyle}" Grid.Row="6" Click="SettingsButton_Click"/>
             </Grid>
 
-            <Grid Background="#FFF5F5F5" DockPanel.Dock="Right" Margin="10,10,0,0">
+            <Grid Style="{StaticResource MainContext}" DockPanel.Dock="Right" >
                 <ContentControl x:Name="MainContentArea" />
             </Grid>
         </DockPanel>
