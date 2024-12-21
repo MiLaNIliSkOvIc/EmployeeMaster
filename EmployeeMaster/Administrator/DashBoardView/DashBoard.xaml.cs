@@ -32,6 +32,11 @@ namespace EmployeeMaster.Administator.DashBoardView
             
             MessageBox.Show("Add New Employee functionality will be implemented.");
         }
+
+        private void EmployeeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     

@@ -1,4 +1,5 @@
-﻿using EmployeeMaster.Administator.MainScreen;
+﻿using EmployeeMaster.Employee.EmployeeMainScreen;
+using EmployeeMaster.Administator.MainScreen;
 using EmployeeMaster.Employee.DashBoardView;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,8 +31,8 @@ namespace EmployeeMaster
         {
 
                 //MessageBox.Show("Login uspešan!");
-                Dashboard dashboardWindow = new Dashboard();
-                dashboardWindow.Show();
+                //EmployeeMainScreen m = new EmployeeMainScreen();
+                //m.Show();
                 //Console.WriteLine("dasdwad");
                 //VacationRequests vacation = new VacationRequests();
                 //vacation.Show();

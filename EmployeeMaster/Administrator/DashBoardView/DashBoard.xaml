@@ -5,14 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Administrator/DashBoardStyles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
-		<TextBlock Text="Employees"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Employees"
                    FontSize="24"
                    FontWeight="Bold"
                    HorizontalAlignment="Left"
@@ -20,88 +28,41 @@
                    Grid.Row="0"
                    Margin="20,10,0,0" />
 
-		<StackPanel Orientation="Horizontal"
+        <StackPanel Orientation="Horizontal"
                     Grid.Row="1"
                     HorizontalAlignment="Left"
                     Margin="20">
-			<!-- Reduced size for the search text box -->
-			<TextBox x:Name="SearchTextBox"
-                     Width="160"
-                     Height="25"
-                     Margin="0,0,10,0"
-                     FontSize="12"
-                     Padding="8"
-                     VerticalContentAlignment="Center"
-                     BorderBrush="#DCDCDC"
-                     BorderThickness="1"
-                     HorizontalAlignment="Stretch">
-				<TextBox.Style>
-					<Style TargetType="TextBox">
-						<Style.Setters>
-							<Setter Property="Template">
-								<Setter.Value>
-									<ControlTemplate TargetType="TextBox">
-										<Border Background="White"
-                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="1"
-                                                CornerRadius="5">
-											<ScrollViewer x:Name="PART_ContentHost" />
-										</Border>
-									</ControlTemplate>
-								</Setter.Value>
-							</Setter>
-						</Style.Setters>
-					</Style>
-				</TextBox.Style>
-				<TextBox.Text>
-					<Binding Path="SearchQuery" UpdateSourceTrigger="PropertyChanged" />
-				</TextBox.Text>
-			</TextBox>
 
-			<!-- Reduced size for the buttons and updated color for the buttons -->
-			<Button Content="Search"
-                    Width="90"
-                    Height="25"
-                    Background="#DEB887" 
-			BorderBrush="#DEB887"
-			BorderThickness="1"
-			Foreground="White"
-			FontSize="12"
-			FontWeight="SemiBold"
-			Padding="8,0"
-			Margin="0,0,10,0"
-			HorizontalAlignment="Center"
-			VerticalAlignment="Center"
-			Cursor="Hand"
-			Click="SearchButton_Click"/>
+            <TextBox x:Name="SearchTextBox"
+                     Style="{StaticResource SearchTextBoxStyle}"
+                     Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" />
 
-			<Button Content="Add New Employee"
+            <Button Content="Search"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="0,0,10,0"
+                    Click="SearchButton_Click" />
+
+            <Button Content="Add New Employee"
+                    Style="{StaticResource ButtonStyle}"
                     Width="130"
-                    Height="25"
-                    Background="#DEB887"  
-			BorderBrush="#DEB887"
-			BorderThickness="1"
-			Foreground="White"
-			FontSize="12"
-			FontWeight="SemiBold"
-			Padding="8,0"
-			Cursor="Hand"
-			Click="AddEmployeeButton_Click"/>
-		</StackPanel>
+                    Click="AddEmployeeButton_Click" />
+        </StackPanel>
 
-		<DataGrid x:Name="EmployeeDataGrid"
+        <DataGrid x:Name="EmployeeDataGrid"
+                    Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
                   Margin="10"
                   ItemsSource="{Binding Employees}"
-                  Grid.Row="2">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" Width="*" />
-				<DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" Width="*" />
-				<DataGridTextColumn Header="Pozicija" Binding="{Binding Position}" Width="*" />
-				<DataGridTextColumn Header="Datum Zaposlenja" Binding="{Binding HireDate}" Width="*" />
-			</DataGrid.Columns>
-		</DataGrid>
-	</Grid>
+                  Grid.Row="2"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" Width="*" />
+                <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" Width="*" />
+                <DataGridTextColumn Header="Pozicija" Binding="{Binding Position}" Width="*" />
+                <DataGridTextColumn Header="Datum Zaposlenja" Binding="{Binding HireDate}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

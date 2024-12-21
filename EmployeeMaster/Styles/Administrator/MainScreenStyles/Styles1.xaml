@@ -1,0 +1,110 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Style x:Key="EmployeesButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="Employees" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VacationButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Beach" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="Vacation" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TasksButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="ClipboardList" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="Tasks" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BoardButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="BulletinBoard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="Board" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SettingsButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="Settings" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="LeftGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#DEB887"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+</ResourceDictionary>

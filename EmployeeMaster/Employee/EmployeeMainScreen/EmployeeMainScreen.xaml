@@ -1,0 +1,181 @@
+﻿<Window x:Class="EmployeeMaster.Employee.EmployeeMainScreen.EmployeeMainScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Employee Master"
+        Height="500" Width="850">
+    <Grid>
+        <DockPanel>
+           
+            <Grid Background="#DEB887" Width="200" DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto"/>
+                    
+                </Grid.RowDefinitions>
+
+                <!-- Logo -->
+                <Border Height="100" Background="#DEB887" VerticalAlignment="Top" Grid.Row="0">
+                    <Image Source="C:\Users\pc\Desktop\picturesOfCars\logo.png" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Stretch="Uniform" Width="73" />
+                </Border>
+
+               
+                <Button Content="Dashboard"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        HorizontalContentAlignment="Left"
+                        Margin="0,0,0,5"
+                        Padding="10"
+                        Grid.Row="1"
+                        Click="DashboardButton_Click" Height="32" VerticalAlignment="Top">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Dashboard" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
+                <Button Content="Tasks"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    HorizontalContentAlignment="Left"
+                    Margin="0,0,0,5"
+                    Padding="10"
+                    Grid.Row="2"
+                    Click="TasksButton_Click" Height="32" VerticalAlignment="Top">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="ClipboardList" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Tasks" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button Content="Vacation"
+                    Foreground="White"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    HorizontalContentAlignment="Left"
+                    Margin="0,0,0,5"
+                    Padding="10"
+                    Grid.Row="3" 
+                    Click="VacationButton_Click" Height="32" VerticalAlignment="Top">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <!-- Vacation icon from Material Design -->
+                                <materialDesign:PackIcon Kind="Beach" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Vacation" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="Worked Hours"
+             Foreground="White"
+             Background="Transparent"
+             BorderBrush="Transparent"
+             HorizontalContentAlignment="Left"
+             Margin="0,0,0,5"
+             Padding="10"
+             Grid.Row="5"
+             Click="WorkedHoursButton_Click" Height="32" VerticalAlignment="Top">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="Clock" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Worked Hours" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+                <Button Content="Notifications"
+        Foreground="White"
+        Background="Transparent"
+        BorderBrush="Transparent"
+        HorizontalContentAlignment="Left"
+        Margin="0,0,0,5"
+        Padding="10"
+        Grid.Row="4"
+        Click="NotificationsButton_Click" Height="32" VerticalAlignment="Top">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="Bell" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Notifications" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
+                <Button Content="Personal Info"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        HorizontalContentAlignment="Left"
+                        Margin="0,0,0,5"
+                        Padding="10"
+                        Grid.Row="6"
+                        Click="PersonalInfoButton_Click" Height="32" VerticalAlignment="Top">
+                        <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <!-- Personal Info icon from Material Design -->
+                                <materialDesign:PackIcon Kind="AccountCircle" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Personal Info" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+
+
+                <Button Content="Settings"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        HorizontalContentAlignment="Left"
+                        Margin="0,0,0,10"
+                        Padding="10"
+                        Grid.Row="7"
+                        Click="SettingsButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <DockPanel>
+                                <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                                <TextBlock Text="Settings" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            
+            <Grid Background="#FFF5F5F5" DockPanel.Dock="Right" Margin="10,10,0,0">
+                <ContentControl x:Name="MainContentArea" />
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
