@@ -9,6 +9,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Styles/Styles1.xaml" />
+                <ResourceDictionary Source="../../Language/Resources.sr-RS.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -20,9 +21,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Employees"
-                   FontSize="24"
-                   FontWeight="Bold"
+        <TextBlock Text="{DynamicResource Employee}"
+                   Style="{DynamicResource TitleTextBlockStyle}"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    Grid.Row="0"
@@ -37,12 +37,12 @@
                      Style="{DynamicResource SearchTextBoxStyle}"
                      Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" />
 
-            <Button Content="Search"
+            <Button Content="{DynamicResource Search}"
                     Style="{DynamicResource ButtonStyle}"
                     Margin="0,0,10,0"
                     Click="SearchButton_Click" />
 
-            <Button Content="Add New Employee"
+            <Button Content="{DynamicResource AddNewEmployee}"
                     Style="{DynamicResource ButtonStyle}"
                     Width="130"
                     Click="AddEmployeeButton_Click" />
@@ -58,10 +58,57 @@
                   Grid.Row="2"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" Width="*" />
-                <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" Width="*" />
-                <DataGridTextColumn Header="Pozicija" Binding="{Binding Position}" Width="*" />
-                <DataGridTextColumn Header="Datum Zaposlenja" Binding="{Binding HireDate}" Width="*" />
+                <DataGridTemplateColumn Width="*" Header="{DynamicResource ime}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource ime}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FirstName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="{DynamicResource prezime}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource prezime}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="{DynamicResource pozicija}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource pozicija}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Position}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*" Header="{DynamicResource datumZaposlenja}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource datumZaposlenja}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding HireDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

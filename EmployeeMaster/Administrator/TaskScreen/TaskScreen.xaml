@@ -6,29 +6,30 @@
              mc:Ignorable="d"
              Height="auto" Width="auto">
 
-    <!-- Referenca na stilove -->
+ 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Styles/Styles1.xaml"/>
+                <ResourceDictionary Source="../../Language/Resources.en-US.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
-        <!-- Header -->
-        <TextBlock Text="Task Management"
+   
+        <TextBlock Text="{DynamicResource taskManagement}"
                    Style="{DynamicResource TitleTextBlockStyle}"/>
 
-        <!-- Add Task Button -->
-        <Button Content="Add New Task"
+        
+        <Button Content="{DynamicResource AddNewTask}"
                 Style="{DynamicResource TaskButtonStyle}"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Margin="0,65,42,0"
                 Click="AddTaskButton_Click"/>
 
-        <!-- Search Box -->
+     
         <TextBox x:Name="SearchTextBox"
                  Width="200"
                  Height="30"
@@ -39,8 +40,9 @@
                  TextChanged="SearchTextBox_TextChanged"/>
 
 
-        <!-- DataGrid -->
+        
         <DataGrid x:Name="TaskDataGrid"
+                    Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Top"
@@ -50,16 +52,83 @@
                   Margin="20,100,20,20"
                   CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Task Name" Binding="{Binding TaskName}"  />
-                <DataGridTextColumn Header="Assigned To" Binding="{Binding AssignedTo}" />
-                <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate}"  />
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}"  />
-                <DataGridTemplateColumn Header="">
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource taskName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TaskName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+           
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource assignedTo}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding AssignedTo}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+               
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource dueDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DueDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+               
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+               
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="" />
+                     
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="Edit" Click="EditTaskButton_Click" Style="{DynamicResource AcceptDenyButtonStyle}"/>
-                                <Button Content="Delete" Click="DeleteTaskButton_Click" Style="{DynamicResource AcceptDenyButtonStyle}" Margin="5"/>
+                  
+                                <Button Content="{DynamicResource edit}" 
+                            Click="EditTaskButton_Click" 
+                            Style="{DynamicResource AcceptDenyButtonStyle}" />
+
+                               
+                                <Button Content="{DynamicResource delete}" 
+                            Click="DeleteTaskButton_Click" 
+                            Style="{DynamicResource AcceptDenyButtonStyle}" 
+                            Margin="5" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

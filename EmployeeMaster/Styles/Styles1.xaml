@@ -15,7 +15,7 @@
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Employees" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource EmployeesButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -35,7 +35,7 @@
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Beach" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Vacation" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource VacationButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -55,7 +55,7 @@
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="ClipboardList" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Tasks" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource TasksButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -75,13 +75,78 @@
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="BulletinBoard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Board" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource BoardButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
+    
+    
+    <Style x:Key="WorkedHoursButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Clock" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource WorkedHoursButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NotificationsButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Bell" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource NotificationsButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PersonalInfoButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="AccountCircle" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource PersonalInfoButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    
+    
     <Style x:Key="SettingsButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -96,7 +161,7 @@
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Settings" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource SettingsButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -315,5 +380,36 @@
             </Setter.Value>
         </Setter>
     </Style>
+  
+    <Style x:Key="NotificationTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Roboto" />
+        <Setter Property="FontSize" Value="16" />
+        
+        <Setter Property="Foreground" Value="#333" />
+    </Style>
 
+
+    <Style x:Key="NotificationItemStyle" TargetType="ContentPresenter">
+        <Setter Property="Margin" Value="0,0,0,10" />
+    </Style>
+
+    <Style x:Key="PersonalInfoLabelStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+
+    <Style x:Key="PersonalInfoValueStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="2" />
+    </Style>
+
+    <Style x:Key="BoldTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
 </ResourceDictionary>

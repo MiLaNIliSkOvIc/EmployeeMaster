@@ -5,36 +5,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
-    <Grid Background="#F5F5F5">
-     
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-         
-            <RowDefinition Height="*" />
-          
-        </Grid.RowDefinitions>
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+			
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
 
+	
+	<Grid  Margin="15">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
 
-        <TextBlock Text="Notifications"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Foreground="#333"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,0,0,20"
-                   Grid.Row="0" />
+		<TextBlock Text="{DynamicResource notification}"
+                   Style="{DynamicResource NotificationTitleTextBlockStyle}" />
 
-       
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            <ItemsControl x:Name="NotificationList">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <materialDesign:Card Background="White" Margin="0,0,0,10" Padding="10">
-                            <TextBlock Text="{Binding}" FontSize="16" Foreground="#333" VerticalAlignment="Center" />
-                        </materialDesign:Card>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-    </Grid>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+			<ItemsControl x:Name="NotificationList" ItemContainerStyle="{DynamicResource NotificationItemStyle}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<materialDesign:Card Background="White" Padding="10">
+							<TextBlock Text="{Binding}" Style="{DynamicResource NotificationTextStyle}" />
+						</materialDesign:Card>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
 </UserControl>

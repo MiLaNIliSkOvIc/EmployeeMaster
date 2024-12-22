@@ -11,6 +11,7 @@
 
         <StackPanel Orientation="Vertical" Margin="20">
             <TextBlock Text="My tasks" 
+                       Style="{DynamicResource TitleTextBlockStyle}"
                        FontSize="28" 
                        FontWeight="Bold" 
                        HorizontalAlignment="Center" 
@@ -27,16 +28,16 @@
             </ComboBox>
             <DatePicker x:Name="FilterDatePicker" Width="150" Height="35" Margin="5"
                         materialDesign:HintAssist.Hint="Filter by Date"/>
-            <Button Content="Apply Filters" Width="120" Height="35" Margin="5" 
-                    Style="{StaticResource MaterialDesignRaisedButton}" 
-                    Background="#DEB887" 
+            <Button Content="Apply Filters" Width="120" Height="35" Margin="10" 
+                   
+                    Style="{DynamicResource ButtonStyle}"
                     Foreground="White"/>
         </StackPanel>
 
         <DataGrid x:Name="TasksDataGrid" 
+                  Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False" 
-                  HorizontalAlignment="Stretch" 
-                  VerticalAlignment="Center" 
+                 
                   Margin="20,150,20,100" 
                   CanUserAddRows="False" 
                   IsReadOnly="True" 
@@ -69,12 +70,12 @@
         </DataGrid>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
-            <TextBlock Text="Total Tasks: " FontSize="16" FontWeight="Bold"/>
-            <TextBlock x:Name="TotalTasksTextBlock" Text="0" FontSize="16" FontWeight="Bold" Margin="5,0,10,0"/>
-            <TextBlock Text="| Today's Tasks: " FontSize="16" FontWeight="Bold"/>
-            <TextBlock x:Name="TodayTasksTextBlock" Text="0" FontSize="16" FontWeight="Bold" Margin="5,0,10,0"/>
-            <TextBlock Text="| Completed: " FontSize="16" FontWeight="Bold"/>
-            <TextBlock x:Name="CompletedTasksTextBlock" Text="0" FontSize="16" FontWeight="Bold" Margin="5,0,0,0"/>
+            <TextBlock Text="Total Tasks: " Style="{DynamicResource BoldTextBlockStyle}"/>
+            <TextBlock x:Name="TotalTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
+            <TextBlock Text="| Today's Tasks: " Style="{DynamicResource BoldTextBlockStyle}"/>
+            <TextBlock x:Name="TodayTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
+            <TextBlock Text="| Completed: " Style="{DynamicResource BoldTextBlockStyle}"/>
+            <TextBlock x:Name="CompletedTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,0,0"/>
         </StackPanel>
     </Grid>
 </UserControl>

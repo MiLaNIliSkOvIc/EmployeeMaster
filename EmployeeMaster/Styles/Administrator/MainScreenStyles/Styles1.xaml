@@ -82,7 +82,79 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SettingsButtonStyle" TargetType="Button">
+
+	
+	
+	
+	
+	
+	<Style x:Key="WorkedHoursButtonStyle" TargetType="Button">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="Padding" Value="10"/>
+		<Setter Property="Height" Value="32"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<DockPanel>
+						<materialDesign:PackIcon Kind="Clock" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+						<TextBlock Text="Worked Hours" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+					</DockPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="NotificationsButtonStyle" TargetType="Button">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="Padding" Value="10"/>
+		<Setter Property="Height" Value="32"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<DockPanel>
+						<materialDesign:PackIcon Kind="Bell" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+						<TextBlock Text="Notifications" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+					</DockPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="PersonalInfoButtonStyle" TargetType="Button">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="Padding" Value="10"/>
+		<Setter Property="Height" Value="32"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<DockPanel>
+						<materialDesign:PackIcon Kind="AccountCircle" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+						<TextBlock Text="Personal Info" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+					</DockPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	
+	
+	
+	
+	
+	
+	<Style x:Key="SettingsButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>

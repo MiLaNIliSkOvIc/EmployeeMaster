@@ -32,8 +32,8 @@ namespace EmployeeMaster
         {
 
                 //MessageBox.Show("Login uspešan!");
-                //EmployeeMainScreen m = new EmployeeMainScreen();
-                //m.Show();
+                EmployeeMainScreen m = new EmployeeMainScreen();
+                m.Show();
                 //Console.WriteLine("dasdwad");
                 //VacationRequests vacation = new VacationRequests();
                 //vacation.Show();

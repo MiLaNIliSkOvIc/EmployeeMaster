@@ -17,7 +17,8 @@ namespace EmployeeMaster.Administator.MainScreen
     public partial class MainScreen : Window
     {
       
-        public static string style = "Styles2";
+        public static string style = "Styles1";
+        public static string language = "en-US";
         public MainScreen()
         {
             InitializeComponent();
@@ -26,14 +27,23 @@ namespace EmployeeMaster.Administator.MainScreen
             ChangeThemeForWindow();
         }
 
+
         public void ChangeStyleForCurrentWindow(string newStylePath)
         {  
             var newResourceDictionary = new ResourceDictionary
             {
                 Source = new Uri(newStylePath, UriKind.RelativeOrAbsolute)
+                  
+            };
+            var newResourceDictionary2 = new ResourceDictionary
+            {
+             
+                  Source = new Uri($"../../Language/Resources.{language}.xaml", UriKind.RelativeOrAbsolute)
             };
             this.Resources.MergedDictionaries.Clear();
             this.Resources.MergedDictionaries.Add(newResourceDictionary);
+            this.Resources.MergedDictionaries.Add(newResourceDictionary2);
+            
         }
 
         public void ChangeThemeForWindow()

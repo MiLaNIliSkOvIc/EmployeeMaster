@@ -11,41 +11,106 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Styles/Styles1.xaml"/>
+                <ResourceDictionary Source="../../Language/Resources.sr-RS.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
         <!-- Primena stila na TextBlock -->
-        <TextBlock Text="Vacation Requests" Style="{StaticResource TitleTextBlockStyle}"/>
+        <TextBlock Text="{DynamicResource vacationRequests}" Style="{DynamicResource TitleTextBlockStyle}"/>
 
         <DataGrid x:Name="VacationDataGrid" 
-                
+                   Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Top"
                   Margin="20,50,20,20"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  
+                  >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" />
-                <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" />
-                <DataGridTextColumn Header="Od" Binding="{Binding StartDate}" />
-                <DataGridTextColumn Header="Do" Binding="{Binding EndDate}" />
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                <DataGridTemplateColumn  Header="{DynamicResource ime}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource ime}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FirstName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{DynamicResource prezime}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource prezime}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn  Header="{DynamicResource od}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource od}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding StartDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn  Header="{DynamicResource do}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource do}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding EndDate}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn  Header="{DynamicResource status}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <!-- Primena stila na dugmadi -->
-                                <Button Content="Accept" Click="AcceptButton_Click" Style="{StaticResource AcceptDenyButtonStyle}"
-                                        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
-                                <Button Content="Deny" Click="DenyButton_Click" Style="{StaticResource AcceptDenyButtonStyle}"
-                                        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
+                                <Button Content="{DynamicResource accept}" Click="AcceptButton_Click" 
+                            Style="{DynamicResource AcceptDenyButtonStyle}" 
+                            Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
+                                <Button Content="{DynamicResource deny}" Click="DenyButton_Click" 
+                            Style="{DynamicResource AcceptDenyButtonStyle}" 
+                            Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+
         </DataGrid>
     </Grid>
 </UserControl>

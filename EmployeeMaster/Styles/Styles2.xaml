@@ -2,30 +2,31 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
-    <!-- Dark style for Employees Button -->
+  
     <Style x:Key="EmployeesButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E0E0E0"/>
-        <!-- Light gray text -->
+       
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="ViewDashboard" Foreground="#E0E0E0" Width="24" Height="24" Margin="10,0"/>
-                        <!-- Light gray icon -->
-                        <TextBlock Text="Employees" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+
+                        <TextBlock Text="{DynamicResource EmployeesButtonContent}" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- Dark style for Vacation Button -->
     <Style x:Key="VacationButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E0E0E0"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -34,19 +35,21 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Beach" Foreground="#E0E0E0" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Vacation" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource VacationButtonContent}" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- Dark style for Tasks Button -->
+
     <Style x:Key="TasksButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E0E0E0"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -54,20 +57,20 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="ClipboardList" Foreground="#E0E0E0" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Tasks" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource TasksButtonContent}" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- Dark style for Board Button -->
     <Style x:Key="BoardButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E0E0E0"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -75,20 +78,92 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="BulletinBoard" Foreground="#E0E0E0" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Board" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource BoardButtonContent}" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- Dark style for Settings Button -->
+
+
+    <Style x:Key="WorkedHoursButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Clock" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource WorkedHoursButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NotificationsButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Bell" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource NotificationsButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PersonalInfoButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="AccountCircle" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource PersonalInfoButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    
+    
     <Style x:Key="SettingsButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E0E0E0"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -97,42 +172,44 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
                         <materialDesign:PackIcon Kind="Settings" Foreground="#E0E0E0" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="Settings" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <TextBlock Text="{DynamicResource SettingsButtonContent}" Foreground="#E0E0E0" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- Dark style for Left Grid -->
+    
     <Style x:Key="LeftGridStyle" TargetType="Grid">
         <Setter Property="Background" Value="#2C2C2C"/>
-        <!-- Dark gray background -->
+        
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
     <Style x:Key="MainContext" TargetType="Grid">
         <Setter Property="Background" Value="LightGray"/>
     </Style>
 
-    <!-- Dark Mode Stil za TextBox -->
     <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="35" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Padding" Value="10" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderBrush" Value="#1E1E1E" />
-        <!-- Tamno siva boja -->
+        
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Margin" Value="15,10" />
         <Setter Property="Background" Value="#333333" />
-        <!-- Tamno siva pozadina -->
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -147,17 +224,18 @@
         </Setter>
     </Style>
 
-    <!-- Dark Mode Stil za dugmad -->
+ 
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="120" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Background" Value="#333333" />
-        <!-- Tamno siva boja -->
+        
         <Setter Property="BorderBrush" Value="#444444" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Cursor" Value="Hand" />
@@ -209,7 +287,7 @@
 
         <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
 
-        <Setter Property="RowHeight" Value="35" />
+        
         <Setter Property="ColumnHeaderHeight" Value="45" />
         <Setter Property="ColumnHeaderStyle">
             <Setter.Value>
@@ -217,6 +295,7 @@
                     <Setter Property="FontWeight" Value="Bold" />
                     <Setter Property="FontSize" Value="10" />
                     <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontFamily" Value="Segoe Script" />
 
                     <Setter Property="Background" Value="#333333" />
 
@@ -242,7 +321,8 @@
             <Setter.Value>
                 <Style TargetType="DataGridCell">
                     <Setter Property="Padding" Value="10" />
-                    <Setter Property="FontFamily" Value="Roboto" />
+                    <Setter Property="FontFamily" Value="Segoe Script" />
+
                     <Setter Property="FontSize" Value="14" />
                     <Setter Property="BorderBrush" Value="Transparent" />
                     <Setter Property="BorderThickness" Value="0" />
@@ -259,6 +339,8 @@
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
@@ -272,6 +354,7 @@
         <Setter Property="Width" Value="80"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="BorderBrush" Value="#555555"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
 
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
@@ -330,6 +413,8 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Padding" Value="8,0"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
@@ -339,6 +424,8 @@
     <Style x:Key="NotificationTitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Foreground" Value="#333"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -348,6 +435,8 @@
         <Setter Property="Background" Value="#444444"/>
         <Setter Property="Foreground" Value="#fff"/>
         <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
         <Setter Property="Padding" Value="10,5"/>
         <Setter Property="Width" Value="80"/>
         <Setter Property="Height" Value="30"/>
@@ -378,18 +467,7 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <EventTrigger RoutedEvent="Button.MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                      To="#444444" Duration="0:0:0.2"/>
-
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                      To="#555555" Duration="0:0:0.2"/>
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
+                           
                         </Border.Triggers>
                         <ContentPresenter HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
@@ -400,6 +478,43 @@
         </Setter>
     </Style>
 
+   
+    <Style x:Key="NotificationTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe Script" />
+
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="#333" />
+    </Style>
 
 
+    <Style x:Key="NotificationItemStyle" TargetType="ContentPresenter">
+        <Setter Property="Margin" Value="0,0,0,10" />
+    </Style>
+    
+    
+    <Style x:Key="PersonalInfoLabelStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="Segoe Script" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+
+    <Style x:Key="PersonalInfoValueStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Segoe Script" />
+        <Setter Property="Margin" Value="2" />
+    </Style>
+
+
+    <Style x:Key="BoldTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontFamily" Value="Segoe Script" />
+    </Style>
+    
+    
 </ResourceDictionary>

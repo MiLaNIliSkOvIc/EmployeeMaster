@@ -1,4 +1,5 @@
 ﻿using EmployeeMaster.Administator.MainScreen;
+using EmployeeMaster.Employee.EmployeeMainScreen;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -11,17 +12,21 @@ namespace EmployeeMaster.Administrator.SettingsScreen
     public partial class SettingsScreen : UserControl
     {
         private MainScreen _mainScreen;
+        private EmployeeMainScreen _employeeMainScreen;
         public SettingsScreen(MainScreen mainScreen)
         {
             InitializeComponent();
             _mainScreen = mainScreen;
         }
-
-        public SettingsScreen()
+        public SettingsScreen(EmployeeMainScreen employee)
         {
+
             InitializeComponent();
-           
+            _employeeMainScreen = employee;
         }
+
+      
+        
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -38,32 +43,52 @@ namespace EmployeeMaster.Administrator.SettingsScreen
 
         private void ApplyTheme(int selectedIndex)
         {
-            
-            if (selectedIndex == 0)
+            if (_employeeMainScreen != null)
             {
-                MainScreen.style = "Styles1";
-                _mainScreen.ChangeStyle();
+                if (selectedIndex == 0)
+                {
 
+                    EmployeeMainScreen.style = "Styles1";
+                    _employeeMainScreen.ChangeStyle();
+
+                }
+                else
+                {
+                    EmployeeMainScreen.style = "Styles2";
+                    _employeeMainScreen.ChangeStyle();
+                }
             }
             else
             {
-                MainScreen.style = "Styles2";
-                _mainScreen.ChangeStyle();
+                if (selectedIndex == 0)
+                {
+
+                    MainScreen.style = "Styles1";
+                    _mainScreen.ChangeStyle();
+
+                }
+                else
+                {
+                    MainScreen.style = "Styles2";
+                    _mainScreen.ChangeStyle();
+                }
             }
         }
 
         private void ApplyLanguage(int selectedIndex)
         {
-            
+
             if (selectedIndex == 0)
             {
-                // English
-               // Application.Current.CurrentCulture = new CultureInfo("en-US");
+
+                MainScreen.language = "en-US";
+                _mainScreen.ChangeStyle();
+
             }
             else
             {
-                // Serbian
-                //Application.Current.CurrentCulture = new CultureInfo("sr-RS");
+                MainScreen.language = "sr-RS";
+                _mainScreen.ChangeStyle();
             }
         }
     }

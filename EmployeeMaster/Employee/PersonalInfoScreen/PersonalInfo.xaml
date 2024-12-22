@@ -3,72 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Height="500" Width="400"
              MinHeight="400" MinWidth="300">
-    
-    <UserControl.Resources>
-        <!-- Style for Labels -->
-        <Style x:Key="InfoLabelStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="5" />
-        </Style>
-
-        <!-- Style for Values -->
-        <Style x:Key="InfoValueStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="2" />
-        </Style>
-
-        <!-- Button Style -->
-        <Style x:Key="ThemeButtonStyle" TargetType="Button">
-            <Setter Property="Margin" Value="10" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Padding" Value="10,5" />
-            <Setter Property="Background" Value="DodgerBlue" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="14" />
-        </Style>
-    </UserControl.Resources>
-
     <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" /> <!-- Profile Picture -->
-            <RowDefinition Height="Auto" /> <!-- Full Name -->
-            <RowDefinition Height="Auto" /> <!-- Email -->
-            <RowDefinition Height="Auto" /> <!-- Username -->
-            <RowDefinition Height="Auto" /> <!-- Phone -->
-            <RowDefinition Height="Auto" /> <!-- Spacer -->
-            <RowDefinition Height="Auto" /> <!-- Buttons -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Profile Picture -->
+        <!-- Profile Image -->
         <Image x:Name="ProfileImage" Grid.Row="0" Width="120" Height="120" HorizontalAlignment="Center" Stretch="Uniform" Margin="10" />
 
         <!-- Full Name -->
         <StackPanel Grid.Row="1" Margin="10" HorizontalAlignment="Center">
-            <TextBlock Style="{StaticResource InfoLabelStyle}" Text="Full Name:" />
-            <TextBlock x:Name="FullNameText" Style="{StaticResource InfoValueStyle}" />
+            <TextBlock Style="{DynamicResource PersonalInfoLabelStyle}" Text="{DynamicResource fullNameLabel}" />
+            <TextBlock x:Name="FullNameText" Style="{DynamicResource PersonalInfoValueStyle}" />
         </StackPanel>
 
         <!-- Email -->
         <StackPanel Grid.Row="2" Margin="10" HorizontalAlignment="Center">
-            <TextBlock Style="{StaticResource InfoLabelStyle}" Text="Email:" />
-            <TextBlock x:Name="EmailText" Style="{StaticResource InfoValueStyle}" />
+            <TextBlock Style="{DynamicResource PersonalInfoLabelStyle}" Text="{DynamicResource emailLabel}" />
+            <TextBlock x:Name="EmailText" Style="{DynamicResource PersonalInfoValueStyle}" />
         </StackPanel>
 
         <!-- Username -->
         <StackPanel Grid.Row="3" Margin="10" HorizontalAlignment="Center">
-            <TextBlock Style="{StaticResource InfoLabelStyle}" Text="Username:" />
-            <TextBlock x:Name="UsernameText" Style="{StaticResource InfoValueStyle}" />
+            <TextBlock Style="{DynamicResource PersonalInfoLabelStyle}" Text="{DynamicResource usernameLabel}" />
+            <TextBlock x:Name="UsernameText" Style="{DynamicResource PersonalInfoValueStyle}" />
         </StackPanel>
 
         <!-- Phone -->
         <StackPanel Grid.Row="4" Margin="10" HorizontalAlignment="Center">
-            <TextBlock Style="{StaticResource InfoLabelStyle}" Text="Phone:" />
-            <TextBlock x:Name="PhoneText" Style="{StaticResource InfoValueStyle}" />
+            <TextBlock Style="{DynamicResource PersonalInfoLabelStyle}" Text="{DynamicResource phoneLabel}" />
+            <TextBlock x:Name="PhoneText" Style="{DynamicResource PersonalInfoValueStyle}" />
         </StackPanel>
 
-    
     </Grid>
 </UserControl>

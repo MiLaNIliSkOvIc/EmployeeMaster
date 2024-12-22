@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Styles/Styles1.xaml" />
+                <ResourceDictionary Source="../../Language/Resources.sr-RS.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -25,8 +26,8 @@
            
         </Grid.RowDefinitions>
 
- 
-        <TextBlock Text="Notifications"
+
+        <TextBlock Text="{DynamicResource notification}"
                    Style="{DynamicResource NotificationTitleTextBlockStyle}"
                     />
 
@@ -36,10 +37,10 @@
                      Width="400"
                      Height="50"
                      Margin="0,0,10,0"
-                     materialDesign:HintAssist.Hint="Input notification"
+                     materialDesign:HintAssist.Hint="{DynamicResource inputNotification}"
                      Style="{DynamicResource MaterialDesignOutlinedTextBox}" />
-            
-            <Button Content="Add"
+
+            <Button Content="{DynamicResource add}"
                     Style="{DynamicResource AcceptDenyButtonStyle}"
                     Width="100"
                     Height="40"
@@ -51,14 +52,14 @@
 
      
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
-            <ItemsControl x:Name="NotificationList">
+            <ItemsControl x:Name="NotificationList" >
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <materialDesign:Card Background="White" Margin="0,0,0,10" Padding="10">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding}" FontSize="16" Foreground="#333" VerticalAlignment="Center" />
-                                <Button Content="Delete"
-                                         Style="{DynamicResource deleteButton}"
+                    <TextBlock Text="{Binding}" Style="{DynamicResource NotificationTextStyle}" />
+                                <Button Content="{DynamicResource delete}"
+                                        Style="{DynamicResource deleteButton}"
                                         Width="80"
                                         Height="30"
                                    

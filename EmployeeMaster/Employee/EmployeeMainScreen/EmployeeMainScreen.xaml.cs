@@ -9,25 +9,43 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
 {
     public partial class EmployeeMainScreen : Window
     {
+        public static string style = "Styles2";
+        public static string language = "en-US";
         public EmployeeMainScreen()
         {
             InitializeComponent();
         }
 
-     
+        public void ChangeStyleForCurrentWindow(string newStylePath)
+        {
+            var newResourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri(newStylePath, UriKind.RelativeOrAbsolute)
+            };
+            var newResourceDictionary2 = new ResourceDictionary
+            {
+
+                Source = new Uri($"../../Language/Resources.{language}.xaml", UriKind.RelativeOrAbsolute)
+            };
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(newResourceDictionary);
+            this.Resources.MergedDictionaries.Add(newResourceDictionary2);
+        }
+        public void ChangeStyle()
+        {
+            ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
+
+        }
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-
-            
+                         
             MainContentArea.Content = new EmployeeTaskScreen();
         }
 
        
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new SettingsScreen();
+            MainContentArea.Content = new SettingsScreen(this);
         }
         private void NotificationsButton_Click(object sender, RoutedEventArgs e)
         {
