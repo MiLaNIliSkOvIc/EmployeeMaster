@@ -78,17 +78,58 @@ namespace EmployeeMaster.Administrator.SettingsScreen
         private void ApplyLanguage(int selectedIndex)
         {
 
-            if (selectedIndex == 0)
+            if (_employeeMainScreen != null)
             {
+                if (selectedIndex == 0)
+                {
 
-                MainScreen.language = "en-US";
-                _mainScreen.ChangeStyle();
+                    EmployeeMainScreen.language = "en-US";
+                    _employeeMainScreen.ChangeStyle();
 
+                }
+                else if (selectedIndex == 1)
+                {
+                    EmployeeMainScreen.language = "sr-RS";
+                    _employeeMainScreen.ChangeStyle();
+                }
+                else if (selectedIndex == 2)
+                {
+                    EmployeeMainScreen.language = "de-DE";
+                    _employeeMainScreen.ChangeStyle();
+                }
+                else
+                {
+                    EmployeeMainScreen.language = "it-IT";
+                    _employeeMainScreen.ChangeStyle();
+                }
+            
             }
             else
             {
-                MainScreen.language = "sr-RS";
-                _mainScreen.ChangeStyle();
+                if (selectedIndex == 0)
+                {
+
+                    MainScreen.language = "en-US";
+                    _mainScreen.ChangeStyle();
+
+                }
+                else if(selectedIndex == 1)
+                {
+                    MainScreen.language = "sr-RS";
+                    _mainScreen.ChangeStyle();
+                }
+                else if(selectedIndex == 2)
+                {
+                    MainScreen.language = "de-DE";
+                    _mainScreen.ChangeStyle();
+                }
+                else
+                {
+
+                    MainScreen.language = "it-IT";
+                    _mainScreen.ChangeStyle();
+                }
+           
             }
         }
     }

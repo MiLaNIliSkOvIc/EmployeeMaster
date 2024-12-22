@@ -10,7 +10,7 @@
     <Grid>
 
         <StackPanel Orientation="Vertical" Margin="20">
-            <TextBlock Text="My tasks" 
+            <TextBlock Text="{DynamicResource myTasks}" 
                        Style="{DynamicResource TitleTextBlockStyle}"
                        FontSize="28" 
                        FontWeight="Bold" 
@@ -18,46 +18,90 @@
                        Margin="0,10,0,0"/>
         </StackPanel>
 
-      
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,80,20,0">
             <ComboBox x:Name="FilterStatusComboBox" Width="150" Height="35" Margin="5"
-                      materialDesign:HintAssist.Hint="Filter by Status">
-                <ComboBoxItem Content="All" IsSelected="True"/>
-                <ComboBoxItem Content="Pending"/>
-                <ComboBoxItem Content="Completed"/>
+                      materialDesign:HintAssist.Hint="{DynamicResource filterByStatus}">
+                <ComboBoxItem Content="{DynamicResource all}" IsSelected="True"/>
+                <ComboBoxItem Content="{DynamicResource pending}"/>
+                <ComboBoxItem Content="{DynamicResource completed}"/>
             </ComboBox>
             <DatePicker x:Name="FilterDatePicker" Width="150" Height="35" Margin="5"
-                        materialDesign:HintAssist.Hint="Filter by Date"/>
-            <Button Content="Apply Filters" Width="120" Height="35" Margin="10" 
-                   
-                    Style="{DynamicResource ButtonStyle}"
-                    Foreground="White"/>
+                        materialDesign:HintAssist.Hint="{DynamicResource FilterbyDate}"/>
+            <Button Content="{DynamicResource applyFilters}" Width="120" Height="35" Margin="10" 
+                    Style="{DynamicResource ButtonStyle}" Foreground="White"/>
         </StackPanel>
 
         <DataGrid x:Name="TasksDataGrid" 
                   Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False" 
-                 
                   Margin="20,150,20,100" 
                   CanUserAddRows="False" 
                   IsReadOnly="True" 
                   SelectionMode="Single" 
                   materialDesign:DataGridAssist.CellPadding="8">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" />
-                <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline}" />
-                <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                <DataGridTemplateColumn Header="Actions" >
+                <DataGridTemplateColumn Header="{DynamicResource title}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource title}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{DynamicResource deadline}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource deadline}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Deadline}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{DynamicResource priority}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource priority}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Priority}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{DynamicResource status}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Status}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{DynamicResource actions}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Content="Done" 
+                                <Button Content="{DynamicResource done}" 
                                         CommandParameter="{Binding}" 
                                         Click="OnDoneClick" 
                                         Style="{StaticResource MaterialDesignFlatButton}" 
                                         Margin="5,0"/>
-                                <Button Content="Description" 
+                                <Button Content="{DynamicResource description}" 
                                         CommandParameter="{Binding}" 
                                         Click="OnDescriptionClick" 
                                         Style="{StaticResource MaterialDesignFlatButton}" 
@@ -70,11 +114,11 @@
         </DataGrid>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
-            <TextBlock Text="Total Tasks: " Style="{DynamicResource BoldTextBlockStyle}"/>
-            <TextBlock x:Name="TotalTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
-            <TextBlock Text="| Today's Tasks: " Style="{DynamicResource BoldTextBlockStyle}"/>
-            <TextBlock x:Name="TodayTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
-            <TextBlock Text="| Completed: " Style="{DynamicResource BoldTextBlockStyle}"/>
+            <TextBlock Text="{DynamicResource totalTasks}" Style="{DynamicResource BoldTextBlockStyle}"/>
+            <TextBlock x:Name="TotalTasksTextBlock" Text="0 |" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
+            <TextBlock Text="{DynamicResource todaysTasks}" Style="{DynamicResource BoldTextBlockStyle}"/>
+            <TextBlock x:Name="TodayTasksTextBlock" Text="0 | " Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
+            <TextBlock Text="{DynamicResource completed}" Style="{DynamicResource BoldTextBlockStyle}"/>
             <TextBlock x:Name="CompletedTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,0,0"/>
         </StackPanel>
     </Grid>

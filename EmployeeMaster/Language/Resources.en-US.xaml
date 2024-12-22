@@ -39,6 +39,8 @@
     <System:String x:Key="chooseLanguage">Choose Language:</System:String>
     <System:String x:Key="englishLanguage">English</System:String>
     <System:String x:Key="serbianLanguage">Serbian</System:String>
+    <System:String x:Key="germanLanguage">German</System:String>
+    <System:String x:Key="italianLanguage">Italian</System:String>
     <System:String x:Key="enableNotifications">Enable Notifications:</System:String>
     <System:String x:Key="saveButton">Save</System:String>
     <System:String x:Key="fullNameLabel">Full Name:</System:String>
@@ -58,5 +60,20 @@
     <System:String x:Key="shift">Shift</System:String>
     <System:String x:Key="ShowAll">Show All</System:String>
     <System:String x:Key="ShowByDate">Show By Date</System:String>
+    <System:String x:Key="title">Title</System:String>
+    <System:String x:Key="deadline">Deadline</System:String>
+    <System:String x:Key="priority">Priority</System:String>
+    <System:String x:Key="done">Done</System:String>
+    <System:String x:Key="description">Description</System:String>
+    <System:String x:Key="myTasks">My tasks</System:String>
+    <System:String x:Key="filterByStatus">Filter by Status</System:String>
+    <System:String x:Key="all">All</System:String>
+    <System:String x:Key="pending">Pending</System:String>
+    <System:String x:Key="completed">Completed</System:String>
+    <System:String x:Key="filterByDate">Filter by Date</System:String>
+    <System:String x:Key="applyFilters">Apply Filters</System:String>
+    <System:String x:Key="totalTasks">Total Tasks:</System:String>
+    <System:String x:Key="todaysTasks">Today's Tasks:</System:String>
+    
 
 </ResourceDictionary>

@@ -54,6 +54,8 @@
                         SelectedIndex="0">
                 <ComboBoxItem Content="{DynamicResource englishLanguage}" />
                 <ComboBoxItem Content="{DynamicResource serbianLanguage}" />
+                <ComboBoxItem Content="{DynamicResource germanLanguage}" />
+                <ComboBoxItem Content="{DynamicResource italianLanguage}" />
             </ComboBox>
         </StackPanel>
 

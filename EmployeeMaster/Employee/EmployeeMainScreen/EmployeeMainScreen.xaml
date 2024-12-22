@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Employee Master"
-        Height="500" Width="900">
+        Height="500" Width="920">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,7 +19,7 @@
     <Grid>
         <DockPanel>
 
-            <Grid Style="{DynamicResource LeftGridStyle}" Width="200" DockPanel.Dock="Left">
+            <Grid Style="{DynamicResource LeftGridStyle}" Width="220" DockPanel.Dock="Left">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>

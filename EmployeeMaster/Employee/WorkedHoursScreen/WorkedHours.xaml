@@ -41,7 +41,7 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Text="Worked hours" 
+        <TextBlock Text="{DynamicResource WorkedHoursButtonContent}"
             Style="{DynamicResource TitleTextBlockStyle}"
             FontSize="32"
             HorizontalAlignment="Center" 

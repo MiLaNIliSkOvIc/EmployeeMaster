@@ -39,6 +39,8 @@
     <System:String x:Key="chooseLanguage">Izaberite jezik:</System:String>
     <System:String x:Key="englishLanguage">Engleski</System:String>
     <System:String x:Key="serbianLanguage">Srpski</System:String>
+    <System:String x:Key="germanLanguage">Njemački</System:String>
+    <System:String x:Key="italianLanguage">Italijanski</System:String>
     <System:String x:Key="enableNotifications">Omoguci obavještenja</System:String>
     <System:String x:Key="saveButton">Sačuvaj</System:String>
     <System:String x:Key="fullNameLabel">Ime i prezime:</System:String>
@@ -58,6 +60,19 @@
     <System:String x:Key="shift">Smjena</System:String>
     <System:String x:Key="ShowAll">Prikazi sve</System:String>
     <System:String x:Key="ShowByDate">Prikazi po datumu</System:String>
+    <System:String x:Key="title">Naslov</System:String>
+    <System:String x:Key="deadline">Rok</System:String>
+    <System:String x:Key="priority">Prioritet</System:String>
+    <System:String x:Key="done">Zavriši</System:String>
+    <System:String x:Key="description">Opis</System:String>
+    <System:String x:Key="myTasks">Moji zadaci</System:String>
+    <System:String x:Key="filterByStatus">Pretrazi po statusu</System:String>
+    <System:String x:Key="all">Sve</System:String>
+    <System:String x:Key="pending">Čekanje</System:String>
+    <System:String x:Key="completed">Završeno</System:String>
+    <System:String x:Key="applyFilters">Primjeni</System:String>
+    <System:String x:Key="totalTasks">Svi Zadaci</System:String>
+    <System:String x:Key="todaysTasks">Danasnji zadaci</System:String>
 
 
 </ResourceDictionary>

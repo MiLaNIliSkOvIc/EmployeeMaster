@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Employee Master"
-        Height="450" Width="900">
+        Height="450" Width="970">
 
     <Window.Resources>
         <ResourceDictionary>
