@@ -19,7 +19,7 @@
     <Grid>
         <DockPanel>
 
-            <Grid Style="{DynamicResource LeftGridStyle}" Width="220" DockPanel.Dock="Left">
+            <Grid Style="{DynamicResource LeftGridStyle}" Width="230" DockPanel.Dock="Left">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
