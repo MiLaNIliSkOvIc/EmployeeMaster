@@ -5,45 +5,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
-    <Grid Background="#F5F5F5">
-        <!-- Define rows for layout -->
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Styles1.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid  Margin="10">
+  
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <!-- Header row -->
+        
             <RowDefinition Height="Auto" />
-            <!-- Input section -->
+      
             <RowDefinition Height="*" />
-            <!-- Notification list -->
+           
         </Grid.RowDefinitions>
 
-        <!-- Header -->
+ 
         <TextBlock Text="Notifications"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Foreground="#333"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,0,0,20"
-                   Grid.Row="0" />
+                   Style="{DynamicResource NotificationTitleTextBlockStyle}"
+                    />
 
-        <!-- Input Section -->
+  
         <StackPanel Orientation="Horizontal" Margin="0,0,0,20" Grid.Row="1">
             <TextBox x:Name="NewNotificationTextBox"
                      Width="400"
                      Height="50"
                      Margin="0,0,10,0"
                      materialDesign:HintAssist.Hint="Input notification"
-                     Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                     Style="{DynamicResource MaterialDesignOutlinedTextBox}" />
+            
             <Button Content="Add"
+                    Style="{DynamicResource AcceptDenyButtonStyle}"
                     Width="100"
                     Height="40"
-                    Background="#DEB887"
+               
                     Foreground="White"
                     FontWeight="Bold"
                     Click="AddNotificationButton_Click" />
         </StackPanel>
 
-        <!-- Notification List with ScrollViewer -->
+     
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
             <ItemsControl x:Name="NotificationList">
                 <ItemsControl.ItemTemplate>
@@ -52,9 +58,10 @@
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <TextBlock Text="{Binding}" FontSize="16" Foreground="#333" VerticalAlignment="Center" />
                                 <Button Content="Delete"
+                                         Style="{DynamicResource deleteButton}"
                                         Width="80"
                                         Height="30"
-                                        Background="#DEB887"
+                                   
                                         Foreground="White"
                                         FontWeight="Bold"
                                         Margin="10,0,0,0"

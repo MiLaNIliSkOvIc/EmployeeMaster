@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeMaster.Administator.MainScreen;
+using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,11 +10,18 @@ namespace EmployeeMaster.Administrator.SettingsScreen
 {
     public partial class SettingsScreen : UserControl
     {
+        private MainScreen _mainScreen;
+        public SettingsScreen(MainScreen mainScreen)
+        {
+            InitializeComponent();
+            _mainScreen = mainScreen;
+        }
+
         public SettingsScreen()
         {
             InitializeComponent();
+           
         }
-
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -25,7 +33,7 @@ namespace EmployeeMaster.Administrator.SettingsScreen
          
             bool areNotificationsEnabled = NotificationsCheckBox.IsChecked.GetValueOrDefault();
 
-            MessageBox.Show("Settings saved!");
+         
         }
 
         private void ApplyTheme(int selectedIndex)
@@ -33,15 +41,14 @@ namespace EmployeeMaster.Administrator.SettingsScreen
             
             if (selectedIndex == 0)
             {
-                
-                Application.Current.Resources["WindowBackgroundColor"] = Brushes.White;
-                Application.Current.Resources["TextColor"] = Brushes.Black;
+                MainScreen.style = "Styles1";
+                _mainScreen.ChangeStyle();
+
             }
             else
             {
-              
-                Application.Current.Resources["WindowBackgroundColor"] = Brushes.Black;
-                Application.Current.Resources["TextColor"] = Brushes.White;
+                MainScreen.style = "Styles2";
+                _mainScreen.ChangeStyle();
             }
         }
 

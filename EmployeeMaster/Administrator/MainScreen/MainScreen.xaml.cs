@@ -9,42 +9,85 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using EmployeeMaster.Administrator.SettingsScreen;
+using MaterialDesignThemes.Wpf;
+using System.Windows.Input;
 
 namespace EmployeeMaster.Administator.MainScreen
 {
     public partial class MainScreen : Window
     {
+      
+        public static string style = "Styles2";
         public MainScreen()
         {
             InitializeComponent();
+            ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
             MainContentArea.Content = new DashBoard();
+            ChangeThemeForWindow();
         }
 
+        public void ChangeStyleForCurrentWindow(string newStylePath)
+        {  
+            var newResourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri(newStylePath, UriKind.RelativeOrAbsolute)
+            };
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(newResourceDictionary);
+        }
+
+        public void ChangeThemeForWindow()
+        {
+           
+            var currentWindow = MainContentArea.Content as FrameworkElement;
+
+            if (currentWindow != null)
+            {                
+                var newResourceDictionary = new ResourceDictionary
+                {
+                    Source = new Uri($"../../Styles/{style}.xaml", UriKind.Relative)
+                };
+                currentWindow.Resources.MergedDictionaries.Clear();
+                currentWindow.Resources.MergedDictionaries.Add(newResourceDictionary);
+            }
+        }
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
         {
-
             MainContentArea.Content = new DashBoard();
+            ChangeThemeForWindow();
+           
         }
         private void VacationButton_Click(object sender, RoutedEventArgs e)
         {
            
-            MainContentArea.Content = new Vacation(); 
+            MainContentArea.Content = new Vacation();
+            ChangeThemeForWindow();
+
         }
         private void TaskButton_Click(object sender, RoutedEventArgs e)
         {
             
 
             MainContentArea.Content = new TaskScreen();
+            ChangeThemeForWindow();
 
         }
         private void BoardButton_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new Notification(); 
+            MainContentArea.Content = new Notification();
+            ChangeThemeForWindow();
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
             
-            MainContentArea.Content = new SettingsScreen();
+            MainContentArea.Content = new SettingsScreen(this);
+           
         }
+        public void ChangeStyle()
+        {
+            ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
+            
+        }
+
     }
 }

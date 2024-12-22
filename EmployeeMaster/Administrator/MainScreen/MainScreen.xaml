@@ -18,7 +18,7 @@
 
     <Grid>
         <DockPanel>
-            <Grid Style="{StaticResource LeftGridStyle}" Width="200" DockPanel.Dock="Left" >
+            <Grid Style="{DynamicResource LeftGridStyle}" Width="200" DockPanel.Dock="Left" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -36,17 +36,17 @@
                            Stretch="Uniform" Width="73" />
                 </Border>
 
-                <Button Content="Employees" Style="{StaticResource EmployeesButtonStyle}" Grid.Row="1" Click="DashboardButton_Click"/>
-                <Button Content="Vacation" Style="{StaticResource VacationButtonStyle}" Grid.Row="2" Click="VacationButton_Click"/>
-                <Button Content="Tasks" Style="{StaticResource TasksButtonStyle}" Grid.Row="3" Click="TaskButton_Click"/>
-                <Button Content="Board" Style="{StaticResource BoardButtonStyle}" Grid.Row="4" Click="BoardButton_Click"/>
+                <Button Content="Employees" Style="{DynamicResource EmployeesButtonStyle}" Grid.Row="1" Click="DashboardButton_Click"/>
+                <Button Content="Vacation" Style="{DynamicResource VacationButtonStyle}" Grid.Row="2" Click="VacationButton_Click"/>
+                <Button Content="Tasks" Style="{DynamicResource TasksButtonStyle}" Grid.Row="3" Click="TaskButton_Click"/>
+                <Button Content="Board" Style="{DynamicResource BoardButtonStyle}" Grid.Row="4" Click="BoardButton_Click"/>
 
                 <Grid Grid.Row="5" />
 
-                <Button Content="Settings" Style="{StaticResource SettingsButtonStyle}" Grid.Row="6" Click="SettingsButton_Click"/>
+                <Button Content="Settings" Style="{DynamicResource SettingsButtonStyle}" Grid.Row="6" Click="SettingsButton_Click"/>
             </Grid>
 
-            <Grid Style="{StaticResource MainContext}" DockPanel.Dock="Right" >
+            <Grid Style="{DynamicResource MainContext}" DockPanel.Dock="Right" >
                 <ContentControl x:Name="MainContentArea" />
             </Grid>
         </DockPanel>

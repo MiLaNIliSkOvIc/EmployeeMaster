@@ -11,7 +11,7 @@ namespace EmployeeMaster.Administator.DashBoardView
         public DashBoard()
         {
             InitializeComponent();
-            // Sample employee data
+         
             Employees = new ObservableCollection<Model.Employee>
             {
                 new Model.Employee { FirstName = "John", LastName = "Doe", Position = "Manager", HireDate = "2021-01-15" },
@@ -37,6 +37,7 @@ namespace EmployeeMaster.Administator.DashBoardView
         {
 
         }
+
     }
 
     
