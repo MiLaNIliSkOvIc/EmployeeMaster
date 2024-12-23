@@ -127,7 +127,7 @@
                                
                                 <Button Content="{DynamicResource delete}" 
                             Click="DeleteTaskButton_Click" 
-                            Style="{DynamicResource AcceptDenyButtonStyle}" 
+                            Style="{DynamicResource deleteButton}" 
                             Margin="5" />
                             </StackPanel>
                         </DataTemplate>

@@ -303,6 +303,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    
+
 
     <!-- Stil za TextBlock -->
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">

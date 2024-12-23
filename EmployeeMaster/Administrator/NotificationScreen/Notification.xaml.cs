@@ -6,42 +6,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
+using EmployeeMaster.AdministratorViewModel;
+using EmployeeMaster.Model;
 
 namespace EmployeeMaster.Administrator.NotificationScreen
 {
     public partial class Notification : UserControl
     {
-        public ObservableCollection<string> Notifications { get; set; } = new ObservableCollection<string>();
+        private readonly NotificationViewModel _viewModel;
 
         public Notification()
         {
             InitializeComponent();
-            NotificationList.ItemsSource = Notifications;
+            _viewModel = new NotificationViewModel();
+            DataContext = _viewModel;
         }
 
         private void AddNotificationButton_Click(object sender, RoutedEventArgs e)
         {
-            string newNotification = NewNotificationTextBox.Text.Trim();
-
-            if (!string.IsNullOrEmpty(newNotification))
-            {
-                Notifications.Add(newNotification);
-                NewNotificationTextBox.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Unesite tekst obavještenja prije dodavanja.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            _viewModel.NewNotificationContent = NewNotificationTextBox.Text.Trim();
+            _viewModel.AddNotification();
+            NewNotificationTextBox.Clear();
         }
 
         private void DeleteNotificationButton_Click(object sender, RoutedEventArgs e)
         {
-            string notificationToDelete = (sender as Button)?.Tag as string;
-
-            if (notificationToDelete != null && Notifications.Contains(notificationToDelete))
+        
+            if ((sender as Button)?.Tag is NotificationModel notificationToDelete)
             {
-                Notifications.Remove(notificationToDelete);
+                _viewModel.DeleteNotification(notificationToDelete);
             }
+           
         }
     }
 }

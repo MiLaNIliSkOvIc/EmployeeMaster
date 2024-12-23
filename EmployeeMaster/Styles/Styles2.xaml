@@ -381,18 +381,7 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            <EventTrigger RoutedEvent="Button.MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                        To="#444444" Duration="0:0:0.2"/>
-
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                        To="#555555" Duration="0:0:0.2"/>
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
+                            
                         </Border.Triggers>
                         <ContentPresenter HorizontalAlignment="Center"
                                           VerticalAlignment="Center"

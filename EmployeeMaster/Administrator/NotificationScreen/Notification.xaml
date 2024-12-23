@@ -52,27 +52,27 @@
 
      
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
-            <ItemsControl x:Name="NotificationList" >
+            <ItemsControl x:Name="NotificationList" ItemsSource="{Binding Notifications}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <materialDesign:Card Background="White" Margin="0,0,0,10" Padding="10">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <TextBlock Text="{Binding}" Style="{DynamicResource NotificationTextStyle}" />
+                                <TextBlock Text="{Binding Content}" Style="{DynamicResource NotificationTextStyle}" />
                                 <Button Content="{DynamicResource delete}"
-                                        Style="{DynamicResource deleteButton}"
-                                        Width="80"
-                                        Height="30"
-                                   
-                                        Foreground="White"
-                                        FontWeight="Bold"
-                                        Margin="10,0,0,0"
-                                        Click="DeleteNotificationButton_Click"
-                                        Tag="{Binding}" />
+                            Style="{DynamicResource deleteButton}"
+                            Width="80"
+                            Height="30"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Margin="10,0,0,0"
+                            Click="DeleteNotificationButton_Click"
+                            Tag="{Binding}" />
                             </StackPanel>
                         </materialDesign:Card>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
         </ScrollViewer>
     </Grid>
 </UserControl>

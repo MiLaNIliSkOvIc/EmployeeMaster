@@ -16,7 +16,7 @@ namespace EmployeeMaster.Employee.TaskScreen
         {
             InitializeComponent();
             string connectionString = "Server=127.0.0.1;Database=projectmanagement;User Id=root;Password=02100078;";
-            _taskService = new TaskService(connectionString);
+           // _taskService = new TaskService(connectionString);
             LoadTasks();
             TasksDataGrid.ItemsSource = Tasks;
            
@@ -26,8 +26,8 @@ namespace EmployeeMaster.Employee.TaskScreen
         {
             try
             {
-                var taskList = _taskService.GetAllTasks();
-                Tasks = new ObservableCollection<Model.Task>(taskList);
+               // var taskList = _taskService.GetAllTasks();
+               /// Tasks = new ObservableCollection<Model.Task>(taskList);
                 // Refresh DataGrid binding after setting Tasks
                 TasksDataGrid.ItemsSource = Tasks;
             }
@@ -42,7 +42,7 @@ namespace EmployeeMaster.Employee.TaskScreen
         {
             if (TasksDataGrid.SelectedItem is Model.Task selectedTask)
             {
-                MessageBox.Show($"Task '{selectedTask.Title}' marked as Done.", "Task Update", MessageBoxButton.OK, MessageBoxImage.Information);
+              //  MessageBox.Show($"Task '{selectedTask.Title}' marked as Done.", "Task Update", MessageBoxButton.OK, MessageBoxImage.Information);
                 // Here, you could implement logic to update the task's status in the database
             }
             else

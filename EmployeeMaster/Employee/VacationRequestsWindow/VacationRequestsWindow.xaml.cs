@@ -26,9 +26,9 @@ namespace EmployeeMaster.Employee
             // Sample data for vacation requests
             VacationRequestsList = new ObservableCollection<Model.Vacation>
             {
-                new Model.Vacation { Id = 1, StartDate = "2024-12-20", EndDate = "2024-12-25", Status = "Approved" },
-                new Model.Vacation { Id = 2, StartDate = "2025-01-10", EndDate = "2025-01-15", Status = "Pending" },
-                new Model.Vacation { Id = 3, StartDate = "2025-02-01", EndDate = "2025-02-05", Status = "Rejected" }
+                new Model.Vacation { VacationRequestId = 1, StartDate = "2024-12-20", EndDate = "2024-12-25", Status = "Approved" },
+                new Model.Vacation { VacationRequestId = 2, StartDate = "2025-01-10", EndDate = "2025-01-15", Status = "Pending" },
+                new Model.Vacation { VacationRequestId = 3, StartDate = "2025-02-01", EndDate = "2025-02-05", Status = "Rejected" }
             };
         }
 
@@ -54,7 +54,7 @@ namespace EmployeeMaster.Employee
         {
             var newRequest = new Model.Vacation
             {
-                Id = VacationRequestsList.Count + 1,
+                VacationRequestId = VacationRequestsList.Count + 1,
                 StartDate = DateTime.Now.ToString("yyyy-MM-dd"),
                 EndDate = DateTime.Now.AddDays(5).ToString("yyyy-MM-dd"),
                 Status = "Pending"
