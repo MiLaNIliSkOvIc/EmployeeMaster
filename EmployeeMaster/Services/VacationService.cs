@@ -55,7 +55,7 @@ namespace EmployeeMaster.Services
                     var query = @"
                     UPDATE Vacation 
                     SET Status = 'Accept' 
-                    WHERE idVacation = @VacationRequestId";  // Correct column name
+                    WHERE idVacation = @VacationRequestId";  
 
                     var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@VacationRequestId", vacationRequestId);
@@ -72,8 +72,8 @@ namespace EmployeeMaster.Services
                 {
                     var query = @"
                     UPDATE Vacation 
-                    SET Status = 'Pending'  // Denying would probably reset to 'Pending'
-                    WHERE idVacation = @VacationRequestId";  // Correct column name
+                    SET Status = 'Denied'  
+                    WHERE idVacation = @VacationRequestId";  
 
                     var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@VacationRequestId", vacationRequestId);
