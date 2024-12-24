@@ -7,6 +7,7 @@
         public string AssignedTo { get; set; }
         public DateTime DueDate { get; set; }
         public string Status { get; set; }
+        public string priority { get; set; }
         public string Description { get; set; }
     }
 

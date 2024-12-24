@@ -41,8 +41,8 @@ namespace EmployeeMaster
                 //  WorkedHours workedHours = new WorkedHours();
                 ///workedHours.Show();
                 //   this.Close();
-                MainScreen main = new MainScreen();
-                main.Show();
+                //MainScreen main = new MainScreen();
+                //main.Show();
                 this.Close();
             }
         else

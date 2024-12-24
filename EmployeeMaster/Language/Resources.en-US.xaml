@@ -74,6 +74,7 @@
     <System:String x:Key="applyFilters">Apply Filters</System:String>
     <System:String x:Key="totalTasks">Total Tasks:</System:String>
     <System:String x:Key="todaysTasks">Today's Tasks:</System:String>
-    
+	<System:String x:Key="date">Date</System:String>
+
 
 </ResourceDictionary>

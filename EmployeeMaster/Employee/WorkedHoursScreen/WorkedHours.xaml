@@ -6,7 +6,7 @@
              MinHeight="400" MinWidth="400"
              Background="{DynamicResource MaterialDesignPaper}">
 
-    <UserControl.Resources>
+    <!--<UserControl.Resources>
        
         <Style x:Key="MaterialButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="Margin" Value="10" />
@@ -28,8 +28,10 @@
             <Setter Property="Margin" Value="10" />
             <Setter Property="FontSize" Value="16" />
         </Style>
-    </UserControl.Resources>
+    </UserControl.Resources>-->
 
+    
+    
     <Grid Margin="20">
         <Grid.RowDefinitions>
          
@@ -62,7 +64,21 @@
         </StackPanel>
 
         <DataGrid x:Name="WorkHoursList" Style="{DynamicResource MaterialDesignDataGrid}" Grid.Row="2" Margin="10" HorizontalAlignment="Stretch" AutoGenerateColumns="False">
+            
             <DataGrid.Columns>
+
+                <DataGridTemplateColumn Header="{DynamicResource start}">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{DynamicResource date}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Date}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="{DynamicResource start}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>

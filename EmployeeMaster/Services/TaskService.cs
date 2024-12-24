@@ -98,5 +98,52 @@ namespace EmployeeMaster.Services
                 command.ExecuteNonQuery();
             }
         }
+
+        public List<Model.Task> GetTasksByEmployeeId(int employeeId)
+        {
+            var tasks = new List<Model.Task>();
+
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = @"
+            SELECT 
+                t.idTask AS TaskId, 
+                t.title AS TaskName, 
+                u.ime AS AssignedTo, 
+                t.deadline AS DueDate, 
+                t.status AS Status, 
+                t.priority AS priority,
+                t.description AS Description
+            FROM Task t
+            JOIN Employee e ON t.Employee_User_idUser = e.User_idUser
+            JOIN User u ON e.User_idUser = u.idUser
+            WHERE e.User_idUser = @EmployeeId";
+
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@EmployeeId", employeeId);
+
+                connection.Open();
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        tasks.Add(new Model.Task
+                        {
+                            TaskId = reader.GetInt32("TaskId"),
+                            TaskName = reader.GetString("TaskName"),
+                            AssignedTo = reader.GetString("AssignedTo"),
+                            DueDate = reader.GetDateTime("DueDate"),
+                           
+                            Status = reader.GetString("Status"),
+                            priority = reader.GetString("priority"),
+                            Description = reader.GetString("Description")
+                        });
+                    }
+                }
+            }
+
+            return tasks;
+        }
     }
 }

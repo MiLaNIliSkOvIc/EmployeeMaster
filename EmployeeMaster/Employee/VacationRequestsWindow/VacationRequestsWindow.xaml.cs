@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeMaster.EmployeeViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -6,39 +7,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using EmployeeMaster.Model;
 
 namespace EmployeeMaster.Employee
 {
     public partial class VacationRequestsScreen : UserControl
     {
-        // Collection to hold the vacation requests data
-        public ObservableCollection<Model.Vacation> VacationRequestsList { get; set; }
+        private VacationRequestsViewModel _viewModel;
 
         public VacationRequestsScreen()
         {
+            int employeeId = 1;
             InitializeComponent();
-            LoadData();
-            DataContext = this;
+            _viewModel = new VacationRequestsViewModel(employeeId);
+            DataContext = _viewModel;
+            VacationRequestsTable.ItemsSource = _viewModel.VacationRequests;
         }
 
-        private void LoadData()
-        {
-            // Sample data for vacation requests
-            VacationRequestsList = new ObservableCollection<Model.Vacation>
-            {
-                new Model.Vacation { VacationRequestId = 1, StartDate = "2024-12-20", EndDate = "2024-12-25", Status = "Approved" },
-                new Model.Vacation { VacationRequestId = 2, StartDate = "2025-01-10", EndDate = "2025-01-15", Status = "Pending" },
-                new Model.Vacation { VacationRequestId = 3, StartDate = "2025-02-01", EndDate = "2025-02-05", Status = "Rejected" }
-            };
-        }
-
-        // Filter button click handler
         private void FilterTable_Click(object sender, RoutedEventArgs e)
         {
             if (FilterDatePicker.SelectedDate.HasValue)
             {
                 var selectedDate = FilterDatePicker.SelectedDate.Value.ToString("yyyy-MM-dd");
-                var filteredList = VacationRequestsList
+                var filteredList = _viewModel.VacationRequests
                     .Where(v => v.StartDate == selectedDate || v.EndDate == selectedDate)
                     .ToList();
                 VacationRequestsTable.ItemsSource = filteredList;
@@ -49,19 +40,19 @@ namespace EmployeeMaster.Employee
             }
         }
 
-        // Add new vacation request button click handler
         private void AddNewRequest_Click(object sender, RoutedEventArgs e)
         {
-            var newRequest = new Model.Vacation
+            var newRequest = new Vacation
             {
-                VacationRequestId = VacationRequestsList.Count + 1,
+                VacationRequestId = _viewModel.VacationRequests.Count + 1,
                 StartDate = DateTime.Now.ToString("yyyy-MM-dd"),
                 EndDate = DateTime.Now.AddDays(5).ToString("yyyy-MM-dd"),
                 Status = "Pending"
             };
 
-            VacationRequestsList.Add(newRequest);
+            _viewModel.VacationRequests.Add(newRequest);
             MessageBox.Show("New vacation request added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
+
 }

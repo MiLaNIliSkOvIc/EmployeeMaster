@@ -117,5 +117,49 @@ namespace EmployeeMaster.Services
                     command.ExecuteNonQuery();
                 }
             }
+
+        public List<Vacation> GetVacationsByEmployeeId(int employeeId)
+        {
+            var vacations = new List<Vacation>();
+
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = @"
+            SELECT 
+                v.idVacation, 
+                u.ime AS FirstName, 
+                u.lastname AS LastName, 
+                v.`From` AS StartDate, 
+                v.`To` AS EndDate, 
+                v.Status
+            FROM Vacation v
+            JOIN Employee e ON v.Employee_User_idUser = e.User_idUser
+            JOIN User u ON e.User_idUser = u.idUser
+            WHERE e.User_idUser = @EmployeeId";
+
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@EmployeeId", employeeId);
+
+                connection.Open();
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        vacations.Add(new Vacation
+                        {
+                            VacationRequestId = reader.GetInt32("idVacation"),
+                            FirstName = reader.GetString("FirstName"),
+                            LastName = reader.GetString("LastName"),
+                            StartDate = reader.GetString("StartDate"),
+                            EndDate = reader.GetString("EndDate"),
+                            Status = reader.GetString("Status")
+                        });
+                    }
+                }
+            }
+
+            return vacations;
         }
+    }
     }

@@ -73,6 +73,6 @@
     <System:String x:Key="applyFilters">Primjeni</System:String>
     <System:String x:Key="totalTasks">Svi Zadaci</System:String>
     <System:String x:Key="todaysTasks">Danasnji zadaci</System:String>
-
+	<System:String x:Key="date">Datum</System:String>
 
 </ResourceDictionary>

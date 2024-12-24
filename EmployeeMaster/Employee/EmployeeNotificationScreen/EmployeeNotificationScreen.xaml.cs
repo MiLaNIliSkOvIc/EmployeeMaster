@@ -1,22 +1,22 @@
-﻿using System.Collections.ObjectModel;
+﻿using EmployeeMaster.Administrator.NotificationScreen;
+using EmployeeMaster.Model;
+using EmployeeMaster.ViewModel;
 using System.Windows.Controls;
 
 namespace EmployeeMaster.Employee.NotificationScreen
 {
     public partial class EmployeeNotificationScreen : UserControl
     {
-        public ObservableCollection<string> Notifications { get; set; }
+        private NotificationViewModel _viewModel;
 
         public EmployeeNotificationScreen()
         {
             InitializeComponent();
-            Notifications = new ObservableCollection<string>
-            {
-                "Meeting at 10:00 AM",
-                "Submit your reports by EOD",
-                "System maintenance scheduled for 2:00 PM"
-            };
-            NotificationList.ItemsSource = Notifications;
+            _viewModel = new NotificationViewModel();
+            DataContext = _viewModel;
+            NotificationList.ItemsSource = _viewModel.NotificationsString;
         }
+
+      
     }
 }
