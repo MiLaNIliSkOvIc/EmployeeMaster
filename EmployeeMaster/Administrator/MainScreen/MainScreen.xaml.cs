@@ -23,6 +23,8 @@ namespace EmployeeMaster.Administator.MainScreen
         {
             InitializeComponent();
             ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
+            int userId = 1;
+            new SettingsScreen(userId, this);
             MainContentArea.Content = new DashBoard();
             ChangeThemeForWindow();
         }
@@ -89,8 +91,9 @@ namespace EmployeeMaster.Administator.MainScreen
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
+            int userId = 1;
             
-            MainContentArea.Content = new SettingsScreen(this);
+            MainContentArea.Content = new SettingsScreen(userId,this);
            
         }
         public void ChangeStyle()

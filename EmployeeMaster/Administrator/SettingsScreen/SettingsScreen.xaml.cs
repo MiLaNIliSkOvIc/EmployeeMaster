@@ -1,56 +1,88 @@
 ﻿using EmployeeMaster.Administator.MainScreen;
+using EmployeeMaster.AdministratorViewModel;
 using EmployeeMaster.Employee.EmployeeMainScreen;
+using EmployeeMaster.Model;
 using System;
-using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Threading;
 
 namespace EmployeeMaster.Administrator.SettingsScreen
 {
     public partial class SettingsScreen : UserControl
     {
+        private SettingsViewModel _viewModel;
         private MainScreen _mainScreen;
         private EmployeeMainScreen _employeeMainScreen;
-        public SettingsScreen(MainScreen mainScreen)
+
+        public SettingsScreen(int userId, MainScreen mainScreen = null)
         {
             InitializeComponent();
+            _viewModel = new SettingsViewModel(userId);
             _mainScreen = mainScreen;
+         
+            LoadSettings();
         }
-        public SettingsScreen(EmployeeMainScreen employee)
+        public SettingsScreen(int userId, EmployeeMainScreen employeeMainScreen = null)
         {
-
             InitializeComponent();
-            _employeeMainScreen = employee;
+            _viewModel = new SettingsViewModel(userId);
+            _employeeMainScreen = employeeMainScreen;
+            LoadSettings();
         }
 
-      
-        
+        private void LoadSettings()
+        {
+            var settings = _viewModel.CurrentSettings;
+
+            if (settings != null)
+            {
+                
+                ThemeComboBox.SelectedIndex = settings.Theme == "Styles1" ? 0 : 1;
+
+             
+                LanguageComboBox.SelectedIndex = settings.Language switch
+                {
+                    "en-US" => 0,
+                    "sr-RS" => 1,
+                    "de-DE" => 2,
+                    _ => 3,
+                };
+            }
+            ApplyTheme(settings.Theme);
+            ApplyLanguage(settings.Language);
+        }
+
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            ApplyTheme(ThemeComboBox.SelectedIndex);
+            // Create the updated settings model
+            var updatedSettings = new SettingModel
+            {
+                Theme = ThemeComboBox.SelectedIndex == 0 ? "Styles1" : "Styles2",
+                Language = LanguageComboBox.SelectedIndex switch
+                {
+                    0 => "en-US",
+                    1 => "sr-RS",
+                    2 => "de-DE",
+                    _ => "it-IT",
+                },
+            };
 
-            
-            ApplyLanguage(LanguageComboBox.SelectedIndex);
+            // Save settings to the database using the ViewModel
+            _viewModel.SaveSettings(1, updatedSettings);
 
-         
-            bool areNotificationsEnabled = NotificationsCheckBox.IsChecked.GetValueOrDefault();
-
-         
+            // Call your functions to apply the theme and language changes
+            ApplyTheme(updatedSettings.Theme);
+            ApplyLanguage(updatedSettings.Language);
         }
 
-        private void ApplyTheme(int selectedIndex)
+        private void ApplyTheme(string theme)
         {
             if (_employeeMainScreen != null)
             {
-                if (selectedIndex == 0)
+                if (theme == "Styles1")
                 {
-
                     EmployeeMainScreen.style = "Styles1";
                     _employeeMainScreen.ChangeStyle();
-
                 }
                 else
                 {
@@ -60,12 +92,10 @@ namespace EmployeeMaster.Administrator.SettingsScreen
             }
             else
             {
-                if (selectedIndex == 0)
+                if (theme == "Styles1")
                 {
-
                     MainScreen.style = "Styles1";
                     _mainScreen.ChangeStyle();
-
                 }
                 else
                 {
@@ -75,61 +105,17 @@ namespace EmployeeMaster.Administrator.SettingsScreen
             }
         }
 
-        private void ApplyLanguage(int selectedIndex)
+        private void ApplyLanguage(string language)
         {
-
             if (_employeeMainScreen != null)
             {
-                if (selectedIndex == 0)
-                {
-
-                    EmployeeMainScreen.language = "en-US";
-                    _employeeMainScreen.ChangeStyle();
-
-                }
-                else if (selectedIndex == 1)
-                {
-                    EmployeeMainScreen.language = "sr-RS";
-                    _employeeMainScreen.ChangeStyle();
-                }
-                else if (selectedIndex == 2)
-                {
-                    EmployeeMainScreen.language = "de-DE";
-                    _employeeMainScreen.ChangeStyle();
-                }
-                else
-                {
-                    EmployeeMainScreen.language = "it-IT";
-                    _employeeMainScreen.ChangeStyle();
-                }
-            
+                EmployeeMainScreen.language = language;
+                _employeeMainScreen.ChangeStyle();
             }
             else
             {
-                if (selectedIndex == 0)
-                {
-
-                    MainScreen.language = "en-US";
-                    _mainScreen.ChangeStyle();
-
-                }
-                else if(selectedIndex == 1)
-                {
-                    MainScreen.language = "sr-RS";
-                    _mainScreen.ChangeStyle();
-                }
-                else if(selectedIndex == 2)
-                {
-                    MainScreen.language = "de-DE";
-                    _mainScreen.ChangeStyle();
-                }
-                else
-                {
-
-                    MainScreen.language = "it-IT";
-                    _mainScreen.ChangeStyle();
-                }
-           
+                MainScreen.language = language;
+                _mainScreen.ChangeStyle();
             }
         }
     }

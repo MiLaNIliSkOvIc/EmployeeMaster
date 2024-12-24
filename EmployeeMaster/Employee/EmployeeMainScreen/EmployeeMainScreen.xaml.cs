@@ -14,6 +14,8 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
         public EmployeeMainScreen()
         {
             InitializeComponent();
+            int userId = 1;
+            new SettingsScreen(userId, this);
         }
 
         public void ChangeStyleForCurrentWindow(string newStylePath)
@@ -45,7 +47,8 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
        
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainContentArea.Content = new SettingsScreen(this);
+            int userId = 1;
+            MainContentArea.Content = new SettingsScreen(userId,this);
         }
         private void NotificationsButton_Click(object sender, RoutedEventArgs e)
         {
