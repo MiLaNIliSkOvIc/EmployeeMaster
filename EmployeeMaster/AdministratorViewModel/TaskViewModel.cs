@@ -6,20 +6,28 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EmployeeMaster.Model;
 
 namespace EmployeeMaster.AdministratorViewModel
 {
     public class TaskViewModel : INotifyPropertyChanged
     {
         private readonly TaskService taskService;
+        private readonly UserService _userService;
         private List<Model.Task> allTasks;
         private ObservableCollection<Model.Task> filteredTasks;
+        public ObservableCollection<UserModel> Users { get; set; }
+
+
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public TaskViewModel()
         {
             taskService = new TaskService();
+            _userService = new UserService();
+            Users = new ObservableCollection<UserModel>(_userService.GetAllUsers());
             LoadTasks();
         }
 

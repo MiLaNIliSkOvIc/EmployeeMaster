@@ -28,13 +28,16 @@ namespace EmployeeMaster.Administrator.TaskScreen
   
         private void EditTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedTask = TaskDataGrid.SelectedItem as Model.Task;
-            if (selectedTask != null)
+            if (TaskDataGrid.SelectedItem is Model.Task selectedTask)
             {
-               
-                selectedTask.Status = "In Progress"; 
-                viewModel.EditTask(selectedTask);
+                viewModel.EditTask(selectedTask); 
+                MessageBox.Show("Task updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            else
+            {
+                MessageBox.Show("No task selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            TaskDataGrid.ItemsSource = viewModel.FilteredTasks;
         }
 
       

@@ -19,7 +19,8 @@ namespace EmployeeMaster.Services
                         u.ime AS AssignedTo, 
                         t.deadline AS DueDate, 
                         t.status AS Status, 
-                        t.description AS Description
+                        t.description AS Description,
+                        t.Employee_User_idUser AS id
                     FROM Task t
                     JOIN Employee e ON t.Employee_User_idUser = e.User_idUser
                     JOIN User u ON e.User_idUser = u.idUser";
@@ -38,7 +39,8 @@ namespace EmployeeMaster.Services
                             AssignedTo = reader.GetString("AssignedTo"),
                             DueDate = reader.GetDateTime("DueDate"),
                             Status = reader.GetString("Status"),
-                            Description = reader.GetString("Description")
+                            Description = reader.GetString("Description"),
+                            AssignedToId = reader.GetInt32("Id")
                         });
                     }
                 }
@@ -72,7 +74,7 @@ namespace EmployeeMaster.Services
             {
                 var query = @"
                     UPDATE Task 
-                    SET title = @Title, description = @Description, deadline = @Deadline, status = @Status
+                    SET title = @Title, description = @Description, deadline = @Deadline, status = @Status, Employee_User_idUser = @AssignedToId
                     WHERE idTask = @TaskId";
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@TaskId", task.TaskId);
@@ -80,6 +82,7 @@ namespace EmployeeMaster.Services
                 command.Parameters.AddWithValue("@Description", task.Description);
                 command.Parameters.AddWithValue("@Deadline", task.DueDate);
                 command.Parameters.AddWithValue("@Status", task.Status);
+                command.Parameters.AddWithValue("@AssignedToId", task.AssignedToId);
 
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -113,7 +116,8 @@ namespace EmployeeMaster.Services
                 t.deadline AS DueDate, 
                 t.status AS Status, 
                 t.priority AS priority,
-                t.description AS Description
+                t.description AS Description, 
+                t.Employee_User_idUser AS id
             FROM Task t
             JOIN Employee e ON t.Employee_User_idUser = e.User_idUser
             JOIN User u ON e.User_idUser = u.idUser
@@ -137,7 +141,8 @@ namespace EmployeeMaster.Services
                            
                             Status = reader.GetString("Status"),
                             priority = reader.GetString("priority"),
-                            Description = reader.GetString("Description")
+                            Description = reader.GetString("Description"),
+                            AssignedToId = reader.GetInt32("Id")
                         });
                     }
                 }

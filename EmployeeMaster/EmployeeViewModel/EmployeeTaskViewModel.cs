@@ -46,5 +46,27 @@ namespace EmployeeMaster.EmployeeViewModel
 
             }
         }
+        public void ApplyFilters(string status, DateTime? date)
+        {
+            try
+            {
+                var allTasks = _taskService.GetTasksByEmployeeId(employeeId);
+
+                if (!string.IsNullOrEmpty(status) && status != "All")
+                {
+                    allTasks = allTasks.Where(task => task.Status.Equals(status, StringComparison.OrdinalIgnoreCase)).ToList();
+                }
+    
+                if (date.HasValue)
+                {
+                    allTasks = allTasks.Where(task => task.DueDate.Date == date.Value.Date).ToList();
+                }
+                Tasks = new ObservableCollection<Model.Task>(allTasks);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greška pri filtriranju zadataka: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

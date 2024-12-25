@@ -28,7 +28,7 @@
             <DatePicker x:Name="FilterDatePicker" Width="150" Height="35" Margin="5"
                         materialDesign:HintAssist.Hint="{DynamicResource FilterbyDate}"/>
             <Button Content="{DynamicResource applyFilters}" Width="120" Height="35" Margin="10" 
-                    Style="{DynamicResource ButtonStyle}" Foreground="White"/>
+                    Style="{DynamicResource ButtonStyle}" Foreground="White" Click="OnApplyFiltersClick"/>
         </StackPanel>
 
         <DataGrid x:Name="TasksDataGrid" 

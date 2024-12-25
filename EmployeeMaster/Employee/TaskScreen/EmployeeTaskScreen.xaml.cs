@@ -40,5 +40,14 @@ namespace EmployeeMaster.Employee.TaskScreen
             }
            
         }
+        private void OnApplyFiltersClick(object sender, RoutedEventArgs e)
+        {
+            string selectedStatus = (FilterStatusComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            DateTime? selectedDate = FilterDatePicker.SelectedDate;
+
+            _viewModel.ApplyFilters(selectedStatus, selectedDate);
+            TasksDataGrid.ItemsSource = _viewModel.Tasks;
+        }
+
     }
 }

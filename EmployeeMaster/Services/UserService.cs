@@ -46,5 +46,34 @@ namespace EmployeeMaster.Services
 
             return user;
         }
+        public List<UserModel> GetAllUsers()
+        {
+            var users = new List<UserModel>();
+
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = "SELECT idUser, ime, lastname, username, Email, phone, Picture FROM User";
+                var command = new MySqlCommand(query, connection);
+
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        users.Add(new UserModel
+                        {
+                            IdUser = reader.GetInt32("idUser"),
+                            FullName = reader.GetString("ime") + " " + reader.GetString("lastname"),
+                            Username = reader.GetString("username"),
+                            Email = reader.GetString("Email"),
+                            Phone = reader.GetString("phone"),
+                            Picture = reader.GetString("Picture")
+                        });
+                    }
+                }
+            }
+
+            return users;
+        }
     }
 }
