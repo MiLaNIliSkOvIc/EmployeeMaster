@@ -17,7 +17,7 @@ namespace EmployeeMaster.EmployeeViewModel
 
         public UserViewModel()
         {
-            int userId = 1;
+            int userId = CurrentUser.Instance.IdUser;
             _userService = new UserService();
             LoadUserInfo(userId); 
         }

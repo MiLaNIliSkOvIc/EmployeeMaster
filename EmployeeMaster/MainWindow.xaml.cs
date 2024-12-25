@@ -4,6 +4,9 @@ using EmployeeMaster.Employee.DashBoardView;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using EmployeeMaster.Services;
+using EmployeeMaster.Model;
+using EmployeeMaster.RoleSelection;
 
 namespace EmployeeMaster
 {
@@ -12,46 +15,80 @@ namespace EmployeeMaster
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly LoginService _loginService;
+        private readonly EmployeeService _employeeService;
+        
+        
 
         public MainWindow()
         {
             InitializeComponent();
-         
-           
+            _loginService = new LoginService();
+            _employeeService = new EmployeeService();
         }
 
-      
         private void Login(object sender, RoutedEventArgs e)
         {
-        
-        string username = "admin";  
-        string password = "password";  
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
 
- 
-        if (username == "admin" && password == "password")
-        {
 
-                //MessageBox.Show("Login uspešan!");
-                EmployeeMainScreen m = new EmployeeMainScreen();
-                m.Show();
-                //Console.WriteLine("dasdwad");
-                //VacationRequests vacation = new VacationRequests();
-                //vacation.Show();
-                //this.Close();
-                //  WorkedHours workedHours = new WorkedHours();
-                ///workedHours.Show();
-                //   this.Close();
-                MainScreen main = new MainScreen();
-                main.Show();
-                this.Close();
+            var user = _loginService.Login(username, password);
+
+            if (user != null)
+            {
+                var roles = _employeeService.GetUserRole(user.IdUser);
+
+                if (roles.Count == 1)
+                {
+
+                    CurrentUser.Instance.SetUser(user.IdUser, username, roles[0]);
+                    if (roles[0] == "Employee")
+                    {
+                        EmployeeMainScreen employeeMainScreen = new EmployeeMainScreen();
+                        employeeMainScreen.Show();
+                    }
+                    else
+                    {
+                        MainScreen adminMainScreen = new MainScreen();
+                        adminMainScreen.Show();
+                    }
+                    this.Close();
+                }
+                else if (roles.Count > 1)
+                {
+
+                    var roleSelectionWindow = new RoleSelectionWindow(roles);
+                    if (roleSelectionWindow.ShowDialog() == true)
+                    {
+                        string selectedRole = roleSelectionWindow.SelectedRole;
+                        CurrentUser.Instance.SetUser(user.IdUser, username, selectedRole);
+                        if (selectedRole == "Employee")
+                        {
+                            EmployeeMainScreen employeeMainScreen = new EmployeeMainScreen();
+                            employeeMainScreen.Show();
+                            
+                        }
+                        else
+                        {
+                            MainScreen adminMainScreen = new MainScreen();
+                            adminMainScreen.Show();
+                        }
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Korisnik nema dodeljene uloge.");
+                }
             }
-        else
-        {
-          
-            MessageBox.Show("Neispravno korisničko ime ili lozinka.");
+            else
+            {
+                MessageBox.Show("Neispravni kredencijali");
+            }
         }
-        }
-
+        
+   
         private void ClearPlaceholderText(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -90,6 +127,11 @@ namespace EmployeeMaster
                 passwordBox.Password = "Password";
                 passwordBox.Foreground = Brushes.Gray;
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

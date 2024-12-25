@@ -41,7 +41,7 @@ using employee = EmployeeMaster.Model.Employee;
                             FirstName = reader.GetString("FirstName"),
                             LastName = reader.GetString("LastName"),
                             Position =  reader.GetString("Position"),
-                            HireDate = reader.GetDateTime("EmploymentDate"),
+                            HireDate = DateOnly.FromDateTime(reader.GetDateTime("EmploymentDate")),
                             Salary =  reader.GetInt32("Salary")
                         });
                     }
@@ -86,7 +86,8 @@ using employee = EmployeeMaster.Model.Employee;
                             FirstName = reader.GetString("FirstName"),
                             LastName = reader.GetString("LastName"),
                             Position = reader.GetString("Position"),
-                            HireDate = reader.GetDateTime("EmploymentDate"),
+                            HireDate = DateOnly.FromDateTime(reader.GetDateTime("EmploymentDate")),
+
                             Salary = reader.GetInt32("Salary")
                         });
                     }
@@ -95,5 +96,37 @@ using employee = EmployeeMaster.Model.Employee;
 
             return employees;
         }
+    public List<string> GetUserRole(int userId)
+    {
+        var roles = new List<string>();
+
+        using (var connection = new MySqlConnection(connectionString))
+        {
+            var query = @"
+        SELECT r.name AS Role
+        FROM Role r
+        JOIN Employee_has_Role ehr ON r.idRole = ehr.Role_idRole
+        JOIN User u ON ehr.Employee_User_idUser = u.idUser
+        WHERE u.idUser = @UserId";
+
+            var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@UserId", userId);
+
+            connection.Open();
+
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read()) // Koristimo `while` da dohvatimo sve role
+                {
+                    roles.Add(reader.GetString("Role"));
+                }
+            }
+        }
+
+        return roles;
     }
+
+
+
+}
 

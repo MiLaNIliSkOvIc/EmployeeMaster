@@ -74,5 +74,7 @@
     <System:String x:Key="totalTasks">Svi Zadaci</System:String>
     <System:String x:Key="todaysTasks">Danasnji zadaci</System:String>
 	<System:String x:Key="date">Datum</System:String>
+    <System:String x:Key="LogoutButtonContent">Odjavi se</System:String>
+    <System:String x:Key="Salary">Plata</System:String>
 
 </ResourceDictionary>

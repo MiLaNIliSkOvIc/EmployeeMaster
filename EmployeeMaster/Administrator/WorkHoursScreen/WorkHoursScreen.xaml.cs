@@ -1,10 +1,15 @@
-﻿using EmployeeMaster.EmployeeViewModel;
-using EmployeeMaster.Model;
-using EmployeeMaster.ViewModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using EmployeeMaster.AdministratorViewModel;
+
 using System.Windows;
 using System.Windows.Controls;
 
-namespace EmployeeMaster.Employee.WorkedHoursScreen
+namespace EmployeeMaster.Administrator.WorkedHoursScreen
 {
     public partial class WorkedHours : UserControl
     {
@@ -13,10 +18,10 @@ namespace EmployeeMaster.Employee.WorkedHoursScreen
         public WorkedHours()
         {
             InitializeComponent();
-            int employeeId = CurrentUser.Instance.IdUser;
+            
             _viewModel = new WorkHourViewModel();
             DataContext = _viewModel;
-            _viewModel.LoadWorkHours(employeeId);
+            _viewModel.LoadWorkHours();
             WorkHoursList.ItemsSource = _viewModel.WorkHours;
         }
 
@@ -31,7 +36,7 @@ namespace EmployeeMaster.Employee.WorkedHoursScreen
 
             if (selectedDate.HasValue)
             {
-                
+
                 DateOnly dateToFilter = DateOnly.FromDateTime(selectedDate.Value);
 
                 _viewModel.FilterWorkHoursByDate(dateToFilter);

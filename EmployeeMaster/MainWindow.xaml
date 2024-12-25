@@ -4,14 +4,14 @@
         Title="Employee Portal" Height="450" Width="800">
 
     <Window.Resources>
-        <!-- Header Style -->
+
         <Style x:Key="HeaderLabelStyle" TargetType="Label">
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
 
-        <!-- Sub Text Block Style -->
+     
         <Style x:Key="SubTextBlockStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
@@ -19,7 +19,7 @@
             <Setter Property="Foreground" Value="Black"/>
         </Style>
 
-        <!-- Button Style -->
+      
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="36"/>
@@ -30,7 +30,7 @@
             <Setter Property="Padding" Value="10,5"/>
         </Style>
 
-        <!-- Rounded TextBox Style -->
+ 
         <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
             <Setter Property="Width" Value="250"/>
             <Setter Property="Height" Value="30"/>
@@ -54,7 +54,7 @@
             </Setter>
         </Style>
 
-        <!-- Rounded PasswordBox Style -->
+     
         <Style x:Key="RoundedPasswordBoxStyle" TargetType="PasswordBox">
             <Setter Property="Width" Value="250"/>
             <Setter Property="Height" Value="30"/>
@@ -78,7 +78,7 @@
             </Setter>
         </Style>
 
-        <!-- TextBlock for Links -->
+   
         <Style x:Key="TextBlockLinkStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -91,7 +91,7 @@
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Left Column -->
+       
         <Grid Grid.Column="0" Background="#fff8dc" Margin="0">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
                 <Label Content="Welcome to the Employee Portal" Style="{StaticResource HeaderLabelStyle}" Height="47"/>
@@ -106,18 +106,18 @@
             </StackPanel>
         </Grid>
 
-        <!-- Right Column -->
+
         <Grid Grid.Column="1" Background="#f4f4f9" Margin="0">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="352" Width="258">
                 <Image Source="C:\Users\pc\Desktop\user.png" Width="100" Height="100" Margin="0,0,0,10"/>
                 <Label Content="Employee Login" Style="{StaticResource HeaderLabelStyle}"/>
 
-                <!-- Username Input -->
-                <TextBox Style="{StaticResource RoundedTextBoxStyle}" Text="Username"
-                         Foreground="Gray" GotFocus="ClearPlaceholderText" LostFocus="RestorePlaceholderText"/>
 
-                <!-- Password Input -->
-                <PasswordBox Style="{StaticResource RoundedPasswordBoxStyle}" Password="Password"
+                <TextBox x:Name="UsernameTextBox" Style="{StaticResource RoundedTextBoxStyle}" Text="Username"
+                         Foreground="Gray" GotFocus="ClearPlaceholderText" LostFocus="RestorePlaceholderText" TextChanged="TextBox_TextChanged"/>
+
+
+                <PasswordBox x:Name="PasswordBox" Style="{StaticResource RoundedPasswordBoxStyle}" Password="Password"
                              Foreground="Gray" GotFocus="ClearPasswordPlaceholder" LostFocus="RestorePasswordPlaceholder"/>
 
                 <TextBlock Style="{StaticResource TextBlockLinkStyle}" Margin="80,0,0,10">

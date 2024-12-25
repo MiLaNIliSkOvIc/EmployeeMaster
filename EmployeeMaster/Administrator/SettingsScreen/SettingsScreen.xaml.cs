@@ -13,13 +13,13 @@ namespace EmployeeMaster.Administrator.SettingsScreen
         private SettingsViewModel _viewModel;
         private MainScreen _mainScreen;
         private EmployeeMainScreen _employeeMainScreen;
-
+        private int userId {  get; set; }
         public SettingsScreen(int userId, MainScreen mainScreen = null)
         {
             InitializeComponent();
             _viewModel = new SettingsViewModel(userId);
             _mainScreen = mainScreen;
-         
+            this.userId = userId;
             LoadSettings();
         }
         public SettingsScreen(int userId, EmployeeMainScreen employeeMainScreen = null)
@@ -27,6 +27,7 @@ namespace EmployeeMaster.Administrator.SettingsScreen
             InitializeComponent();
             _viewModel = new SettingsViewModel(userId);
             _employeeMainScreen = employeeMainScreen;
+            this.userId = userId;
             LoadSettings();
         }
 
@@ -54,7 +55,7 @@ namespace EmployeeMaster.Administrator.SettingsScreen
 
         private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            // Create the updated settings model
+
             var updatedSettings = new SettingModel
             {
                 Theme = ThemeComboBox.SelectedIndex == 0 ? "Styles1" : "Styles2",
@@ -67,10 +68,10 @@ namespace EmployeeMaster.Administrator.SettingsScreen
                 },
             };
 
-            // Save settings to the database using the ViewModel
-            _viewModel.SaveSettings(1, updatedSettings);
+  
+            _viewModel.SaveSettings(userId, updatedSettings);
 
-            // Call your functions to apply the theme and language changes
+
             ApplyTheme(updatedSettings.Theme);
             ApplyLanguage(updatedSettings.Language);
         }

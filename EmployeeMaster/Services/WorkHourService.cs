@@ -9,7 +9,6 @@ namespace EmployeeMaster.Services
     {
         private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
 
-
         public List<WorkHour> GetAllWorkHours()
         {
             var workHours = new List<WorkHour>();
@@ -17,8 +16,17 @@ namespace EmployeeMaster.Services
             using (var connection = new MySqlConnection(connectionString))
             {
                 var query = @"
-                    SELECT idWorkHour, `Start`, `Finish`, HoursWorked, Shift, Employee_User_idUser 
-                    FROM WorkHour";
+            SELECT 
+                w.idWorkHour, 
+                w.`Start`, 
+                w.`Finish`, 
+                w.datum, 
+                w.Shift, 
+                w.Employee_User_idUser, 
+                u.ime, 
+                u.lastname
+            FROM WorkHour w
+            JOIN User u ON w.Employee_User_idUser = u.idUser";
 
                 var command = new MySqlCommand(query, connection);
                 connection.Open();
@@ -34,7 +42,9 @@ namespace EmployeeMaster.Services
                             FinishDate = reader.GetTimeSpan("Finish"),
                             Date = DateOnly.FromDateTime(reader.GetDateTime("datum")),
                             Shift = reader.GetString("Shift"),
-                            EmployeeId = reader.GetInt32("Employee_User_idUser")
+                            EmployeeId = reader.GetInt32("Employee_User_idUser"),
+                            fullName = reader.GetString("ime")+' '+ reader.GetString("lastname"), 
+                            
                         });
                     }
                 }
@@ -43,7 +53,6 @@ namespace EmployeeMaster.Services
             return workHours;
         }
 
-        
         public void AddWorkHour(WorkHour workHour)
         {
             using (var connection = new MySqlConnection(connectionString))

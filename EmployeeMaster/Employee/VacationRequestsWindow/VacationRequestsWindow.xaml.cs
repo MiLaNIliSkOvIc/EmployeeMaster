@@ -17,7 +17,7 @@ namespace EmployeeMaster.Employee
 
         public VacationRequestsScreen()
         {
-            int employeeId = 1;
+            int employeeId = CurrentUser.Instance.IdUser;
             InitializeComponent();
             _viewModel = new VacationRequestsViewModel(employeeId);
             DataContext = _viewModel;

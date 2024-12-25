@@ -75,4 +75,6 @@
     <System:String x:Key="totalTasks">Gesamtaufgaben:</System:String>
     <System:String x:Key="todaysTasks">Aufgaben des Tages:</System:String>
     <System:String x:Key="date">Datum</System:String>
+    <System:String x:Key="LogoutButtonContent">Abmelden</System:String>
+    <System:String x:Key="Salary">Gehalt</System:String>
 </ResourceDictionary>

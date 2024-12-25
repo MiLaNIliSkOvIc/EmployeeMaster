@@ -2,15 +2,10 @@
 using EmployeeMaster.Administator.VacationScreen;
 using EmployeeMaster.Administrator.TaskScreen;
 using EmployeeMaster.Administrator.NotificationScreen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using EmployeeMaster.Administrator.SettingsScreen;
-using MaterialDesignThemes.Wpf;
-using System.Windows.Input;
+using EmployeeMaster.Model;
+using EmployeeMaster.Administrator.WorkedHoursScreen;
 
 namespace EmployeeMaster.Administator.MainScreen
 {
@@ -23,7 +18,7 @@ namespace EmployeeMaster.Administator.MainScreen
         {
             InitializeComponent();
             ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
-            int userId = 1;
+            int userId = CurrentUser.Instance.IdUser;
             new SettingsScreen(userId, this);
             MainContentArea.Content = new DashBoard();
             ChangeThemeForWindow();
@@ -72,7 +67,7 @@ namespace EmployeeMaster.Administator.MainScreen
         private void VacationButton_Click(object sender, RoutedEventArgs e)
         {
            
-            MainContentArea.Content = new Vacation();
+            MainContentArea.Content = new VacationScreen.Vacation();
             ChangeThemeForWindow();
 
         }
@@ -89,9 +84,14 @@ namespace EmployeeMaster.Administator.MainScreen
             MainContentArea.Content = new Notification();
             ChangeThemeForWindow();
         }
+        private void WorkedHoursButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainContentArea.Content = new WorkedHours();
+            
+        }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            int userId = 1;
+            int userId =  CurrentUser.Instance.IdUser;
             
             MainContentArea.Content = new SettingsScreen(userId,this);
            
@@ -101,6 +101,15 @@ namespace EmployeeMaster.Administator.MainScreen
             ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
             
         }
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+            MainWindow loginWindow = new MainWindow();
+            loginWindow.Show();
+            this.Close();
+        }
+        
 
     }
 }

@@ -14,6 +14,7 @@ namespace EmployeeMaster.Model
         public DateOnly Date { get; set; }
         public string Shift { get; set; }
         public int EmployeeId { get; set; }
+        public string fullName { get; set; }
         public TimeSpan HoursWorked
         {
             get

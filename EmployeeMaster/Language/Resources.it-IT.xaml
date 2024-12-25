@@ -75,5 +75,7 @@
     <System:String x:Key="totalTasks">Compiti totali:</System:String>
     <System:String x:Key="todaysTasks">Compiti di oggi:</System:String>
 	<System:String x:Key="date">Data</System:String>
-	
+    <System:String x:Key="LogoutButtonContent">Disconnettiti</System:String>
+    <System:String x:Key="Salary">Stipendio</System:String>
+  
 </ResourceDictionary>

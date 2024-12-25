@@ -29,6 +29,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Border Height="100"  VerticalAlignment="Top" Grid.Row="0">
@@ -43,9 +44,13 @@
                 <Button Content="{DynamicResource VacationButtonContent}" Style="{DynamicResource VacationButtonStyle}" Grid.Row="2" Click="VacationButton_Click"/>
                 <Button Content="{DynamicResource TasksButtonContent}" Style="{DynamicResource TasksButtonStyle}" Grid.Row="3" Click="TaskButton_Click"/>
                 <Button Content="{DynamicResource BoardButtonContent}" Style="{DynamicResource BoardButtonStyle}" Grid.Row="4" Click="BoardButton_Click"/>
+                <Button Content="{DynamicResource WorkedHoursButtonContent}" Style="{DynamicResource WorkedHoursButtonStyle}" Grid.Row="5" Click="WorkedHoursButton_Click"/>
 
                 <Grid Grid.Row="5" />
-
+                <Button Content="{DynamicResource LogoutButtonContent}" 
+                        Style="{DynamicResource LogoutButtonStyle}" 
+                        Grid.Row="7" 
+                        Click="LogoutButton_Click" />
                 <Button Content="{DynamicResource SettingsButtonContent}" Style="{DynamicResource SettingsButtonStyle}" Grid.Row="6" Click="SettingsButton_Click"/>
             </Grid>
 

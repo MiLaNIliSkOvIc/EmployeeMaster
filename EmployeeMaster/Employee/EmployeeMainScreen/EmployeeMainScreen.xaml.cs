@@ -4,6 +4,7 @@ using EmployeeMaster.Employee.TaskScreen;
 using EmployeeMaster.Employee.NotificationScreen;
 using EmployeeMaster.Employee.PersonalInfoScreen;
 using EmployeeMaster.Employee.WorkedHoursScreen;
+using EmployeeMaster.Model;
 
 namespace EmployeeMaster.Employee.EmployeeMainScreen
 {
@@ -14,7 +15,7 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
         public EmployeeMainScreen()
         {
             InitializeComponent();
-            int userId = 1;
+            int userId = CurrentUser.Instance.IdUser;
             new SettingsScreen(userId, this);
         }
 
@@ -47,7 +48,7 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
        
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            int userId = 1;
+            int userId = CurrentUser.Instance.IdUser;
             MainContentArea.Content = new SettingsScreen(userId,this);
         }
         private void NotificationsButton_Click(object sender, RoutedEventArgs e)
@@ -69,6 +70,14 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
         private void TasksButton_Click(object sender, RoutedEventArgs e)
         {
             MainContentArea.Content = new EmployeeTaskScreen();
+        }
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            MainWindow loginWindow = new MainWindow();
+            loginWindow.Show();
+            this.Close();
         }
 
     }

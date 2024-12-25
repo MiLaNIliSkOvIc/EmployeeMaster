@@ -11,7 +11,7 @@ namespace EmployeeMaster.Employee.TaskScreen
 
         public EmployeeTaskScreen()
         {
-              int employeeId = 1; 
+              int employeeId = CurrentUser.Instance.IdUser; 
             InitializeComponent();
             _viewModel = new EmployeeTaskViewModel(employeeId);
             DataContext = _viewModel;

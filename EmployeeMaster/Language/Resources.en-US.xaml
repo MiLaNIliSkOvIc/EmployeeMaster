@@ -75,6 +75,8 @@
     <System:String x:Key="totalTasks">Total Tasks:</System:String>
     <System:String x:Key="todaysTasks">Today's Tasks:</System:String>
 	<System:String x:Key="date">Date</System:String>
-
+    <System:String x:Key="LogoutButtonContent">Log Out</System:String>
+    <System:String x:Key="Salary">Salary</System:String>
+    
 
 </ResourceDictionary>
