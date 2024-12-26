@@ -33,11 +33,11 @@ namespace EmployeeMaster.Services
                         {
                             vacationRequests.Add(new Vacation
                             {
-                                VacationRequestId = reader.GetInt32("idVacation"),  // Correct column name
+                                VacationRequestId = reader.GetInt32("idVacation"),  
                                 FirstName = reader.GetString("FirstName"),
                                 LastName = reader.GetString("LastName"),
-                                StartDate = reader.GetString("StartDate"),  // Correct column name for 'From'
-                                EndDate = reader.GetString("EndDate"),      // Correct column name for 'To'
+                                StartDate = reader.GetString("StartDate"),  
+                                EndDate = reader.GetString("EndDate"),      
                                 Status = reader.GetString("Status")
                             });
                         }
@@ -47,7 +47,7 @@ namespace EmployeeMaster.Services
                 return vacationRequests;
             }
 
-            // Accept a Vacation Request
+         
             public void AcceptRequest(int vacationRequestId)
             {
                 using (var connection = new MySqlConnection(connectionString))
@@ -65,7 +65,6 @@ namespace EmployeeMaster.Services
                 }
             }
 
-            // Deny a Vacation Request
             public void DenyRequest(int vacationRequestId)
             {
                 using (var connection = new MySqlConnection(connectionString))
@@ -83,7 +82,7 @@ namespace EmployeeMaster.Services
                 }
             }
 
-            // Add a new Vacation Request
+            
             public void AddVacationRequest(Vacation request)
             {
                 using (var connection = new MySqlConnection(connectionString))
@@ -103,12 +102,12 @@ namespace EmployeeMaster.Services
                 }
             }
 
-            // Delete a Vacation Request
+           
             public void DeleteVacationRequest(int vacationRequestId)
             {
                 using (var connection = new MySqlConnection(connectionString))
                 {
-                    var query = "DELETE FROM Vacation WHERE idVacation = @VacationRequestId";  // Correct column name
+                    var query = "DELETE FROM Vacation WHERE idVacation = @VacationRequestId";  
 
                     var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@VacationRequestId", vacationRequestId);

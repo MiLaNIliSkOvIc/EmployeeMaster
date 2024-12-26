@@ -59,23 +59,25 @@ namespace EmployeeMaster.EmployeeViewModel
             }
         }
 
-        public void AcceptVacationRequest(Vacation vacation)
+        public void DeleteVacationRequest(Vacation selectedVacation)
         {
-            if (vacation != null)
+            try
             {
-                _vacationService.AcceptRequest(vacation.VacationRequestId);
-                LoadVacations();
+             
+                VacationRequests.Remove(selectedVacation);
+                var vacationService = new VacationService();
+                vacationService.DeleteVacationRequest(selectedVacation.VacationRequestId);
+
+                MessageBox.Show("Vacation request deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+           
+                MessageBox.Show("Cant delete it");
             }
         }
 
-        public void DenyVacationRequest(Vacation vacation)
-        {
-            if (vacation != null)
-            {
-                _vacationService.DenyRequest(vacation.VacationRequestId);
-                LoadVacations();
-            }
-        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

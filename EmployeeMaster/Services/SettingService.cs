@@ -62,7 +62,7 @@ namespace EmployeeMaster.Services
             }
         }
 
-        // Update settings for a user
+       
         public void UpdateSettings(int userId, SettingModel setting)
         {
             using (var connection = new MySqlConnection(connectionString))

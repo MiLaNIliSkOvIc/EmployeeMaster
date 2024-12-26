@@ -53,6 +53,23 @@ namespace EmployeeMaster.Employee
             _viewModel.VacationRequests.Add(newRequest);
             MessageBox.Show("New vacation request added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+        private void DeleteRequest_Click(object sender, RoutedEventArgs e)
+        {
+          
+                var result = MessageBox.Show(
+                    "Are you sure you want to delete this vacation request?",
+                    "Confirm Deletion",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+            var selectedVacation = VacationRequestsTable.SelectedItem as Model.Vacation;
+            if (result == MessageBoxResult.Yes)
+                {
+                    _viewModel.DeleteVacationRequest(selectedVacation);
+                }
+            
+        }
+
     }
 
 }

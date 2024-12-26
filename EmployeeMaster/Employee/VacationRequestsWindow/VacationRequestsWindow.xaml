@@ -45,7 +45,7 @@
                   ItemsSource="{Binding VacationRequestsList}"
                        Style="{DynamicResource MaterialDesignDataGrid}">
             <DataGrid.Columns>
-                <!-- Request ID Column -->
+               
                 <DataGridTemplateColumn Header="{DynamicResource requestId}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -59,7 +59,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <!-- Start Date Column -->
+                
                 <DataGridTemplateColumn Header="{DynamicResource startDate}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -73,7 +73,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <!-- End Date Column -->
+               
                 <DataGridTemplateColumn Header="{DynamicResource endDate}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -87,7 +87,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <!-- Status Column -->
+               
                 <DataGridTemplateColumn Header="{DynamicResource status}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -101,7 +101,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <!-- Actions Column -->
+             
                 <DataGridTemplateColumn Header="{DynamicResource actions}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -112,12 +112,8 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 
-                                <Button Content="{DynamicResource edit}"
-                            Style="{DynamicResource AcceptDenyButtonStyle}" />
-
-                               
                                 <Button Content="{DynamicResource delete}" 
-                            Style="{DynamicResource AcceptDenyButtonStyle}" Margin="5" />
+                            Style="{DynamicResource deleteButton}" Margin="5" Click="DeleteRequest_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
