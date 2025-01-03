@@ -14,7 +14,16 @@ namespace EmployeeMaster.Model
         public string LastName { get; set; }  
         public string StartDate { get; set; }  
         public string EndDate { get; set; }  
-        public string Status { get; set; }  
-
+        public string Status { get; set; }
+        public Vacation()
+        { }
+            public Vacation(int employeeId, string startDate, string endDate, string status)
+        {
+            EmployeeId = employeeId;
+            StartDate = startDate;
+            EndDate = endDate;
+            Status = status;
+        }
     }
+
 }

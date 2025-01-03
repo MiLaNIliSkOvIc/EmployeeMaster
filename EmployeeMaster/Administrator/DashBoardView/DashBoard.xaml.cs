@@ -29,33 +29,9 @@ namespace EmployeeMaster.Administator.DashBoardView
             var addEmployeeWindow = new AddNewEmployee();
             if (addEmployeeWindow.ShowDialog() == true)
             {
-                try
-                {
-                    string firstName = addEmployeeWindow.FirstName;
-                    string lastName = addEmployeeWindow.LastName;
-                    string username = addEmployeeWindow.Username;
-                    string password = addEmployeeWindow.Password;
-                    string email = addEmployeeWindow.Email;
-                    string phone = addEmployeeWindow.Phone;
-                    string picture = addEmployeeWindow.Picture;
-                    int? positionId = addEmployeeWindow.Position; 
-                    DateTime hireDate = addEmployeeWindow.HireDate;
-                    int salary = addEmployeeWindow.Salary;
-
-                    if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
-                    {
-                        MessageBox.Show("First Name and Last Name are required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        return;
-                    }
-
-                    var viewModel = (DashBoardViewModel)DataContext;
-                    viewModel.AddEmployee(firstName, lastName, username, password, email, phone, picture, positionId, hireDate, salary);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                
             }
+            _viewModel.RefreshEmployees();
         }
 
 

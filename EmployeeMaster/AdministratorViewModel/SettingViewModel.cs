@@ -26,6 +26,11 @@ namespace EmployeeMaster.AdministratorViewModel
         public void LoadSettings(int userId)
         {
             CurrentSettings = _settingService.GetSettingsByUserId(userId);
+            if (CurrentSettings == null)
+            {
+                CurrentSettings = new SettingModel();
+
+            }
         }
 
         public void SaveSettings(int userId, SettingModel setting)

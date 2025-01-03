@@ -116,8 +116,6 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
             <TextBlock Text="{DynamicResource totalTasks}" Style="{DynamicResource BoldTextBlockStyle}"/>
             <TextBlock x:Name="TotalTasksTextBlock" Text="0 |" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
-            <TextBlock Text="{DynamicResource todaysTasks}" Style="{DynamicResource BoldTextBlockStyle}"/>
-            <TextBlock x:Name="TodayTasksTextBlock" Text="0 | " Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,10,0"/>
             <TextBlock Text="{DynamicResource completed}" Style="{DynamicResource BoldTextBlockStyle}"/>
             <TextBlock x:Name="CompletedTasksTextBlock" Text="0" Style="{DynamicResource BoldTextBlockStyle}" Margin="5,0,0,0"/>
         </StackPanel>

@@ -48,7 +48,19 @@ namespace EmployeeMaster.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public Task() { }
+        public Task(string taskName, string status, string priority, string description, DateTime dueDate, int assignedToId)
+        {
 
+            TaskName = taskName;
+            Status = status;
+            this.priority = priority;
+            Description = description;
+            AssignedToId = assignedToId;
+            DueDate = dueDate;
+        }
+
+        
     }
 
 }

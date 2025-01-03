@@ -28,21 +28,9 @@ namespace EmployeeMaster.AdministratorViewModel
                     Employees.Add(employee);
                 }
             }
-            public void AddEmployee(string firstName, string lastName, string username, string password, string email, string phone, string picture, int? positionId, DateTime hireDate, int salary)
-            {
-                try
-                {
-                    _employeeService.AddEmployee(firstName, lastName, username, password, email, phone, picture, positionId, hireDate, salary);
-                    RefreshEmployees();
-                    MessageBox.Show("New employee added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while adding the employee: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
+         
 
-            private void RefreshEmployees()
+            public void RefreshEmployees()
             {
                 Employees.Clear();
                 foreach (var employee in _employeeService.GetEmployees())

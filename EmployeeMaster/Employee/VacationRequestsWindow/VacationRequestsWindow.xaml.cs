@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using EmployeeMaster.Model;
+using EmployeeMaster.Administrator.TaskScreen;
+using EmployeeMaster.Administrator.VacationRequestsWindow;
 
 namespace EmployeeMaster.Employee
 {
@@ -42,16 +44,9 @@ namespace EmployeeMaster.Employee
 
         private void AddNewRequest_Click(object sender, RoutedEventArgs e)
         {
-            var newRequest = new Vacation
-            {
-                VacationRequestId = _viewModel.VacationRequests.Count + 1,
-                StartDate = DateTime.Now.ToString("yyyy-MM-dd"),
-                EndDate = DateTime.Now.AddDays(5).ToString("yyyy-MM-dd"),
-                Status = "Pending"
-            };
 
-            _viewModel.VacationRequests.Add(newRequest);
-            MessageBox.Show("New vacation request added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            _viewModel.addVacation();
+            VacationRequestsTable.ItemsSource = _viewModel.VacationRequests;
         }
         private void DeleteRequest_Click(object sender, RoutedEventArgs e)
         {

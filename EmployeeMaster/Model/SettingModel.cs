@@ -11,5 +11,11 @@ namespace EmployeeMaster.Model
         public int UserId { get; set; }
         public string Theme { get; set; }
         public string Language { get; set; }
+
+        public SettingModel() {
+            UserId = CurrentUser.Instance.IdUser;
+            Theme = "Styles1";
+            Language="en-US";
+        }
     }
 }

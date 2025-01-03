@@ -48,25 +48,29 @@ namespace EmployeeMaster.Services
 
             return tasks;
         }
-       
+
 
         public void AddTask(Model.Task task)
         {
             using (var connection = new MySqlConnection(connectionString))
             {
                 var query = @"
-                    INSERT INTO Task (title, description, deadline, status)
-                    VALUES (@Title, @Description, @Deadline, @Status)";
+            INSERT INTO Task (title, description, deadline, priority, status, Employee_User_idUser)
+            VALUES (@Title, @Description, @Deadline, @priority, @Status, @employee)";
+
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Title", task.TaskName);
                 command.Parameters.AddWithValue("@Description", task.Description);
                 command.Parameters.AddWithValue("@Deadline", task.DueDate);
                 command.Parameters.AddWithValue("@Status", task.Status);
+                command.Parameters.AddWithValue("@employee", task.AssignedToId);
+                command.Parameters.AddWithValue("@priority", task.priority);
 
                 connection.Open();
                 command.ExecuteNonQuery();
             }
         }
+
 
         public void EditTask(Model.Task task)
         {

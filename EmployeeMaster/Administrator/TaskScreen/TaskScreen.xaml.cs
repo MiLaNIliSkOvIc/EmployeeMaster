@@ -1,4 +1,5 @@
-﻿using EmployeeMaster.AdministratorViewModel;
+﻿using EmployeeMaster.Administrator.DashBoardView;
+using EmployeeMaster.AdministratorViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,12 @@ namespace EmployeeMaster.Administrator.TaskScreen
         
         private void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
-          
+            var addNewTask = new AddNewTask();
+            if (addNewTask.ShowDialog() == true)
+            {
+
+            }
+            viewModel.LoadTasks();
         }
 
   

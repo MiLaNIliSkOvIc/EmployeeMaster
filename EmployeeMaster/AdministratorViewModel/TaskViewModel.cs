@@ -42,7 +42,7 @@ namespace EmployeeMaster.AdministratorViewModel
         }
 
        
-        private void LoadTasks()
+        public void LoadTasks()
         {
             allTasks = taskService.GetTasks();
             FilteredTasks = new ObservableCollection<Model.Task>(allTasks);

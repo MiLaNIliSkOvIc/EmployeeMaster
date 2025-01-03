@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using EmployeeMaster.Model;
+using EmployeeMaster.Administrator.VacationRequestsWindow;
 
 namespace EmployeeMaster.EmployeeViewModel
 {
@@ -45,7 +46,16 @@ namespace EmployeeMaster.EmployeeViewModel
             VacationRequests = new ObservableCollection<Vacation>();
             LoadVacations();
         }
+        public void addVacation()
+        {
+            var addNewVacation = new AddNewVacation();
+            if (addNewVacation.ShowDialog() == true)
+            {
 
+            }
+            LoadVacations();
+            
+        }
         public void LoadVacations()
         {
             try

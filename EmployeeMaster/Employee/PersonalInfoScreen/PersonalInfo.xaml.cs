@@ -21,8 +21,8 @@ namespace EmployeeMaster.Employee.PersonalInfoScreen
 
         private void LoadPersonalInfo()
         {
-           // string picturePath = _userViewModel.ProfileImage ?? "C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
-            string picturePath =  "C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
+           string picturePath = _userViewModel.ProfileImage ?? "C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
+            //string picturePath =  "C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
             ProfileImage.ImageSource = new BitmapImage(new Uri(picturePath));
             FullNameText.Text = _userViewModel.FullName;
             EmailText.Text = _userViewModel.Email;

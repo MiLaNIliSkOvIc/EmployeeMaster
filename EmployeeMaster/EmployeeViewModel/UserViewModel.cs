@@ -39,7 +39,10 @@ namespace EmployeeMaster.EmployeeViewModel
         private void LoadUserInfo(int userId)
         {
             _user = _userService.GetUserInfo(userId);
-            language=_settingService.GetSettingsByUserId(userId).Language;
+            if (_settingService.GetSettingsByUserId(userId) != null)
+                language = _settingService.GetSettingsByUserId(userId).Language;
+            else
+                language = "en-US";
            
        
         }

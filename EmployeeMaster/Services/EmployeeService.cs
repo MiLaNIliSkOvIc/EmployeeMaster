@@ -1,4 +1,5 @@
-﻿using EmployeeMaster.Services;
+﻿using EmployeeMaster.Model;
+using EmployeeMaster.Services;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -127,7 +128,7 @@ using employee = EmployeeMaster.Model.Employee;
         return roles;
     }
 
-    public void AddEmployee(string firstName, string lastName, string username, string password, string email, string phone, string picture, int? positionId, DateTime hireDate, int salary)
+    public void AddEmployee(string firstName, string lastName, string username, string password, string email, string phone, string picture, int? positionId, DateTime hireDate, int salary,int roleId)
     {
         using (var connection = new MySqlConnection(connectionString))
         {
@@ -136,13 +137,13 @@ using employee = EmployeeMaster.Model.Employee;
             {
                 try
                 {
-                    
+
                     var getMaxUserIdQuery = "SELECT MAX(idUser) FROM User";
                     var getMaxUserIdCommand = new MySqlCommand(getMaxUserIdQuery, connection, transaction);
                     var maxUserId = getMaxUserIdCommand.ExecuteScalar();
-                    int userId = (maxUserId == DBNull.Value) ? 1 : Convert.ToInt32(maxUserId) + 1; 
+                    int userId = (maxUserId == DBNull.Value) ? 1 : Convert.ToInt32(maxUserId) + 1;
 
-                  
+
                     var userQuery = @"
                 INSERT INTO User (idUser, ime, lastname, username, password, email, phone, picture)
                 VALUES (@UserId, @FirstName, @LastName, @Username, @Password, @Email, @Phone, @Picture);";
@@ -158,7 +159,7 @@ using employee = EmployeeMaster.Model.Employee;
                     userCommand.Parameters.AddWithValue("@Picture", picture);
 
                     userCommand.ExecuteNonQuery();
-                  
+
 
 
                     var employeeQuery = @"
@@ -167,12 +168,12 @@ using employee = EmployeeMaster.Model.Employee;
 
                     var employeeCommand = new MySqlCommand(employeeQuery, connection, transaction);
                     employeeCommand.Parameters.AddWithValue("@UserId", userId);
-                    employeeCommand.Parameters.AddWithValue("@HireDate", hireDate);
+                    employeeCommand.Parameters.AddWithValue("@HireDate", hireDate.Date);
                     employeeCommand.Parameters.AddWithValue("@Salary", salary);
 
-                    employeeCommand.ExecuteNonQuery(); 
+                    employeeCommand.ExecuteNonQuery();
 
-                    
+
                     if (positionId.HasValue)
                     {
                         var positionQuery = @"
@@ -184,25 +185,31 @@ using employee = EmployeeMaster.Model.Employee;
                         positionCommand.Parameters.AddWithValue("@date", hireDate);
                         positionCommand.Parameters.AddWithValue("@PositionId", positionId.Value);
 
-                        positionCommand.ExecuteNonQuery(); 
+                        positionCommand.ExecuteNonQuery();
                     }
+                 
+                var roleQuery = @"
+                INSERT INTO Employee_has_Role (Employee_User_idUser, Role_idRole, date)
+                VALUES (@UserId, @RoleId, @Date);";
 
-                  
+                    var roleCommand = new MySqlCommand(roleQuery, connection, transaction);
+                    roleCommand.Parameters.AddWithValue("@UserId", userId);
+                    roleCommand.Parameters.AddWithValue("@RoleId", roleId);
+                    roleCommand.Parameters.AddWithValue("@Date", hireDate.Date);
+
+                    roleCommand.ExecuteNonQuery();
+
                     transaction.Commit();
                 }
                 catch (Exception)
                 {
-                    
+
                     transaction.Rollback();
                     throw;
                 }
             }
         }
     }
-
-
-
-
 
 }
 

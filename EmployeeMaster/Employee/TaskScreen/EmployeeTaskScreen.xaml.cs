@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using EmployeeMaster.EmployeeViewModel;
+using EmployeeMaster.ErrorDisplay;
 using EmployeeMaster.Model;
 
 namespace EmployeeMaster.Employee.TaskScreen
@@ -23,8 +24,11 @@ namespace EmployeeMaster.Employee.TaskScreen
             if (TasksDataGrid.SelectedItem is Model.Task selectedTask)
             {
                 _viewModel.MarkTaskAsDone(selectedTask);
-                MessageBox.Show($"Task '{selectedTask.TaskName}' marked as Done.", "Task Update", MessageBoxButton.OK, MessageBoxImage.Information);
+             
+                ErrorWindow win = new ErrorWindow($"Task '{selectedTask.TaskName}' marked as Done.");
+                win.Show();
                 TasksDataGrid.ItemsSource = _viewModel.Tasks;
+
             }
             else
             {
@@ -36,9 +40,12 @@ namespace EmployeeMaster.Employee.TaskScreen
         {
             if (TasksDataGrid.SelectedItem is Model.Task selectedTask)
             {
-                MessageBox.Show($"Task Description:\n{selectedTask.Description}", "Task Details", MessageBoxButton.OK, MessageBoxImage.Information);
+              
+                ErrorWindow win = new ErrorWindow(selectedTask.Description);
+                win.Show(); 
             }
-           
+
+
         }
         private void OnApplyFiltersClick(object sender, RoutedEventArgs e)
         {

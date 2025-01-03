@@ -14,6 +14,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using EmployeeMaster.EmployeeViewModel;
 
 namespace EmployeeMaster.Employee.DashBoardView
 {
@@ -139,8 +140,9 @@ namespace EmployeeMaster.Employee.DashBoardView
         {
             try
             {
-                string imagePath = @"C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
-
+               // string imagePath = @"C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
+                string imagePath = _userService.GetUserInfo(CurrentUser.Instance.IdUser).Picture;
+               // string imagePath = _userViewModel.ProfileImage ?? "C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
                 if (File.Exists(imagePath))
                 {
                     
