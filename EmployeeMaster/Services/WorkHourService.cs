@@ -1,5 +1,6 @@
 ﻿using EmployeeMaster.Model;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
 
@@ -109,7 +110,7 @@ namespace EmployeeMaster.Services
             return workHours;
         }
 
-        // Nova metoda: Filtriraj radne sate po EmployeeId
+        
         public List<WorkHour> GetWorkHoursByEmployeeId(int employeeId)
         {
             var workHours = new List<WorkHour>();
@@ -143,6 +144,64 @@ namespace EmployeeMaster.Services
             }
 
             return workHours;
+        }
+        public void AddWorkHourWithoutFinish(WorkHour workHour)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = @"
+        INSERT INTO WorkHour (`Start`, datum, Shift, Employee_User_idUser)
+        VALUES (@StartDate, @Date, @Shift, @EmployeeId)";
+
+                var command = new MySqlCommand(query, connection);
+
+                // Koristi samo datum bez vremena
+                command.Parameters.AddWithValue("@StartDate", workHour.StartDate);
+                command.Parameters.AddWithValue("@Date", workHour.Date.ToString("yyyy-MM-dd")); // Pretvaranje u ispravan format za MySQL DATE
+                command.Parameters.AddWithValue("@Shift", workHour.Shift);
+                command.Parameters.AddWithValue("@EmployeeId", workHour.EmployeeId);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public bool IsWorkHourExist(int employeeId, DateOnly date)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = @"
+            SELECT COUNT(*) 
+            FROM WorkHour 
+            WHERE Employee_User_idUser = @EmployeeId AND datum = @Date";
+
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@EmployeeId", employeeId);
+                command.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+
+                connection.Open();
+                var count = Convert.ToInt32(command.ExecuteScalar());
+                return count > 0; 
+            }
+        }
+
+
+        public void UpdateWorkHourFinishByDate(DateTime date, TimeSpan finishTime)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = @"
+            UPDATE WorkHour
+            SET Finish = @FinishTime
+            WHERE DATE(datum) = @Date AND Finish IS NULL";
+
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FinishTime", finishTime);
+                command.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -6,6 +6,8 @@ using EmployeeMaster.Employee.PersonalInfoScreen;
 using EmployeeMaster.Employee.WorkedHoursScreen;
 using EmployeeMaster.Model;
 
+using EmployeeMaster.Employee.DashBoardView;
+
 namespace EmployeeMaster.Employee.EmployeeMainScreen
 {
     public partial class EmployeeMainScreen : Window
@@ -42,7 +44,7 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
         {
                          
-            MainContentArea.Content = new EmployeeTaskScreen();
+            MainContentArea.Content = new Dashboard();
         }
 
        

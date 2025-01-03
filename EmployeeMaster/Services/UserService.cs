@@ -22,7 +22,7 @@ namespace EmployeeMaster.Services
 
             using (var connection = new MySqlConnection(connectionString))
             {
-                var query = "SELECT idUser, ime, lastname, username, Email, phone, Picture FROM User WHERE idUser = @UserId";
+                var query = "SELECT idUser, ime, lastname, username, Email, phone, Picture, dateOfBirth FROM User WHERE idUser = @UserId";
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
 
@@ -38,7 +38,10 @@ namespace EmployeeMaster.Services
                             Username = reader.GetString("username"),
                             Email = reader.GetString("Email"),
                             Phone = reader.GetString("phone"),
-                            Picture = reader.GetString("Picture")
+                            Picture = reader.GetString("Picture"),
+                            dateOfBirth = reader.GetDateTime("dateOfBirth").ToString("yyyy-MM-dd")
+
+
                         };
                     }
                 }

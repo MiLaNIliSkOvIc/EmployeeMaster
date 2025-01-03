@@ -74,9 +74,7 @@ namespace EmployeeMaster.Services
             }
         }
 
-        /// <summary>
-        /// Model koji predstavlja poziciju.
-        /// </summary>
+  
         public class Position
         {
             public int Id { get; set; }
