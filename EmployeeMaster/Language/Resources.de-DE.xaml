@@ -77,4 +77,39 @@
     <System:String x:Key="date">Datum</System:String>
     <System:String x:Key="LogoutButtonContent">Abmelden</System:String>
     <System:String x:Key="Salary">Gehalt</System:String>
+    <System:String x:Key="NoDataAvailable">Keine Daten in der Tabelle verfügbar</System:String>
+    <System:String x:Key="NoNotification">Derzeit gibt es keine neuen Benachrichtigungen</System:String>
+
+    <System:String x:Key="FirstName">Vorname</System:String>
+    <System:String x:Key="LastName">Nachname</System:String>
+    <System:String x:Key="Email">E-Mail</System:String>
+    <System:String x:Key="Phone">Telefon</System:String>
+    <System:String x:Key="Username">Benutzername</System:String>
+    <System:String x:Key="Password">Passwort</System:String>
+    <System:String x:Key="RepeatPassword">Passwort wiederholen</System:String>
+    <System:String x:Key="Position">Position</System:String>
+    <System:String x:Key="Role">Rolle</System:String>
+    <System:String x:Key="BrowsePicture">Bild durchsuchen...</System:String>
+    <System:String x:Key="Save">Speichern</System:String>
+    <System:String x:Key="Cancel">Abbrechen</System:String>
+
+    
+    <System:String x:Key="Description">Beschreibung</System:String>
+    <System:String x:Key="DueDate">Fälligkeitsdatum</System:String>
+    <System:String x:Key="AssignToEmployee">Mitarbeiter zuweisen</System:String>
+    <System:String x:Key="Priority">Priorität</System:String>
+    <System:String x:Key="High">Hoch</System:String>
+    <System:String x:Key="Medium">Mittel</System:String>
+    <System:String x:Key="Low">Niedrig</System:String>
+    <System:String x:Key="DashBoardButtonContent">Dashboard</System:String>
+
+    <System:String x:Key="UpcomingVacationHeader">Bevorstehender Urlaub</System:String>
+    <System:String x:Key="TaskCompletionHeader">Aufgabenabschluss</System:String>
+    <System:String x:Key="RemainingLabel">Verbleibend</System:String>
+    <System:String x:Key="CompletedLabel">Abgeschlossen</System:String>
+    <System:String x:Key="NotificationsHeader">Benachrichtigungen</System:String>
+    <System:String x:Key="MyTasksLabel">Meine Aufgaben</System:String>
+    <System:String x:Key="StartDayLabel">Beginnen Sie mit der Arbeit</System:String>
+
+
 </ResourceDictionary>

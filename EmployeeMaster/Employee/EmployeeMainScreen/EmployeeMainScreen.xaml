@@ -11,7 +11,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../Styles/Styles1.xaml"/>
-                <ResourceDictionary Source ="../../Language/Resources.sr-RS.xaml"/>
+                <ResourceDictionary Source ="../../Language/Resources.en-US.xaml"/>
                 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -41,7 +41,7 @@
                            Stretch="Uniform" Width="73" />
                 </Border>
 
-                <Button Style="{DynamicResource EmployeesButtonStyle}" Grid.Row="1" Click="DashboardButton_Click" />
+                <Button Style="{DynamicResource DashBoardButtonStyle}" Grid.Row="1" Click="DashboardButton_Click" />
                 <Button Style="{DynamicResource TasksButtonStyle}" Grid.Row="2" Click="TasksButton_Click" />
                 <Button Style="{DynamicResource VacationButtonStyle}" Grid.Row="3" Click="VacationButton_Click" />
                 <Button Style="{DynamicResource WorkedHoursButtonStyle}" Grid.Row="4" Click="WorkedHoursButton_Click" />

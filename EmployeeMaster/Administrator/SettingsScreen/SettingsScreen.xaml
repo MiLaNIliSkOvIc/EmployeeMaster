@@ -30,7 +30,7 @@
         <StackPanel Orientation="Horizontal" Margin="0,0,0,20" Grid.Row="1">
             <TextBlock Text="{DynamicResource chooseTheme}"
                        VerticalAlignment="Center"
-                       Width="100"
+                       Width="120"
                        FontSize="14" />
             <ComboBox x:Name="ThemeComboBox"
                       Width="200"
@@ -45,7 +45,7 @@
         <StackPanel Orientation="Horizontal" Margin="0,0,0,20" Grid.Row="2">
             <TextBlock Text="{DynamicResource chooseLanguage}"
                        VerticalAlignment="Center"
-                       Width="100"
+                       Width="120"
                        FontSize="14" 
                        />
             <ComboBox x:Name="LanguageComboBox"
@@ -59,25 +59,16 @@
             </ComboBox>
         </StackPanel>
 
-        <!-- Notifications Toggle -->
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,20" Grid.Row="3">
-            <TextBlock Text="{DynamicResource enableNotifications}"
-                       VerticalAlignment="Center"
-                       Width="200"
-                       FontSize="14" />
-            <CheckBox x:Name="NotificationsCheckBox"
-                      VerticalAlignment="Center" />
-        </StackPanel>
+        
 
         <!-- Save Button -->
         <Button Content="{DynamicResource saveButton}"
                 Width="150"
                 Height="40"
-                Background="#DEB887"
-                Foreground="White"
-                FontWeight="Bold"
+                Style="{DynamicResource ButtonStyle}"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
+                FontSize="18"
                 Margin="0,20,0,0"
                 Grid.Row="4"
                 Click="SaveSettingsButton_Click" />

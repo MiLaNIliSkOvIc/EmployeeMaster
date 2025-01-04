@@ -97,13 +97,25 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button Content="{DynamicResource done}" 
-                                        CommandParameter="{Binding}" 
-                                        Click="OnDoneClick" 
-                                        Style="{StaticResource MaterialDesignFlatButton}" 
-                                        Margin="5,0"/>
+                                    CommandParameter="{Binding}" 
+                                    Click="OnDoneClick" 
+                                        Foreground="Black"
+                                    Margin="5,0">   
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Status}" Value="Completed">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+
                                 <Button Content="{DynamicResource description}" 
                                         CommandParameter="{Binding}" 
-                                        Click="OnDescriptionClick" 
+                                        Click="OnDescriptionClick"
+                                        Foreground="Black"
                                         Style="{StaticResource MaterialDesignFlatButton}" 
                                         Margin="5,0"/>
                             </StackPanel>
@@ -112,6 +124,24 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        
+        <TextBlock Text="{DynamicResource NoDataAvailable}"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="16"
+            Foreground="Gray"
+            Grid.Row="2">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Tasks.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20">
             <TextBlock Text="{DynamicResource totalTasks}" Style="{DynamicResource BoldTextBlockStyle}"/>

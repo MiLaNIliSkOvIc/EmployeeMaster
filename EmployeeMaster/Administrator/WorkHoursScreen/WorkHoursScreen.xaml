@@ -41,7 +41,9 @@
             <Button x:Name="ShowFilteredButton" Style="{DynamicResource ButtonStyle}" Content="{DynamicResource ShowByDate}" Click="OnShowFilteredClick" />
         </StackPanel>
 
-        <DataGrid x:Name="WorkHoursList" Style="{DynamicResource MaterialDesignDataGrid}" Grid.Row="2" Margin="10" HorizontalAlignment="Stretch" AutoGenerateColumns="False">
+        <DataGrid x:Name="WorkHoursList" Style="{DynamicResource MaterialDesignDataGrid}" Grid.Row="2" Margin="10" HorizontalAlignment="Stretch"
+                  CanUserAddRows="False"
+                  AutoGenerateColumns="False">
 
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="{DynamicResource ime}">
@@ -123,6 +125,23 @@
             </DataGrid.Columns>
 
         </DataGrid>
+		<TextBlock Text="{DynamicResource NoDataAvailable}"
+	HorizontalAlignment="Center"
+	VerticalAlignment="Center"
+	FontSize="16"
+	Foreground="Gray"
+	Grid.Row="2">
+			<TextBlock.Style>
+				<Style TargetType="TextBlock">
+					<Setter Property="Visibility" Value="Collapsed" />
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding WorkHours.Count}" Value="0">
+							<Setter Property="Visibility" Value="Visible" />
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</TextBlock.Style>
+		</TextBlock>
 
 
     </Grid>

@@ -1,6 +1,4 @@
-﻿using EmployeeMaster.Administrator.NotificationScreen;
-using EmployeeMaster.Model;
-using EmployeeMaster.ViewModel;
+﻿using EmployeeMaster.EmployeeViewModel;
 using System.Windows.Controls;
 
 namespace EmployeeMaster.Employee.NotificationScreen
@@ -8,6 +6,7 @@ namespace EmployeeMaster.Employee.NotificationScreen
     public partial class EmployeeNotificationScreen : UserControl
     {
         private NotificationViewModel _viewModel;
+   
 
         public EmployeeNotificationScreen()
         {

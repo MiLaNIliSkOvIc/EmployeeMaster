@@ -40,7 +40,7 @@ namespace EmployeeMaster.Administator.VacationScreen
                     viewModel.AcceptRequest(request);
                 }
             }
-            //VacationDataGrid.ItemsSource = viewModel.VacationRequests; ;
+            VacationDataGrid.ItemsSource = viewModel.VacationRequests; ;
         }
 
         private void DenyButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace EmployeeMaster.Administator.VacationScreen
                     viewModel.DenyRequest(request); 
                 }
             }
-          //  VacationDataGrid.ItemsSource = viewModel.VacationRequests; 
+            VacationDataGrid.ItemsSource = viewModel.VacationRequests; 
         }
     }
 }

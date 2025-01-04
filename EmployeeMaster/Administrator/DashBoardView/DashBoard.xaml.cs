@@ -27,6 +27,8 @@ namespace EmployeeMaster.Administator.DashBoardView
         private void AddEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
             var addEmployeeWindow = new AddNewEmployee();
+            
+            
             if (addEmployeeWindow.ShowDialog() == true)
             {
                 
@@ -37,7 +39,7 @@ namespace EmployeeMaster.Administator.DashBoardView
 
         private void EmployeeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Handle selection change logic
+            
         }
     }
 }

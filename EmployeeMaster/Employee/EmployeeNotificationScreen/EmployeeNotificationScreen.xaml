@@ -22,17 +22,40 @@
 
 		<TextBlock Text="{DynamicResource notification}"
                    Style="{DynamicResource NotificationTitleTextBlockStyle}" />
-
-		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+        
+        
+        
+        
+        <TextBlock Text="{DynamicResource NoNotification}"
+		HorizontalAlignment="Center"
+		VerticalAlignment="Center"
+		FontSize="16"
+		Foreground="Gray"
+		Grid.Row="1">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Notifications.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        
+        
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
 			<ItemsControl x:Name="NotificationList" ItemContainerStyle="{DynamicResource NotificationItemStyle}">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>
 						<materialDesign:Card Background="White" Padding="10">
-							<TextBlock Text="{Binding}" Style="{DynamicResource NotificationTextStyle}" />
+                            <TextBlock Text="{Binding}" Style="{DynamicResource NotificationTextStyle}" />
 						</materialDesign:Card>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
 		</ScrollViewer>
-	</Grid>
+       
+    </Grid>
 </UserControl>

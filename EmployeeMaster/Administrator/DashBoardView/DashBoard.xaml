@@ -56,6 +56,7 @@
                   Margin="10"
                   ItemsSource="{Binding Employees}"
                   Grid.Row="2"
+                  CanUserAddRows="False"
                   >
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="*" Header="{DynamicResource ime}">
@@ -124,5 +125,22 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock Text="{DynamicResource NoDataAvailable}"
+     HorizontalAlignment="Center"
+     VerticalAlignment="Center"
+     FontSize="16"
+     Foreground="Gray"
+     Grid.Row="2">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Employees.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </UserControl>

@@ -30,7 +30,7 @@ namespace EmployeeMaster.AdministratorViewModel
                 var newNotification = new NotificationModel
                 {
                     Content = NewNotificationContent,
-                    EmployeeId = 1 // Zamijenite stvarnim EmployeeId
+                    EmployeeId = 1 
                 };
 
                 _notificationService.AddNotification(newNotification);

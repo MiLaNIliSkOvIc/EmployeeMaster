@@ -19,6 +19,7 @@ namespace EmployeeMaster.Employee.EmployeeMainScreen
             InitializeComponent();
             int userId = CurrentUser.Instance.IdUser;
             new SettingsScreen(userId, this);
+            MainContentArea.Content = new Dashboard();
         }
 
         public void ChangeStyleForCurrentWindow(string newStylePath)

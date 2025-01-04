@@ -3,9 +3,13 @@ using EmployeeMaster.Services.EmployeeMaster.Services;
 using Microsoft.Win32;
 using System;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using EmployeeMaster.ErrorDisplay;
+using EmployeeMaster.Administator.MainScreen;
 
 namespace EmployeeMaster.Administrator.DashBoardView
 {
@@ -18,7 +22,19 @@ namespace EmployeeMaster.Administrator.DashBoardView
             InitializeComponent();
             _positionService = new PositionService();
 
-          
+            var newResourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri($"../../Styles/{MainScreen.style}.xaml", UriKind.RelativeOrAbsolute)
+
+            };
+            var newResourceDictionary2 = new ResourceDictionary
+            {
+
+                Source = new Uri($"../../Language/Resources.{MainScreen.language}.xaml", UriKind.RelativeOrAbsolute)
+            };
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(newResourceDictionary);
+            this.Resources.MergedDictionaries.Add(newResourceDictionary2);
             LoadPositions();
         }
 
@@ -72,15 +88,35 @@ namespace EmployeeMaster.Administrator.DashBoardView
                 Salary <= 0 ||
                 Position == null || Role == null)
             {
-                MessageBox.Show("Please fill in all required fields correctly.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                ErrorWindow err = new ErrorWindow("Please fill in all required fields correctly.");
+                err.Show();
                 return;
             }
+            var emailRegex = new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$");
+           
 
-            
+            if (!emailRegex.IsMatch(Email))
+            {
+                ErrorWindow err = new ErrorWindow("Please enter a valid email address.");
+                err.Show();
+                EmailTextBox.Focus(); 
+                return; 
+            }
+
+            if (PasswordBox.Password != RepeatPasswordBox.Password)
+            {
+                ErrorWindow err = new ErrorWindow("Passwords do not match.");
+                err.Show();
+              
+                return; 
+            }
+
             string picturePath = Picture; 
             if (string.IsNullOrEmpty(picturePath) && PicturePreview.Source == null)
             {
-                MessageBox.Show("Please select a picture.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                ErrorWindow err = new ErrorWindow("Please select a picture.");
+                err.Show();
+
                 return;
             }
             else if (!string.IsNullOrEmpty(picturePath))
@@ -106,16 +142,15 @@ namespace EmployeeMaster.Administrator.DashBoardView
                     Role.Value 
                 );
 
-           
-                MessageBox.Show("Employee added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                ErrorWindow err = new ErrorWindow("Employee added successfully.");
+                err.Show();
 
-                
 
             }
             catch (Exception ex)
             {
-              
-                MessageBox.Show($"Error saving employee: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                ErrorWindow err = new ErrorWindow($"Error saving employee: {ex.Message}");
+                err.Show();
             }
         
 
@@ -128,6 +163,23 @@ namespace EmployeeMaster.Administrator.DashBoardView
             
             DialogResult = false;
             Close();
+        }
+        private void PhoneTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+            var regex = new Regex(@"^0\d{0,11}$");
+            var newText = PhoneTextBox.Text + e.Text;
+
+            
+            e.Handled = !regex.IsMatch(newText);
+        }
+        private void SalaryTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+            var regex = new Regex(@"^\d*$"); // Only digits are allowed
+
+           
+            e.Handled = !regex.IsMatch(e.Text);
         }
         private void BrowsePictureButton_Click(object sender, RoutedEventArgs e)
         {

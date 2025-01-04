@@ -103,10 +103,11 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button Content="{DynamicResource accept}" Click="AcceptButton_Click" 
-                            Style="{DynamicResource AcceptDenyButtonStyle}" 
+                            Style="{DynamicResource ButtonStyle}" 
+                                        Margin="0,0,10,0"
                             Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
                                 <Button Content="{DynamicResource deny}" Click="DenyButton_Click" 
-                            Style="{DynamicResource AcceptDenyButtonStyle}" 
+                            Style="{DynamicResource ButtonStyle}" 
                             Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
                             </StackPanel>
                         </DataTemplate>
@@ -115,5 +116,23 @@
             </DataGrid.Columns>
 
         </DataGrid>
+
+        <TextBlock Text="{DynamicResource NoDataAvailable}"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      FontSize="16"
+      Foreground="Gray"
+      Grid.Row="2">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding vacationRequests.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </UserControl>

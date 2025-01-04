@@ -1,34 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using EmployeeMaster.Model;
+﻿using EmployeeMaster.Model;
 using EmployeeMaster.Services;
-
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace EmployeeMaster.ViewModel
+namespace EmployeeMaster.EmployeeViewModel
 {
-    public class NotificationViewModel 
+    public class NotificationViewModel : INotifyPropertyChanged
     {
         private readonly NotificationService _notificationService;
-        private ObservableCollection<NotificationModel> _notifications;
+       
 
-        public ObservableCollection<NotificationModel> Notifications = new ObservableCollection<NotificationModel>();
-        public List<string> NotificationsString = new List<string>();
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        public ObservableCollection<NotificationModel> Notifications { get; set; } = new ObservableCollection<NotificationModel>();
 
+        public List<string> NotificationsString { get; set; } = new List<string>();
+
+        
 
         public NotificationViewModel()
         {
             _notificationService = new NotificationService();
-            Notifications = new ObservableCollection<NotificationModel>();
             LoadNotifications();
         }
 
@@ -38,9 +32,7 @@ namespace EmployeeMaster.ViewModel
             {
                 var notificationsList = _notificationService.GetNotifications();
                 Notifications = new ObservableCollection<NotificationModel>(notificationsList);
-               NotificationsString = Notifications.Select(notification => notification.Content).ToList();
-
-
+                NotificationsString = Notifications.Select(notification => notification.Content).ToList();
             }
             catch (Exception ex)
             {
@@ -48,40 +40,9 @@ namespace EmployeeMaster.ViewModel
             }
         }
 
-        public void AddNotification(string content, int employeeId)
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            try
-            {
-                var newNotification = new NotificationModel
-                {
-                    Content = content,
-                    EmployeeId = employeeId
-                };
-
-                _notificationService.AddNotification(newNotification);
-                LoadNotifications();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Greška pri dodavanju obavještenja: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public void DeleteNotification(NotificationModel notification)
-        {
-            try
-            {
-                _notificationService.DeleteNotification(notification.Id);
-                LoadNotifications();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Greška pri brisanju obavještenja: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-    
     }
 }
-
-

@@ -20,6 +20,7 @@ namespace EmployeeMaster.Administator.MainScreen
             ChangeStyleForCurrentWindow($"../../Styles/{style}.xaml");
             int userId = CurrentUser.Instance.IdUser;
             new SettingsScreen(userId, this);
+          
             MainContentArea.Content = new DashBoard();
             ChangeThemeForWindow();
         }

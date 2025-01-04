@@ -76,5 +76,39 @@
 	<System:String x:Key="date">Datum</System:String>
     <System:String x:Key="LogoutButtonContent">Odjavi se</System:String>
     <System:String x:Key="Salary">Plata</System:String>
+    <System:String x:Key="NoDataAvailable">Nema podataka u tabeli</System:String>
+    <System:String x:Key="NoNotification">Trenutno nema novih obavjestenja</System:String>
+
+    <System:String x:Key="FirstName">Ime</System:String>
+    <System:String x:Key="LastName">Prezime</System:String>
+    <System:String x:Key="Email">Email</System:String>
+    <System:String x:Key="Phone">Telefon</System:String>
+    <System:String x:Key="Username">Korisničko ime</System:String>
+    <System:String x:Key="Password">Lozinka</System:String>
+    <System:String x:Key="RepeatPassword">Ponovite lozinku</System:String>
+    <System:String x:Key="Position">Pozicija</System:String>
+    <System:String x:Key="Role">Uloga</System:String>
+    <System:String x:Key="BrowsePicture">Izaberi sliku...</System:String>
+    <System:String x:Key="Save">Sacuvaj</System:String>
+    <System:String x:Key="Cancel">Otkaži</System:String>
+
+    <System:String x:Key="TaskName">Naziv zadatka</System:String>
+    <System:String x:Key="Description">Opis</System:String>
+    <System:String x:Key="DueDate">Datum isteka</System:String>
+    <System:String x:Key="AssignToEmployee">Dodeli zaposlenom</System:String>
+    <System:String x:Key="Priority">Prioritet</System:String>
+    <System:String x:Key="High">Visok</System:String>
+    <System:String x:Key="Medium">Srednji</System:String>
+    <System:String x:Key="Low">Nizak</System:String>
+    <System:String x:Key="DashBoardButtonContent">Kontrolna tabla</System:String>
+
+    <System:String x:Key="UpcomingVacationHeader">Nadolazeći Odmor</System:String>
+    <System:String x:Key="TaskCompletionHeader">Postotak zavrsenosti zadataka</System:String>
+    <System:String x:Key="RemainingLabel">Preostalo</System:String>
+    <System:String x:Key="CompletedLabel">Završeno</System:String>
+    <System:String x:Key="NotificationsHeader">Obaveštenja</System:String>
+    <System:String x:Key="MyTasksLabel">Moji Zadaci</System:String>
+    <System:String x:Key="StartDayLabel">Započni posao</System:String>
+
 
 </ResourceDictionary>

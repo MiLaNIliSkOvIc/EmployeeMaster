@@ -15,7 +15,7 @@ namespace EmployeeMaster.Model
   
         public string Username { get; private set; }
         public string Role { get; private set; }
-
+       
 
         private CurrentUser() { }
 

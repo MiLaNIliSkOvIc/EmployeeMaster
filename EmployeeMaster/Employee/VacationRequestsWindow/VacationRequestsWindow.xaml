@@ -1,51 +1,48 @@
 ﻿<UserControl x:Class="EmployeeMaster.Employee.VacationRequestsScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Height="auto" Width="auto">
 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
-
+              
             </ResourceDictionary.MergedDictionaries>
+
         </ResourceDictionary>
     </UserControl.Resources>
-    
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
-         
-            <RowDefinition Height="Auto"/>
-            
-            <RowDefinition Height="Auto"/>
-         
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
 
         <TextBlock Text="{DynamicResource myVacation}"
                    Style="{DynamicResource TitleTextBlockStyle}"
                    FontSize="32"
-                   HorizontalAlignment="Center" 
+                   HorizontalAlignment="Center"
                    Margin="0,0,0,20"
                    VerticalAlignment="Center"
-                   Grid.Row="0"/>
+                   Grid.Row="0" />
 
         
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Grid.Row="1">
-            <Label Content="{DynamicResource FilterbyDate}" VerticalAlignment="Center" Margin="0,0,5,0"/>
-            <DatePicker Name="FilterDatePicker" Width="150" Margin="0,0,10,0"/>
-            <Button Content="{DynamicResource Search}" Width="100" Click="FilterTable_Click" Margin="0,0,10,0" Style="{DynamicResource ButtonStyle}"/>
-            <Button Content="{DynamicResource AddNewRequest}" Width="150" Click="AddNewRequest_Click"   Style="{DynamicResource ButtonStyle}"/>
+            <Label Content="{DynamicResource FilterbyDate}" VerticalAlignment="Center" Margin="0,0,5,0" />
+            <DatePicker Name="FilterDatePicker" Width="150" Margin="0,0,10,0" />
+            <Button Content="{DynamicResource Search}" Width="100" Click="FilterTable_Click" Margin="0,0,10,0" Style="{DynamicResource ButtonStyle}" />
+            <Button x:Name="ShowAllButton" Width="100" Style="{DynamicResource ButtonStyle}" Content="{DynamicResource ShowAll}" Click="OnShowAllClick" Margin="5,0,10,0" />
+            <Button Content="{DynamicResource AddNewRequest}" Width="150" Click="AddNewRequest_Click" Style="{DynamicResource ButtonStyle}" />
         </StackPanel>
 
-       
+    
         <DataGrid Name="VacationRequestsTable" AutoGenerateColumns="False" 
                   CanUserAddRows="False" Grid.Row="2" Margin="0,10,0,0"
                   ItemsSource="{Binding VacationRequestsList}"
-                       Style="{DynamicResource MaterialDesignDataGrid}">
+                  Style="{DynamicResource MaterialDesignDataGrid}">
+           
             <DataGrid.Columns>
-               
                 <DataGridTemplateColumn Header="{DynamicResource requestId}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -59,7 +56,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                
                 <DataGridTemplateColumn Header="{DynamicResource startDate}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -73,7 +69,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-               
                 <DataGridTemplateColumn Header="{DynamicResource endDate}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -87,7 +82,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-               
                 <DataGridTemplateColumn Header="{DynamicResource status}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -101,7 +95,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-             
                 <DataGridTemplateColumn Header="{DynamicResource actions}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
@@ -111,15 +104,42 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                
-                                <Button Content="{DynamicResource delete}" 
-                            Style="{DynamicResource deleteButton}" Margin="5" Click="DeleteRequest_Click" />
+                                <Button Style="{DynamicResource ButtonStyle}" Margin="5" Height="30" Click="DeleteRequest_Click">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="{DynamicResource delete}" VerticalAlignment="Center" Margin="5"/>
+                                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20" Margin="5"/>
+                                           
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+
+
+
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-
         </DataGrid>
+
+        
+        <TextBlock Text="{DynamicResource NoDataAvailable}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="Gray"
+                   Grid.Row="2">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding VacationRequests.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </UserControl>

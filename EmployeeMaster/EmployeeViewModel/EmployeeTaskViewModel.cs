@@ -14,6 +14,7 @@ namespace EmployeeMaster.EmployeeViewModel
         private readonly TaskService _taskService;
         public ObservableCollection<Model.Task> Tasks { get; private set; }
         int employeeId { get; set; }
+        public int completedTask = 0;
         public EmployeeTaskViewModel(int employeeId)
         {
             _taskService = new TaskService();
@@ -27,7 +28,10 @@ namespace EmployeeMaster.EmployeeViewModel
             try
             {
                 var taskList = _taskService.GetTasksByEmployeeId(employeeId);
-                Tasks = new ObservableCollection<Model.Task>(taskList);
+                var sortedTasks = taskList.OrderBy(task => task.Status != "In Progress").ToList();
+                Tasks = new ObservableCollection<Model.Task>(sortedTasks);
+              
+                completedTask = taskList.Count(task => task.Status == "Completed");
             }
             catch (Exception ex)
             {

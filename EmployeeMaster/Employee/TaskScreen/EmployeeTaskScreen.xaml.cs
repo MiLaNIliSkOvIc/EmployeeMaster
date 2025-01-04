@@ -9,7 +9,7 @@ namespace EmployeeMaster.Employee.TaskScreen
     public partial class EmployeeTaskScreen : UserControl
     {
         private readonly EmployeeTaskViewModel _viewModel;
-
+        
         public EmployeeTaskScreen()
         {
               int employeeId = CurrentUser.Instance.IdUser; 
@@ -17,6 +17,8 @@ namespace EmployeeMaster.Employee.TaskScreen
             _viewModel = new EmployeeTaskViewModel(employeeId);
             DataContext = _viewModel;
             TasksDataGrid.ItemsSource = _viewModel.Tasks;
+            TotalTasksTextBlock.Text = _viewModel.Tasks.Count.ToString();
+            CompletedTasksTextBlock.Text = _viewModel.completedTask.ToString();
         }
 
         private void OnDoneClick(object sender, RoutedEventArgs e)
@@ -28,6 +30,7 @@ namespace EmployeeMaster.Employee.TaskScreen
                 ErrorWindow win = new ErrorWindow($"Task '{selectedTask.TaskName}' marked as Done.");
                 win.Show();
                 TasksDataGrid.ItemsSource = _viewModel.Tasks;
+                CompletedTasksTextBlock.Text = _viewModel.completedTask.ToString();
 
             }
             else

@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:System="clr-namespace:System;assembly=System.Runtime">
-    <System:String x:Key="EmployeesButtonContent">DashBoard</System:String>
+    <System:String x:Key="EmployeesButtonContent">Employees</System:String>
     <System:String x:Key="VacationButtonContent">Vacation</System:String>
     <System:String x:Key="TasksButtonContent">Tasks</System:String>
     <System:String x:Key="BoardButtonContent">Board</System:String>
@@ -77,6 +77,41 @@
 	<System:String x:Key="date">Date</System:String>
     <System:String x:Key="LogoutButtonContent">Log Out</System:String>
     <System:String x:Key="Salary">Salary</System:String>
+    <System:String x:Key="NoDataAvailable">No data available in the table</System:String>
+    <System:String x:Key="NoNotification">There are currently no new notifications</System:String>
+
+    <System:String x:Key="FirstName">First Name</System:String>
+    <System:String x:Key="LastName">Last Name</System:String>
+    <System:String x:Key="Email">Email</System:String>
+    <System:String x:Key="Phone">Phone</System:String>
+    <System:String x:Key="Username">Username</System:String>
+    <System:String x:Key="Password">Password</System:String>
+    <System:String x:Key="RepeatPassword">Repeat Password</System:String>
+    <System:String x:Key="Position">Position</System:String>
+    <System:String x:Key="Role">Role</System:String>
+    <System:String x:Key="BrowsePicture">Browse Picture...</System:String>
+    <System:String x:Key="Save">Save</System:String>
+    <System:String x:Key="Cancel">Cancel</System:String>
     
+  
+    <System:String x:Key="TaskName">Task Name</System:String>
+    <System:String x:Key="Description">Description</System:String>
+    <System:String x:Key="DueDate">Due Date</System:String>
+    <System:String x:Key="AssignToEmployee">Assign to Employee</System:String>
+    <System:String x:Key="Priority">Priority</System:String>
+    <System:String x:Key="High">High</System:String>
+    <System:String x:Key="Medium">Medium</System:String>
+    <System:String x:Key="Low">Low</System:String>
+    <System:String x:Key="DashBoardButtonContent">Dashboard</System:String>
+
+
+    
+    <System:String x:Key="UpcomingVacationHeader">Upcoming Vacation</System:String>
+    <System:String x:Key="TaskCompletionHeader">Task Completion</System:String>
+    <System:String x:Key="RemainingLabel">Remaining</System:String>
+    <System:String x:Key="CompletedLabel">Completed</System:String>
+    <System:String x:Key="NotificationsHeader">Notifications</System:String>
+    <System:String x:Key="MyTasksLabel">My Tasks</System:String>
+    <System:String x:Key="StartDayLabel">Start working</System:String>
 
 </ResourceDictionary>

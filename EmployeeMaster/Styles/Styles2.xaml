@@ -2,7 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
-  
+    <Style x:Key="DashBoardButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock Text="{DynamicResource DashBoardButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="EmployeesButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="#E0E0E0"/>
        
@@ -440,14 +459,15 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,0,0,20"/>
     </Style>
+    
     <Style x:Key="deleteButton" TargetType="Button">
         <Setter Property="Background" Value="#444444"/>
         <Setter Property="Foreground" Value="#fff"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="FontFamily" Value="Segoe Script" />
-
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Padding" Value="10,5"/>
-        <Setter Property="Width" Value="80"/>
+        <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="BorderBrush" Value="#555555"/>
 
@@ -456,32 +476,26 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}"
-                          CornerRadius="10">
-                        <Border.Effect>
-                            <DropShadowEffect x:Name="ShadowEffect" Color="Black" Direction="270" ShadowDepth="5" Opacity="0"/>
-                        </Border.Effect>
-                        <Border.Triggers>
-
-                            <EventTrigger RoutedEvent="Button.MouseEnter">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                      To="#616161" Duration="0:0:0.2"/>
-
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                      To="#616161" Duration="0:0:0.2"/>
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                           
-                        </Border.Triggers>
-                        <ContentPresenter HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Content="{TemplateBinding Content}"/>
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#111" />
+                            <Setter Property="BorderBrush" Value="#555555" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#222" />
+                            <Setter Property="BorderBrush" Value="#666666" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="#333" />
+                            <Setter Property="Foreground" Value="#888888" />
+                            <Setter Property="BorderBrush" Value="#2C2C2C" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

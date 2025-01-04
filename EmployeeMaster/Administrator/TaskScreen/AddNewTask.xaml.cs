@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using EmployeeMaster.Services;
+using System.Text.RegularExpressions;
+using EmployeeMaster.Administator.MainScreen;
 
 namespace EmployeeMaster.Administrator.TaskScreen
 {
@@ -25,7 +27,19 @@ namespace EmployeeMaster.Administrator.TaskScreen
             InitializeComponent();
             _employeeService = new EmployeeService();
             _taskService = new TaskService();
+            var newResourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri($"../../Styles/{MainScreen.style}.xaml", UriKind.RelativeOrAbsolute)
 
+            };
+            var newResourceDictionary2 = new ResourceDictionary
+            {
+
+                Source = new Uri($"../../Language/Resources.{MainScreen.language}.xaml", UriKind.RelativeOrAbsolute)
+            };
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(newResourceDictionary);
+            this.Resources.MergedDictionaries.Add(newResourceDictionary2);
             LoadEmployees();
             LoadPriorities();
         }
@@ -51,10 +65,21 @@ namespace EmployeeMaster.Administrator.TaskScreen
             }
         }
 
+        private void DueDatePicker_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+           
+            string datePattern = @"^(0[1-9]|1[0-2])\/([0-2][1-9]|3[01])\/\d{4}$";
+            Regex regex = new Regex(datePattern);
+
+            if (!regex.IsMatch(e.Text))
+            {
+                e.Handled = true; 
+            }
+        }
         private void LoadPriorities()
         {
-            // Optionally, you can pre-select a priority or populate the ComboBox with more options if needed.
-            PriorityComboBox.SelectedIndex = 0; // Set default to 'High' or any other default priority.
+           
+            PriorityComboBox.SelectedIndex = 0; 
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)

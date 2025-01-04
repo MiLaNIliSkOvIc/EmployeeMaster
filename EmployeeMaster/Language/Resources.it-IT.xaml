@@ -77,5 +77,40 @@
 	<System:String x:Key="date">Data</System:String>
     <System:String x:Key="LogoutButtonContent">Disconnettiti</System:String>
     <System:String x:Key="Salary">Stipendio</System:String>
-  
+    <System:String x:Key="NoDataAvailable">Nessun dato disponibile nella tabella</System:String>
+    <System:String x:Key="NoNotification">Al momento non ci sono nuove notifiche</System:String>
+
+    <System:String x:Key="FirstName">Nome</System:String>
+    <System:String x:Key="LastName">Cognome</System:String>
+    <System:String x:Key="Email">Email</System:String>
+    <System:String x:Key="Phone">Telefono</System:String>
+    <System:String x:Key="Username">Nome utente</System:String>
+    <System:String x:Key="Password">Password</System:String>
+    <System:String x:Key="RepeatPassword">Ripeti la password</System:String>
+    <System:String x:Key="Position">Posizione</System:String>
+    <System:String x:Key="Role">Ruolo</System:String>
+    <System:String x:Key="BrowsePicture">Seleziona immagine...</System:String>
+    <System:String x:Key="Save">Salva</System:String>
+    <System:String x:Key="Cancel">Annulla</System:String>
+
+   
+    <System:String x:Key="TaskName">Nome Attività</System:String>
+    <System:String x:Key="Description">Descrizione</System:String>
+    <System:String x:Key="DueDate">Data di Scadenza</System:String>
+    <System:String x:Key="AssignToEmployee">Assegna a Dipendente</System:String>
+    <System:String x:Key="Priority">Priorità</System:String>
+    <System:String x:Key="High">Alta</System:String>
+    <System:String x:Key="Medium">Media</System:String>
+    <System:String x:Key="Low">Bassa</System:String>
+    <System:String x:Key="DashBoardButtonContent">Cruscotto</System:String>
+
+    <System:String x:Key="UpcomingVacationHeader">Vacanza in arrivo</System:String>
+    <System:String x:Key="TaskCompletionHeader">Completamento del compito</System:String>
+    <System:String x:Key="RemainingLabel">Rimanente</System:String>
+    <System:String x:Key="CompletedLabel">Completato</System:String>
+    <System:String x:Key="NotificationsHeader">Notifiche</System:String>
+    <System:String x:Key="MyTasksLabel">I miei compiti</System:String>
+    <System:String x:Key="StartDayLabel">Inizia la tua giornata</System:String>
+
+
 </ResourceDictionary>

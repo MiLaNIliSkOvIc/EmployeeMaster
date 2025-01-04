@@ -1,6 +1,5 @@
 ﻿using EmployeeMaster.EmployeeViewModel;
 using EmployeeMaster.Model;
-using EmployeeMaster.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 

@@ -64,6 +64,10 @@ namespace EmployeeMaster.Employee
                 }
             
         }
+        private void OnShowAllClick(object sender, RoutedEventArgs e)
+        {
+            VacationRequestsTable.ItemsSource = _viewModel.VacationRequests;
+        }
 
     }
 

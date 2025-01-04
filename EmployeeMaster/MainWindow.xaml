@@ -102,7 +102,7 @@
                 <TextBlock Text="Sign up now to access all the resources and tools at your fingertips!" 
                            Style="{StaticResource SubTextBlockStyle}" Margin="-30,10,0,20"/>
 
-                <Button Content="REGISTER NOW" Style="{StaticResource ButtonStyle}" Margin="-40,10,0,0"/>
+               
             </StackPanel>
         </Grid>
 

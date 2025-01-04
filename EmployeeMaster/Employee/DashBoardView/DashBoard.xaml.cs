@@ -11,10 +11,7 @@ using EmployeeMaster.Services;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.WPF;
 using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using EmployeeMaster.EmployeeViewModel;
+
 
 namespace EmployeeMaster.Employee.DashBoardView
 {
@@ -39,6 +36,17 @@ namespace EmployeeMaster.Employee.DashBoardView
 
         public ObservableCollection<string> Notifications { get; set; }
 
+       
+        private string _workButtonContent;
+        public string WorkButtonContent
+        {
+            get => _workButtonContent;
+            set
+            {
+                _workButtonContent = value;
+                OnPropertyChanged(nameof(WorkButtonContent));
+            }
+        }
         public string job
         {
             get => _job;
@@ -131,16 +139,23 @@ namespace EmployeeMaster.Employee.DashBoardView
             DataContext = this;
 
             var timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += (s, e) => { CurrentTime = DateTime.Now.ToString("HH:mm:ss"); };
+            TimeSpan timeSpan = TimeSpan.Zero;  
+            timer.Interval = TimeSpan.FromSeconds(1);  
+            timer.Tick += (s, e) =>
+            {
+                timeSpan = timeSpan.Add(TimeSpan.FromSeconds(1));  
+                CurrentTime = timeSpan.ToString(@"hh\:mm\:ss");  
+            };
             timer.Start();
+
+            WorkButtonContent = "Start Work";
         }
 
         private async void InitializeDashboard()
         {
             try
             {
-               // string imagePath = @"C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
+               
                 string imagePath = _userService.GetUserInfo(CurrentUser.Instance.IdUser).Picture;
                // string imagePath = _userViewModel.ProfileImage ?? "C:/Users/pc/Desktop/picturesOfCars/profile.jpg";
                 if (File.Exists(imagePath))
@@ -205,24 +220,7 @@ namespace EmployeeMaster.Employee.DashBoardView
                     new PieSeries<double> { Values = new ObservableCollection<double> { remainingTasks }, Name = "Remaining" }
                 };
 
-                TaskCompletionSeries = new ObservableCollection<LineSeries<double>>
-                {
-                new LineSeries<double>
-                {
-                    Values = new ObservableCollection<double>(
-                        Enumerable.Range(1, 12).Select(month =>
-                            (double)tasks.Count(task => task.DueDate.Month == month)
-                        )
-                    ),
-                    Name = "Tasks by Month"
-                }
-
-                };
-                MonthLabels = new ObservableCollection<string>
-                {
-                "Jan", "Feb", "Mar", "Apr", "Maj", "Jun",
-                "Jul", "Avg", "Sep", "Okt", "Nov", "Dec"
-                };
+               
 
                 CurrentDate = DateTime.Now.ToString("dd.MM.yyyy");
                 CurrentTime = DateTime.Now.ToString("HH:mm:ss");
@@ -256,8 +254,23 @@ namespace EmployeeMaster.Employee.DashBoardView
 
             TaskCardsStackPanel.Children.Add(taskCard);
         }
+        private void WorkButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var button = sender as Button;
 
-        private void StartWorkButton_Click(object sender, RoutedEventArgs e)
+            if (button?.Content?.ToString() == "Start Work")
+            {
+                //   StartWorkButton_Click();
+                WorkButtonContent = "Finish Work";
+            }
+            else if (button?.Content?.ToString() == "Finish Work")
+            {
+                // FinishWorkButton_Click();
+                WorkButtonContent = "Start Work";
+            }
+        }
+        private void StartWorkButton_Click()
         {
             int employeeId = CurrentUser.Instance.IdUser;
             DateOnly date = DateOnly.FromDateTime(DateTime.Now);
@@ -284,7 +297,7 @@ namespace EmployeeMaster.Employee.DashBoardView
             MessageBox.Show("Work started!");
         }
 
-        private void FinishWorkButton_Click(object sender, RoutedEventArgs e)
+        private void FinishWorkButton_Click()
         {
             int employeeId = CurrentUser.Instance.IdUser;
             DateTime currentDate = DateTime.Now.Date;
