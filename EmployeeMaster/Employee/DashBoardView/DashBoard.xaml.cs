@@ -11,6 +11,9 @@ using EmployeeMaster.Services;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.WPF;
 using System.IO;
+using System.Windows.Threading;
+using System.Diagnostics.Eventing.Reader;
+using EmployeeMaster.Services.EmployeeMaster.Services;
 
 
 namespace EmployeeMaster.Employee.DashBoardView
@@ -21,7 +24,8 @@ namespace EmployeeMaster.Employee.DashBoardView
         private readonly TaskService _taskService;
         private readonly UserService _userService;
         private readonly VacationService _vacationService;
-
+        private readonly WorkHourService _workHourService;
+        private readonly PositionService _positionService;
         private ObservableCollection<PieSeries<double>> _taskCompletionPieSeries;
         private ObservableCollection<LineSeries<double>> _taskCompletionSeries;
         private string _vacationDates;
@@ -31,12 +35,8 @@ namespace EmployeeMaster.Employee.DashBoardView
         private string _welcomeMessage;
         private int currentWorkHourId; 
         private WorkHourService workHourService = new WorkHourService();
-        public ObservableCollection<string> MonthLabels { get; set; }
-
-
+        DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
         public ObservableCollection<string> Notifications { get; set; }
-
-       
         private string _workButtonContent;
         public string WorkButtonContent
         {
@@ -59,7 +59,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 }
             }
         }
-
         public string welcomeMessage
         {
             get => _welcomeMessage;
@@ -72,7 +71,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 }
             }
         }
-
         public string VacationDates
         {
             get => _vacationDates;
@@ -82,7 +80,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 OnPropertyChanged(nameof(VacationDates));
             }
         }
-
         public string CurrentDate
         {
             get => _currentDate;
@@ -92,7 +89,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 OnPropertyChanged(nameof(CurrentDate));
             }
         }
-
         public string CurrentTime
         {
             get => _currentTime;
@@ -102,7 +98,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 OnPropertyChanged(nameof(CurrentTime));
             }
         }
-
         public ObservableCollection<PieSeries<double>> TaskCompletionPieSeries
         {
             get => _taskCompletionPieSeries;
@@ -112,7 +107,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 OnPropertyChanged(nameof(TaskCompletionPieSeries));
             }
         }
-
         public ObservableCollection<LineSeries<double>> TaskCompletionSeries
         {
             get => _taskCompletionSeries;
@@ -122,7 +116,6 @@ namespace EmployeeMaster.Employee.DashBoardView
                 OnPropertyChanged(nameof(TaskCompletionSeries));
             }
         }
-
         public Dashboard()
         {
             InitializeComponent();
@@ -131,24 +124,45 @@ namespace EmployeeMaster.Employee.DashBoardView
             _taskService = new TaskService();
             _userService = new UserService();
             _vacationService = new  VacationService();
-
+            _workHourService = new WorkHourService();
+            _positionService = new PositionService();
             Notifications = new ObservableCollection<string>();
 
             InitializeDashboard();
 
             DataContext = this;
+           
+            WorkHour hours = _workHourService.GetWorkHourByEmployeeIdAndDate(CurrentUser.Instance.IdUser, DateTime.Now.Date);
 
-            var timer = new System.Windows.Threading.DispatcherTimer();
-            TimeSpan timeSpan = TimeSpan.Zero;  
-            timer.Interval = TimeSpan.FromSeconds(1);  
+            if(hours==null || hours.FinishDate!=null)
+                WorkButtonContent = "Start Work";
+            else
+                WorkButtonContent = "Finish Work";
+
+
+            if (hours == null )
+            {
+                
+                CurrentTime = "00:00:00";
+            }
+            else
+            {
+                CurrentTime = (DateTime.Now.TimeOfDay - hours.StartDate).ToString(@"hh\:mm\:ss");
+                if (WorkButtonContent.Equals("Finish Work"))
+                    {
+                       
+                        timer.Start();
+                       
+                    }
+            }
+
+            TimeSpan timeSpan = TimeSpan.Parse(CurrentTime);
+            timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += (s, e) =>
             {
-                timeSpan = timeSpan.Add(TimeSpan.FromSeconds(1));  
-                CurrentTime = timeSpan.ToString(@"hh\:mm\:ss");  
+                timeSpan = timeSpan.Add(TimeSpan.FromSeconds(1));
+                CurrentTime = timeSpan.ToString(@"hh\:mm\:ss");
             };
-            timer.Start();
-
-            WorkButtonContent = "Start Work";
         }
 
         private async void InitializeDashboard()
@@ -173,8 +187,8 @@ namespace EmployeeMaster.Employee.DashBoardView
                      ProfileImageEllipse.Fill = new SolidColorBrush(Colors.Gray); 
                 }
                 var user =  _userService.GetUserInfo(CurrentUser.Instance.IdUser);
-                job = "Software Developer";
-                welcomeMessage = $"Welcome, {user.FullName}";
+                job = _positionService.GetLatestPosition(CurrentUser.Instance.IdUser);
+                welcomeMessage = $"{user.FullName}";
                 
                 
                 var notifications = _notificationService.GetNotifications();
@@ -223,7 +237,7 @@ namespace EmployeeMaster.Employee.DashBoardView
                
 
                 CurrentDate = DateTime.Now.ToString("dd.MM.yyyy");
-                CurrentTime = DateTime.Now.ToString("HH:mm:ss");
+                
             }
             catch (Exception ex)
             {
@@ -249,25 +263,29 @@ namespace EmployeeMaster.Employee.DashBoardView
                 FontSize = 12,
                 FontWeight = System.Windows.FontWeights.Bold
             };
-
+            
             taskCard.Child = taskText;
 
             TaskCardsStackPanel.Children.Add(taskCard);
         }
         private void WorkButton_Click(object sender, RoutedEventArgs e)
         {
-            
+          
+          
+
             var button = sender as Button;
 
             if (button?.Content?.ToString() == "Start Work")
             {
-                //   StartWorkButton_Click();
-                WorkButtonContent = "Finish Work";
+                   StartWorkButton_Click();
+               
+               
             }
             else if (button?.Content?.ToString() == "Finish Work")
             {
-                // FinishWorkButton_Click();
+                 FinishWorkButton_Click();
                 WorkButtonContent = "Start Work";
+                timer.Stop();
             }
         }
         private void StartWorkButton_Click()
@@ -281,9 +299,10 @@ namespace EmployeeMaster.Employee.DashBoardView
                 MessageBox.Show("You already have a work hour entry for today.");
                 return; 
             }
-
+            WorkButtonContent = "Finish Work";
             TimeSpan startTime = DateTime.Now.TimeOfDay;
-            string shift = "Morning";
+            string shift = DetermineShift(startTime);
+           
 
             var workHour = new WorkHour
             {
@@ -317,7 +336,7 @@ namespace EmployeeMaster.Employee.DashBoardView
             if (result == MessageBoxResult.Yes)
             {
                
-                workHourService.UpdateWorkHourFinishByDate(currentDate, finishTime);
+                workHourService.UpdateWorkHourFinishByDate(CurrentUser.Instance.IdUser,currentDate, finishTime);
 
                 
                 MessageBox.Show("Work finished!");
@@ -329,7 +348,21 @@ namespace EmployeeMaster.Employee.DashBoardView
             }
         }
 
-
+        private string DetermineShift(TimeSpan currentTime)
+        {
+            if (currentTime >= TimeSpan.FromHours(6) && currentTime < TimeSpan.FromHours(14))
+            {
+                return "Morning";
+            }
+            else if (currentTime >= TimeSpan.FromHours(14) && currentTime < TimeSpan.FromHours(22))
+            {
+                return "Afternoon";
+            }
+            else
+            {
+                return "Night";
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

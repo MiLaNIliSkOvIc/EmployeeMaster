@@ -72,6 +72,43 @@ namespace EmployeeMaster.Services
 
                 return positions;
             }
+            public string GetLatestPosition(int userId)
+            {
+                Position latestPosition = null;
+
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    
+                    var query = @"
+                    SELECT p.idPosition, p.name
+                    FROM Position p
+                    JOIN Employee_has_Position eph ON eph.Position_idPosition = p.idPosition
+                    WHERE eph.Employee_User_idUser = @UserId
+                    AND eph.date = (
+                        SELECT MAX(date)
+                        FROM Employee_has_Position
+                        WHERE Employee_User_idUser = @UserId
+                    )";
+
+                    var command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            latestPosition = new Position
+                            {
+                                Id = reader.GetInt32("idPosition"),
+                                Name = reader.GetString("name")
+                            };
+                        }
+                    }
+                }
+
+                return latestPosition.Name;
+            }
         }
 
   

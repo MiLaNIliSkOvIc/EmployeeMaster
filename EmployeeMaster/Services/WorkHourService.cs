@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace EmployeeMaster.Services
 {
@@ -134,7 +135,7 @@ namespace EmployeeMaster.Services
                         {
                             Id = reader.GetInt32("idWorkHour"),
                             StartDate = reader.GetTimeSpan("Start"),
-                            FinishDate = reader.GetTimeSpan("Finish"),
+                            FinishDate = reader.IsDBNull("Finish") ? (TimeSpan?)null : reader.GetTimeSpan("Finish"),
                             Date = DateOnly.FromDateTime(reader.GetDateTime("datum")),
                             Shift = reader.GetString("Shift"),
                             EmployeeId = reader.GetInt32("Employee_User_idUser")
@@ -186,22 +187,61 @@ namespace EmployeeMaster.Services
         }
 
 
-        public void UpdateWorkHourFinishByDate(DateTime date, TimeSpan finishTime)
+        public void UpdateWorkHourFinishByDate(int employeeId, DateTime date, TimeSpan finishTime)
         {
             using (var connection = new MySqlConnection(connectionString))
             {
                 var query = @"
-            UPDATE WorkHour
-            SET Finish = @FinishTime
-            WHERE DATE(datum) = @Date AND Finish IS NULL";
+        UPDATE WorkHour
+        SET Finish = @FinishTime
+        WHERE Employee_User_idUser = @EmployeeId AND DATE(datum) = @Date AND Finish IS NULL";
 
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@FinishTime", finishTime);
+                command.Parameters.AddWithValue("@EmployeeId", employeeId);
                 command.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
 
                 connection.Open();
                 command.ExecuteNonQuery();
             }
         }
+        public WorkHour GetWorkHourByEmployeeIdAndDate(int employeeId, DateTime date)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var query = @"
+        SELECT idWorkHour, `Start`, datum, finish, Shift, Employee_User_idUser
+        FROM WorkHour
+        WHERE Employee_User_idUser = @EmployeeId AND DATE(datum) = @Date";
+
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@EmployeeId", employeeId);
+                command.Parameters.AddWithValue("@Date", date.ToString("yyyy-MM-dd"));
+
+                connection.Open();
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new WorkHour
+                        {
+                            Id = reader.GetInt32("idWorkHour"),
+                            StartDate = reader.GetTimeSpan("Start"),
+                            FinishDate = reader.IsDBNull("finish") ? (TimeSpan?)null : reader.GetTimeSpan("finish"),
+                            Date = DateOnly.FromDateTime(reader.GetDateTime("datum")),
+                            Shift = reader.GetString("Shift"),
+                            EmployeeId = reader.GetInt32("Employee_User_idUser")
+                        };
+                    }
+                }
+            }
+
+            return null; 
+        }
+
+
+
+
     }
 }
