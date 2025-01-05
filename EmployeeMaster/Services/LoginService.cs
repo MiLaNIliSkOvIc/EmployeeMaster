@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 using EmployeeMaster.Model;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace EmployeeMaster.Services
 {
     public class LoginService
     {
-        private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
+        private readonly string connectionString;
 
-        
+        public LoginService()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["EmployeeDatabase"].ConnectionString;
+        }
+
         public UserModel Login(string username, string password)
         {
             UserModel user = null;

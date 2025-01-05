@@ -4,13 +4,18 @@ using MySql.Data.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Configuration; 
 
 namespace EmployeeMaster.Services
 {
     public class WorkHourService
     {
-        private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
+        private readonly string connectionString;
 
+        public WorkHourService()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["EmployeeDatabase"].ConnectionString;
+        }
         public List<WorkHour> GetAllWorkHours()
         {
             var workHours = new List<WorkHour>();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace EmployeeMaster.Services
 {
@@ -14,8 +15,12 @@ namespace EmployeeMaster.Services
     {
         public class PositionService
         {
-            private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
+            private readonly string connectionString;
 
+            public PositionService()
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["EmployeeDatabase"].ConnectionString;
+            }
 
             public List<Position> GetPositions()
             {

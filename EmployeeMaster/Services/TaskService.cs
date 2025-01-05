@@ -1,11 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace EmployeeMaster.Services
 {
     public class TaskService
     {
-        private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
+        private readonly string connectionString;
 
+        public TaskService()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["EmployeeDatabase"].ConnectionString;
+        }
         public List<Model.Task> GetTasks()
         {
             var tasks = new List<Model.Task>();

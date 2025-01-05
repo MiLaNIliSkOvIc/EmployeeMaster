@@ -17,5 +17,11 @@ namespace EmployeeMaster.Model
             Theme = "Styles1";
             Language="en-US";
         }
+        public SettingModel(int userId)
+        {
+            UserId = userId;
+            Theme = "Styles1";
+            Language = "en-US";
+        }
     }
 }

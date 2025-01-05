@@ -4,14 +4,19 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using employee = EmployeeMaster.Model.Employee;
+using System.Configuration;
 
 
-    public class EmployeeService
+public class EmployeeService
     {
-        private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
+    private readonly string connectionString;
 
+    public EmployeeService()
+    {
+        connectionString = ConfigurationManager.ConnectionStrings["EmployeeDatabase"].ConnectionString;
+    }
 
-         public List<employee> GetEmployees()
+    public List<employee> GetEmployees()
         {
             var employees = new List<employee>();
 
@@ -200,6 +205,8 @@ using employee = EmployeeMaster.Model.Employee;
                     roleCommand.ExecuteNonQuery();
 
                     transaction.Commit();
+
+                    new SettingService().AddSetting(new SettingModel(userId));
                 }
                 catch (Exception)
                 {

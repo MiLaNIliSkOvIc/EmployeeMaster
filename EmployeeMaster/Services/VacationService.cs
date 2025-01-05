@@ -2,17 +2,21 @@
 using System;
 using System.Collections.Generic;
 using EmployeeMaster.Model;
-
+using System.Configuration;
 
 namespace EmployeeMaster.Services
 {
   
        public class VacationService
         {
-            private readonly string connectionString = "Server=127.0.0.1;Port=3306;Database=mydb;User Id=root;Password=02100078;";
+        private readonly string connectionString;
 
-          
-            public List<Vacation> GetVacationRequests()
+        public VacationService()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["EmployeeDatabase"].ConnectionString;
+        }
+
+        public List<Vacation> GetVacationRequests()
             {
                 var vacationRequests = new List<Vacation>();
 
