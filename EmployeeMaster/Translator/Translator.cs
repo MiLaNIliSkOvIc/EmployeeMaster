@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace EmployeeMaster.Translator
 {
@@ -24,7 +25,7 @@ namespace EmployeeMaster.Translator
             if (SettingsScreen.Language == "sr-RS")
                 targetLanguage = "hr";
 
-            string apiKey = "123231";
+            string apiKey = ConfigurationManager.AppSettings["ApiKey"];
             string url = $"https://translation.googleapis.com/language/translate/v2?key={apiKey}";
 
                 
@@ -55,7 +56,7 @@ namespace EmployeeMaster.Translator
             if (SettingsScreen.Language == "sr-RS")
                 targetLanguage = "hr";
 
-            string apiKey = "AIzaSyCCuUBHKVgDODtg7_p6lnWtuXodNOJGfwI";
+            string apiKey = ConfigurationManager.AppSettings["ApiKey"];
             string url = $"https://translation.googleapis.com/language/translate/v2?key={apiKey}";
 
             
