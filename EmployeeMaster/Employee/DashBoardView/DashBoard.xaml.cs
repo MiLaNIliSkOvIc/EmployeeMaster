@@ -149,11 +149,12 @@ namespace EmployeeMaster.Employee.DashBoardView
             {
                 CurrentTime = (DateTime.Now.TimeOfDay - hours.StartDate).ToString(@"hh\:mm\:ss");
                 if (WorkButtonContent.Equals("Finish Work"))
-                    {
+                {
                        
-                        timer.Start();
+                    timer.Start();
                        
-                    }
+                }
+                else { CurrentTime = "00:00:00"; }
             }
 
             TimeSpan timeSpan = TimeSpan.Parse(CurrentTime);

@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\Employee\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Update="RoleSelection\RoleSelectionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

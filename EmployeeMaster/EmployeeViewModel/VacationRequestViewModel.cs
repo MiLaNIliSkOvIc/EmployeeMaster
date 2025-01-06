@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using EmployeeMaster.Model;
 using EmployeeMaster.Administrator.VacationRequestsWindow;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.EmployeeViewModel
 {
@@ -65,7 +66,9 @@ namespace EmployeeMaster.EmployeeViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri dohvaćanju podataka: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Greška pri dohvacanju podataka: {ex.Message}");
+                notif.Show();
+              
             }
         }
 
@@ -77,13 +80,15 @@ namespace EmployeeMaster.EmployeeViewModel
                 VacationRequests.Remove(selectedVacation);
                 var vacationService = new VacationService();
                 vacationService.DeleteVacationRequest(selectedVacation.VacationRequestId);
-
-                MessageBox.Show("Vacation request deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                NotificationWindow notif = new NotificationWindow("Vacation request deleted successfully.");
+                notif.Show();
+                
             }
             catch (Exception ex)
             {
-           
-                MessageBox.Show("Cant delete it");
+                NotificationWindow notif = new NotificationWindow($"Cant delete {ex.Message}");
+                notif.Show();
+               
             }
         }
 

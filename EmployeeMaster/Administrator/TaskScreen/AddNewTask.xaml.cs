@@ -14,6 +14,7 @@ using System.Windows.Controls;
 using EmployeeMaster.Services;
 using System.Text.RegularExpressions;
 using EmployeeMaster.Administator.MainScreen;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.Administrator.TaskScreen
 {
@@ -61,7 +62,8 @@ namespace EmployeeMaster.Administrator.TaskScreen
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading employees: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Error loading employees: {ex.Message}");
+                notif.Show();
             }
         }
 
@@ -90,7 +92,9 @@ namespace EmployeeMaster.Administrator.TaskScreen
                 AssignedEmployeeId == null ||
                 string.IsNullOrWhiteSpace(Priority)) 
             {
-                MessageBox.Show("Please fill in all required fields correctly.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow("Please fill in all required fields correctly.");
+                notif.Show();
+
                 return;
             }
 
@@ -108,11 +112,13 @@ namespace EmployeeMaster.Administrator.TaskScreen
                     ) 
                 );
 
-                MessageBox.Show("Task added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                NotificationWindow notif = new NotificationWindow("Task added successfully.");
+                notif.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saving task: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Error saving task: {ex.Message}");
+                notif.Show();
             }
 
             DialogResult = true;

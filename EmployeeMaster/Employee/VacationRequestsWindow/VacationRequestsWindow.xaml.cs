@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using EmployeeMaster.Model;
 using EmployeeMaster.Administrator.TaskScreen;
 using EmployeeMaster.Administrator.VacationRequestsWindow;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.Employee
 {
@@ -38,7 +39,9 @@ namespace EmployeeMaster.Employee
             }
             else
             {
-                MessageBox.Show("Please select a date to filter.", "Filter Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                NotificationWindow notif = new NotificationWindow("Please select a date to filter.");
+                notif.Show();
+              
             }
         }
 
@@ -59,9 +62,9 @@ namespace EmployeeMaster.Employee
 
             var selectedVacation = VacationRequestsTable.SelectedItem as Model.Vacation;
             if (result == MessageBoxResult.Yes)
-                {
-                    _viewModel.DeleteVacationRequest(selectedVacation);
-                }
+            {
+                _viewModel.DeleteVacationRequest(selectedVacation);
+            }
             
         }
         private void OnShowAllClick(object sender, RoutedEventArgs e)

@@ -13,6 +13,8 @@ namespace EmployeeMaster.Administrator.SettingsScreen
         private SettingsViewModel _viewModel;
         private MainScreen _mainScreen;
         private EmployeeMainScreen _employeeMainScreen;
+        public static string style = "Styles2";
+        public static string Language = "en-US";
         private int userId {  get; set; }
         public SettingsScreen(int userId, MainScreen mainScreen = null)
         {
@@ -78,6 +80,8 @@ namespace EmployeeMaster.Administrator.SettingsScreen
 
         private void ApplyTheme(string theme)
         {
+            style = theme;
+
             if (_employeeMainScreen != null)
             {
                 if (theme == "Styles1")
@@ -108,6 +112,7 @@ namespace EmployeeMaster.Administrator.SettingsScreen
 
         private void ApplyLanguage(string language)
         {
+            Language = language;
             if (_employeeMainScreen != null)
             {
                 EmployeeMainScreen.language = language;

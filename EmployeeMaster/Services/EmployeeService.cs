@@ -8,7 +8,7 @@ using System.Configuration;
 
 
 public class EmployeeService
-    {
+{
     private readonly string connectionString;
 
     public EmployeeService()
@@ -133,7 +133,7 @@ public class EmployeeService
         return roles;
     }
 
-    public void AddEmployee(string firstName, string lastName, string username, string password, string email, string phone, string picture, int? positionId, DateTime hireDate, int salary,int roleId)
+    public void AddEmployee(string firstName, string lastName, string username, string password, string email, string phone, string picture, int? positionId, DateTime hireDate, int salary,int roleId,DateTime dateOfBirth)
     {
         using (var connection = new MySqlConnection(connectionString))
         {
@@ -150,8 +150,8 @@ public class EmployeeService
 
 
                     var userQuery = @"
-                INSERT INTO User (idUser, ime, lastname, username, password, email, phone, picture)
-                VALUES (@UserId, @FirstName, @LastName, @Username, @Password, @Email, @Phone, @Picture);";
+                INSERT INTO User (idUser, ime, lastname, username, password, email, phone, picture,dateOfBirth)
+                VALUES (@UserId, @FirstName, @LastName, @Username, @Password, @Email, @Phone, @Picture, @Date);";
 
                     var userCommand = new MySqlCommand(userQuery, connection, transaction);
                     userCommand.Parameters.AddWithValue("@UserId", userId);
@@ -162,6 +162,7 @@ public class EmployeeService
                     userCommand.Parameters.AddWithValue("@Email", email);
                     userCommand.Parameters.AddWithValue("@Phone", phone);
                     userCommand.Parameters.AddWithValue("@Picture", picture);
+                    userCommand.Parameters.AddWithValue("@Date", dateOfBirth.Date);
 
                     userCommand.ExecuteNonQuery();
 
@@ -182,20 +183,22 @@ public class EmployeeService
                     if (positionId.HasValue)
                     {
                         var positionQuery = @"
-                    INSERT INTO Employee_has_Position (Employee_User_idUser, Position_idPosition,date)
-                    VALUES (@UserId, @PositionId,date);";
+                    INSERT INTO Employee_has_Position (Employee_User_idUser, Position_idPosition, date)
+                    VALUES (@UserId, @PositionId, @date);";
 
                         var positionCommand = new MySqlCommand(positionQuery, connection, transaction);
                         positionCommand.Parameters.AddWithValue("@UserId", userId);
-                        positionCommand.Parameters.AddWithValue("@date", hireDate);
+                        positionCommand.Parameters.AddWithValue("@date", hireDate.Date);
                         positionCommand.Parameters.AddWithValue("@PositionId", positionId.Value);
 
                         positionCommand.ExecuteNonQuery();
                     }
-                 
-                var roleQuery = @"
-                INSERT INTO Employee_has_Role (Employee_User_idUser, Role_idRole, date)
-                VALUES (@UserId, @RoleId, @Date);";
+
+
+
+                    var roleQuery = @"
+                        INSERT INTO Employee_has_Role (Employee_User_idUser, Role_idRole, date)
+                        VALUES (@UserId, @RoleId, @Date);";
 
                     var roleCommand = new MySqlCommand(roleQuery, connection, transaction);
                     roleCommand.Parameters.AddWithValue("@UserId", userId);
@@ -204,11 +207,23 @@ public class EmployeeService
 
                     roleCommand.ExecuteNonQuery();
 
+                    if (roleId == 1)
+                    {
+                       
+                        var secondRoleCommand = new MySqlCommand(roleQuery, connection, transaction);
+                        secondRoleCommand.Parameters.AddWithValue("@UserId", userId);
+                        secondRoleCommand.Parameters.AddWithValue("@RoleId", 2); 
+                        secondRoleCommand.Parameters.AddWithValue("@Date", hireDate.Date);
+
+                        secondRoleCommand.ExecuteNonQuery();
+                    }
+  
                     transaction.Commit();
+
 
                     new SettingService().AddSetting(new SettingModel(userId));
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
 
                     transaction.Rollback();
@@ -217,6 +232,101 @@ public class EmployeeService
             }
         }
     }
+
+    public void DeleteEmployee(int userId)
+    {
+        using (var connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                  
+                    var positionQuery = @"
+                    DELETE FROM Employee_has_Position
+                    WHERE Employee_User_idUser = @UserId";
+                    var positionCommand = new MySqlCommand(positionQuery, connection, transaction);
+                    positionCommand.Parameters.AddWithValue("@UserId", userId);
+                    positionCommand.ExecuteNonQuery();
+
+               
+                    var roleQuery = @"
+                    DELETE FROM Employee_has_Role
+                    WHERE Employee_User_idUser = @UserId";
+                    var roleCommand = new MySqlCommand(roleQuery, connection, transaction);
+                    roleCommand.Parameters.AddWithValue("@UserId", userId);
+                    roleCommand.ExecuteNonQuery();
+
+                   
+                    var workHourQuery = @"
+                    DELETE FROM WorkHour
+                    WHERE Employee_User_idUser = @UserId";
+                    var workHourCommand = new MySqlCommand(workHourQuery, connection, transaction);
+                    workHourCommand.Parameters.AddWithValue("@UserId", userId);
+                    workHourCommand.ExecuteNonQuery();
+
+                 
+                    var taskQuery = @"
+                    DELETE FROM Task
+                    WHERE Employee_User_idUser = @UserId";
+                    var taskCommand = new MySqlCommand(taskQuery, connection, transaction);
+                    taskCommand.Parameters.AddWithValue("@UserId", userId);
+                    taskCommand.ExecuteNonQuery();
+
+                  
+                    var vacationQuery = @"
+                    DELETE FROM Vacation
+                    WHERE Employee_User_idUser = @UserId";
+                    var vacationCommand = new MySqlCommand(vacationQuery, connection, transaction);
+                    vacationCommand.Parameters.AddWithValue("@UserId", userId);
+                    vacationCommand.ExecuteNonQuery();
+
+                   
+                    var notificationQuery = @"
+                    DELETE FROM Notification
+                    WHERE Employee_User_idUser = @UserId";
+                    var notificationCommand = new MySqlCommand(notificationQuery, connection, transaction);
+                    notificationCommand.Parameters.AddWithValue("@UserId", userId);
+                    notificationCommand.ExecuteNonQuery();
+
+               
+                    var settingQuery = @"
+                    DELETE FROM Setting
+                    WHERE User_idUser = @UserId";
+                    var settingCommand = new MySqlCommand(settingQuery, connection, transaction);
+                    settingCommand.Parameters.AddWithValue("@UserId", userId);
+                    settingCommand.ExecuteNonQuery();
+
+                    
+                    var employeeQuery = @"
+                    DELETE FROM Employee
+                    WHERE User_idUser = @UserId";
+                    var employeeCommand = new MySqlCommand(employeeQuery, connection, transaction);
+                    employeeCommand.Parameters.AddWithValue("@UserId", userId);
+                    employeeCommand.ExecuteNonQuery();
+
+
+                    var userQuery = @"
+                    DELETE FROM User
+                    WHERE idUser = @UserId";
+                    var userCommand = new MySqlCommand(userQuery, connection, transaction);
+                    userCommand.Parameters.AddWithValue("@UserId", userId);
+                    userCommand.ExecuteNonQuery();
+
+                  
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                   
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+    }
+
 
 }
 

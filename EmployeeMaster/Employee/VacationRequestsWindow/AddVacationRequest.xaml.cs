@@ -18,6 +18,9 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using EmployeeMaster.Services;
+using EmployeeMaster.Administator.MainScreen;
+using EmployeeMaster.Employee.EmployeeMainScreen;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.Administrator.VacationRequestsWindow
 {
@@ -31,6 +34,19 @@ namespace EmployeeMaster.Administrator.VacationRequestsWindow
             InitializeComponent();
             _employeeService = new EmployeeService();
             _vacationService = new VacationService();
+            var newResourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri($"../../Styles/{EmployeeMainScreen.style}.xaml", UriKind.RelativeOrAbsolute)
+
+            };
+            var newResourceDictionary2 = new ResourceDictionary
+            {
+
+                Source = new Uri($"../../Language/Resources.{EmployeeMainScreen.language}.xaml", UriKind.RelativeOrAbsolute)
+            };
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(newResourceDictionary);
+            this.Resources.MergedDictionaries.Add(newResourceDictionary2);
         }
 
        
@@ -53,12 +69,15 @@ namespace EmployeeMaster.Administrator.VacationRequestsWindow
                     {
                     });
 
-
-                MessageBox.Show("Vacation added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                NotificationWindow notif = new NotificationWindow("Vacation added successfully");
+                notif.Show();
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saving vacation: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Error saving vacation: {ex.Message}");
+                notif.Show();
+                
             }
 
             DialogResult = true;

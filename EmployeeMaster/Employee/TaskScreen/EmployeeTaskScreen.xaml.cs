@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using EmployeeMaster.EmployeeViewModel;
-using EmployeeMaster.ErrorDisplay;
+using EmployeeMaster.NotificationDisplay;
 using EmployeeMaster.Model;
 
 namespace EmployeeMaster.Employee.TaskScreen
@@ -26,25 +26,22 @@ namespace EmployeeMaster.Employee.TaskScreen
             if (TasksDataGrid.SelectedItem is Model.Task selectedTask)
             {
                 _viewModel.MarkTaskAsDone(selectedTask);
-             
-                ErrorWindow win = new ErrorWindow($"Task '{selectedTask.TaskName}' marked as Done.");
+
+                NotificationWindow win = new NotificationWindow($"Task '{selectedTask.TaskName}' marked as Done.");
                 win.Show();
                 TasksDataGrid.ItemsSource = _viewModel.Tasks;
                 CompletedTasksTextBlock.Text = _viewModel.completedTask.ToString();
 
             }
-            else
-            {
-                MessageBox.Show("No task selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+          
         }
 
         private void OnDescriptionClick(object sender, RoutedEventArgs e)
         {
             if (TasksDataGrid.SelectedItem is Model.Task selectedTask)
             {
-              
-                ErrorWindow win = new ErrorWindow(selectedTask.Description);
+
+                NotificationWindow win = new NotificationWindow(selectedTask.Description);
                 win.Show(); 
             }
 

@@ -1,4 +1,5 @@
 ﻿using EmployeeMaster.Model;
+using EmployeeMaster.NotificationDisplay;
 using EmployeeMaster.Services;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,8 @@ namespace EmployeeMaster.AdministratorViewModel
             }
             else
             {
-                MessageBox.Show("Unesite tekst obavještenja prije dodavanja.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                NotificationWindow notif = new NotificationWindow("Unesite tekst obavještenja prije dodavanja.");
+                
             }
         }
 
@@ -50,10 +52,7 @@ namespace EmployeeMaster.AdministratorViewModel
                 _notificationService.DeleteNotification(notification.Id);
                 Notifications.Remove(notification);
             }
-            else
-            {
-                MessageBox.Show("Odaberite obavještenje za brisanje.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+           
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EmployeeMaster.Model;
+using EmployeeMaster.NotificationDisplay;
 using EmployeeMaster.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -36,7 +37,9 @@ namespace EmployeeMaster.EmployeeViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri učitavanju obavještenja: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Greška pri učitavanju obavještenja: {ex.Message}");
+                notif.Show();
+               
             }
         }
 

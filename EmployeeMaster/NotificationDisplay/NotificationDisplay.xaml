@@ -1,8 +1,18 @@
-﻿<Window x:Class="EmployeeMaster.ErrorDisplay.ErrorWindow"
+﻿<Window x:Class="EmployeeMaster.NotificationDisplay.NotificationWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Message" Height="200" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Styles1.xaml" />
+                <ResourceDictionary Source="../Language/Resources.en-US.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Grid Margin="10">
        
         <Grid.RowDefinitions>
@@ -14,7 +24,7 @@
         <materialDesign:PackIcon Grid.Row="0" Kind="FileDocumentOutline" 
                                  Width="30" 
                                  Height="30"/>
-        <TextBlock Grid.Row="0" Text="Information" FontWeight="Bold" Margin="50,7,0,0" />
+        <TextBlock Grid.Row="0" Text="{DynamicResource notification}" FontWeight="Bold" Margin="50,7,0,0" />
 
 
         <TextBlock Grid.Row="1"
@@ -28,10 +38,9 @@
 
       
         <Button Grid.Row="2"
-                Content="Close" 
+                Content="{DynamicResource close}" 
                 Width="80" 
-                Background="DarkBlue"
-                Foreground="White"
+               Style="{DynamicResource buttonStyle}"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Click="CloseButton_Click" />

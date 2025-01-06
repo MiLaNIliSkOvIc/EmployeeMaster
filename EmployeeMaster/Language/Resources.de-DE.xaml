@@ -82,7 +82,7 @@
 
     <System:String x:Key="FirstName">Vorname</System:String>
     <System:String x:Key="LastName">Nachname</System:String>
-    <System:String x:Key="Email">E-Mail</System:String>
+    <System:String x:Key="Email">E-Mail { name@beispiel.com}</System:String>
     <System:String x:Key="Phone">Telefon</System:String>
     <System:String x:Key="Username">Benutzername</System:String>
     <System:String x:Key="Password">Passwort</System:String>
@@ -110,6 +110,8 @@
     <System:String x:Key="NotificationsHeader">Benachrichtigungen</System:String>
     <System:String x:Key="MyTasksLabel">Meine Aufgaben</System:String>
     <System:String x:Key="StartDayLabel">Beginnen Sie mit der Arbeit</System:String>
-
+    <System:String x:Key="from">Von</System:String>
+    <System:String x:Key="To">Bis</System:String>
+    <System:String x:Key="close">Schließen</System:String>
 
 </ResourceDictionary>

@@ -14,15 +14,22 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource DashBoardButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="ViewDashboard" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource DashBoardButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    
     <Style x:Key="EmployeesButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -35,16 +42,24 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="ViewDashboard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource EmployeesButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="ViewDashboard" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource EmployeesButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
     <Style x:Key="VacationButtonStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="white"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -55,9 +70,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Beach" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource VacationButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Beach" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource VacationButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -75,9 +98,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="ClipboardList" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource TasksButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="ClipboardList" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource TasksButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -95,16 +126,22 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="BulletinBoard" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource BoardButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="BulletinBoard" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource BoardButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    
-    
     <Style x:Key="WorkedHoursButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -117,9 +154,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Clock" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource WorkedHoursButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Clock" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource WorkedHoursButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -137,9 +182,17 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Bell" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource NotificationsButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Bell" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource NotificationsButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -157,14 +210,21 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="AccountCircle" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource PersonalInfoButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="AccountCircle" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource PersonalInfoButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
 
     <Style x:Key="LogoutButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
@@ -179,14 +239,21 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Logout" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource LogoutButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Logout" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource LogoutButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
 
     <Style x:Key="SettingsButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
@@ -201,14 +268,23 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock Text="{DynamicResource SettingsButtonContent}" Foreground="White" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Settings" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource SettingsButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
                     </DockPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonText" Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+
     <Style x:Key="LeftGridStyle" TargetType="Grid">
         <Setter Property="Background" Value="#DEB887"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -219,7 +295,7 @@
         <Setter Property="Background" Value="#FFF5F5F5"/>
     </Style>
     
-    <!-- Stil za TextBox -->
+    
     <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
         <Setter Property="Width" Value="160" />
         <Setter Property="Height" Value="25" />

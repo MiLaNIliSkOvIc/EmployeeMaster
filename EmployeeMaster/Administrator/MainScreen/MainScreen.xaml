@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Employee Master"
-        Height="450" Width="970">
+        Height="450" Width="1050">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -39,19 +39,17 @@
                            Stretch="Uniform" Width="73" />
                 </Border>
 
-      
-                <Button Content="{DynamicResource EmployeesButtonContent}" Style="{DynamicResource EmployeesButtonStyle}" Grid.Row="1" Click="DashboardButton_Click"/>
-                <Button Content="{DynamicResource VacationButtonContent}" Style="{DynamicResource VacationButtonStyle}" Grid.Row="2" Click="VacationButton_Click"/>
-                <Button Content="{DynamicResource TasksButtonContent}" Style="{DynamicResource TasksButtonStyle}" Grid.Row="3" Click="TaskButton_Click"/>
-                <Button Content="{DynamicResource BoardButtonContent}" Style="{DynamicResource BoardButtonStyle}" Grid.Row="4" Click="BoardButton_Click"/>
-                <Button Content="{DynamicResource WorkedHoursButtonContent}" Style="{DynamicResource WorkedHoursButtonStyle}" Grid.Row="5" Click="WorkedHoursButton_Click"/>
+
+                <Button x:Name="EmployeesButton" Content="{DynamicResource EmployeesButtonContent}" Style="{DynamicResource EmployeesButtonStyle}" Grid.Row="1" Click="DashboardButton_Click"/>
+                <Button x:Name="VacationButton" Content="{DynamicResource VacationButtonContent}" Style="{DynamicResource VacationButtonStyle}" Grid.Row="2" Click="VacationButton_Click"/>
+                <Button x:Name="TasksButton" Content="{DynamicResource TasksButtonContent}" Style="{DynamicResource TasksButtonStyle}" Grid.Row="3" Click="TaskButton_Click"/>
+                <Button x:Name="BoardButton" Content="{DynamicResource BoardButtonContent}" Style="{DynamicResource BoardButtonStyle}" Grid.Row="4" Click="BoardButton_Click"/>
+                <Button x:Name="WorkedHoursButton" Content="{DynamicResource WorkedHoursButtonContent}" Style="{DynamicResource WorkedHoursButtonStyle}" Grid.Row="5" Click="WorkedHoursButton_Click"/>
 
                 <Grid Grid.Row="5" />
-                <Button Content="{DynamicResource LogoutButtonContent}" 
-                        Style="{DynamicResource LogoutButtonStyle}" 
-                        Grid.Row="7" 
-                        Click="LogoutButton_Click" />
-                <Button Content="{DynamicResource SettingsButtonContent}" Style="{DynamicResource SettingsButtonStyle}" Grid.Row="6" Click="SettingsButton_Click"/>
+                <Button x:Name="LogoutButton" Content="{DynamicResource LogoutButtonContent}" Style="{DynamicResource LogoutButtonStyle}" Grid.Row="7" Click="LogoutButton_Click"/>
+                <Button x:Name="SettingsButton" Content="{DynamicResource SettingsButtonContent}" Style="{DynamicResource SettingsButtonStyle}" Grid.Row="6" Click="SettingsButton_Click"/>
+
             </Grid>
 
             <Grid Style="{DynamicResource MainContext}" DockPanel.Dock="Right">

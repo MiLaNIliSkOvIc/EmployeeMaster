@@ -2,9 +2,20 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Select Role" Height="230" Width="300">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Styles1.xaml" />
+                <ResourceDictionary Source="../Language/Resources.en-US.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    
     <StackPanel Margin="10">
         <TextBlock Text="Select a role to continue:" Margin="0,0,0,10" FontWeight="Bold" />
         <ListBox x:Name="RoleListBox" Height="100" />
-        <Button Content="Confirm" Background="#DEB887" Click="ConfirmButton_Click" Margin="0,10,0,0" HorizontalAlignment="Right" />
+        <Button Content="Confirm" Style="{DynamicResource ButtonStyle}" Click="ConfirmButton_Click" Margin="0,10,0,0" HorizontalAlignment="Right" />
     </StackPanel>
 </Window>

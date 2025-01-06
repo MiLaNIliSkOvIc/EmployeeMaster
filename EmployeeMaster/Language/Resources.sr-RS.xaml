@@ -81,8 +81,8 @@
 
     <System:String x:Key="FirstName">Ime</System:String>
     <System:String x:Key="LastName">Prezime</System:String>
-    <System:String x:Key="Email">Email</System:String>
-    <System:String x:Key="Phone">Telefon</System:String>
+    <System:String x:Key="Email">Email{ ime@primjer.com}</System:String>
+    <System:String x:Key="Phone">Telefon{06...}</System:String>
     <System:String x:Key="Username">Korisničko ime</System:String>
     <System:String x:Key="Password">Lozinka</System:String>
     <System:String x:Key="RepeatPassword">Ponovite lozinku</System:String>
@@ -109,6 +109,10 @@
     <System:String x:Key="NotificationsHeader">Obaveštenja</System:String>
     <System:String x:Key="MyTasksLabel">Moji Zadaci</System:String>
     <System:String x:Key="StartDayLabel">Započni posao</System:String>
+    
+    <System:String x:Key="from">Od</System:String>
+    <System:String x:Key="To">Do</System:String>
 
+    <System:String x:Key="close">Zatvori</System:String>
 
 </ResourceDictionary>

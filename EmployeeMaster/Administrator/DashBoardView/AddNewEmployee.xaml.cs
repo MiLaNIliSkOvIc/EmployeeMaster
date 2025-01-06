@@ -8,8 +8,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using EmployeeMaster.ErrorDisplay;
 using EmployeeMaster.Administator.MainScreen;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.Administrator.DashBoardView
 {
@@ -48,6 +48,7 @@ namespace EmployeeMaster.Administrator.DashBoardView
         public string Picture;// => PictureTextBox.Text;
         public int? Position => PositionComboBox.SelectedValue as int? ;
         public int? Role => RoleComboBox.SelectedValue as int? ;
+        public DateTime? DueDate => DueDatePicker.SelectedDate;
 
         public DateTime HireDate => DateTime.Now;
         public int Salary => int.TryParse(SalaryTextBox.Text, out var salary) ? salary : 0;
@@ -73,7 +74,9 @@ namespace EmployeeMaster.Administrator.DashBoardView
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show($"Error loading positions: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Error loading position: {ex.Message}");
+                notif.Show();
+             
             }
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -86,9 +89,9 @@ namespace EmployeeMaster.Administrator.DashBoardView
                 string.IsNullOrWhiteSpace(Email) ||
                 string.IsNullOrWhiteSpace(Phone) ||
                 Salary <= 0 ||
-                Position == null || Role == null)
+                Position == null || Role == null || DueDate == null)
             {
-                ErrorWindow err = new ErrorWindow("Please fill in all required fields correctly.");
+                NotificationWindow err = new NotificationWindow("Please fill in all required fields correctly.");
                 err.Show();
                 return;
             }
@@ -97,7 +100,7 @@ namespace EmployeeMaster.Administrator.DashBoardView
 
             if (!emailRegex.IsMatch(Email))
             {
-                ErrorWindow err = new ErrorWindow("Please enter a valid email address.");
+                NotificationWindow err = new NotificationWindow("Please enter a valid email address.");
                 err.Show();
                 EmailTextBox.Focus(); 
                 return; 
@@ -105,7 +108,7 @@ namespace EmployeeMaster.Administrator.DashBoardView
 
             if (PasswordBox.Password != RepeatPasswordBox.Password)
             {
-                ErrorWindow err = new ErrorWindow("Passwords do not match.");
+                NotificationWindow err = new NotificationWindow("Passwords do not match.");
                 err.Show();
               
                 return; 
@@ -114,7 +117,7 @@ namespace EmployeeMaster.Administrator.DashBoardView
             string picturePath = Picture; 
             if (string.IsNullOrEmpty(picturePath) && PicturePreview.Source == null)
             {
-                ErrorWindow err = new ErrorWindow("Please select a picture.");
+                NotificationWindow err = new NotificationWindow("Please select a picture.");
                 err.Show();
 
                 return;
@@ -139,17 +142,18 @@ namespace EmployeeMaster.Administrator.DashBoardView
                     Position,
                     HireDate.Date,
                     Salary,
-                    Role.Value 
+                    Role.Value, 
+                    DueDate.Value
                 );
 
-                ErrorWindow err = new ErrorWindow("Employee added successfully.");
+                NotificationWindow err = new NotificationWindow("Employee added successfully.");
                 err.Show();
 
 
             }
             catch (Exception ex)
             {
-                ErrorWindow err = new ErrorWindow($"Error saving employee: {ex.Message}");
+                NotificationWindow err = new NotificationWindow($"Error saving employee: {ex.Message}");
                 err.Show();
             }
         
@@ -180,6 +184,17 @@ namespace EmployeeMaster.Administrator.DashBoardView
 
            
             e.Handled = !regex.IsMatch(e.Text);
+        }
+        private void DueDatePicker_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+
+            string datePattern = @"^(0[1-9]|1[0-2])\/([0-2][1-9]|3[01])\/\d{4}$";
+            Regex regex = new Regex(datePattern);
+
+            if (!regex.IsMatch(e.Text))
+            {
+                e.Handled = true;
+            }
         }
         private void BrowsePictureButton_Click(object sender, RoutedEventArgs e)
         {

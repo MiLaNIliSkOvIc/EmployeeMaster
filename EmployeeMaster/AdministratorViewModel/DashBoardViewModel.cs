@@ -38,6 +38,20 @@ namespace EmployeeMaster.AdministratorViewModel
                     Employees.Add(employee);
                 }
             }
+
+        public void DeleteEmployee(int userId)
+        {
+            try
+            {
+                _employeeService.DeleteEmployee(userId);
+                RefreshEmployees();
+            }
+            catch (Exception ex)
+            {
+              
+                MessageBox.Show("Error deleting employee: " + ex.Message);
+            }
+        }
     }
     
 }

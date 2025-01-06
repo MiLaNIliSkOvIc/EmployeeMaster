@@ -1,4 +1,5 @@
-﻿using EmployeeMaster.Services;
+﻿using EmployeeMaster.NotificationDisplay;
+using EmployeeMaster.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,7 +36,9 @@ namespace EmployeeMaster.EmployeeViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri dohvaćanju podataka: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Greška pri učitavanju podataka: {ex.Message}");
+                notif.Show();
+               
             }
         }
 
@@ -69,7 +72,9 @@ namespace EmployeeMaster.EmployeeViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri filtriranju zadataka: {ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                NotificationWindow notif = new NotificationWindow($"Greška pri filtriranju zadataka: {ex.Message}");
+                notif.Show();
+               
             }
         }
     }

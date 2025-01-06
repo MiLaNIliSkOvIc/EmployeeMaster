@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.Administrator.TaskScreen
 {
@@ -36,13 +37,12 @@ namespace EmployeeMaster.Administrator.TaskScreen
         {
             if (TaskDataGrid.SelectedItem is Model.Task selectedTask)
             {
-                viewModel.EditTask(selectedTask); 
-                MessageBox.Show("Task updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                viewModel.EditTask(selectedTask);
+                NotificationWindow notif = new NotificationWindow("Task updated successfully.");
+                notif.Show();
+
             }
-            else
-            {
-                MessageBox.Show("No task selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+           
             TaskDataGrid.ItemsSource = viewModel.FilteredTasks;
         }
 

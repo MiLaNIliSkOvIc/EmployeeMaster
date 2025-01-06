@@ -40,15 +40,15 @@
                            VerticalAlignment="Center" 
                            Stretch="Uniform" Width="73" />
                 </Border>
+                <Button x:Name="DashboardButton" Style="{DynamicResource DashBoardButtonStyle}" Grid.Row="1"  Click="DashboardButton_Click" />
+                <Button x:Name="TasksButton" Style="{DynamicResource TasksButtonStyle}" Grid.Row="2" Click="TasksButton_Click" />
+                <Button x:Name="VacationButton" Style="{DynamicResource VacationButtonStyle}" Grid.Row="3" Click="VacationButton_Click" />
+                <Button x:Name="WorkedHoursButton" Style="{DynamicResource WorkedHoursButtonStyle}" Grid.Row="4" Click="WorkedHoursButton_Click" />
+                <Button x:Name="NotificationsButton" Style="{DynamicResource NotificationsButtonStyle}" Grid.Row="5" Click="NotificationsButton_Click" />
+                <Button x:Name="PersonalInfoButton" Style="{DynamicResource PersonalInfoButtonStyle}" Grid.Row="6" Click="PersonalInfoButton_Click" />
+                <Button x:Name="LogoutButton" Content="{DynamicResource LogoutButtonContent}" Style="{DynamicResource LogoutButtonStyle}" Grid.Row="8" Click="LogoutButton_Click" />
+                <Button x:Name="SettingsButton" Style="{DynamicResource SettingsButtonStyle}" Grid.Row="7" Click="SettingsButton_Click" />
 
-                <Button Style="{DynamicResource DashBoardButtonStyle}" Grid.Row="1" Click="DashboardButton_Click" />
-                <Button Style="{DynamicResource TasksButtonStyle}" Grid.Row="2" Click="TasksButton_Click" />
-                <Button Style="{DynamicResource VacationButtonStyle}" Grid.Row="3" Click="VacationButton_Click" />
-                <Button Style="{DynamicResource WorkedHoursButtonStyle}" Grid.Row="4" Click="WorkedHoursButton_Click" />
-                <Button Style="{DynamicResource NotificationsButtonStyle}" Grid.Row="5" Click="NotificationsButton_Click" />
-                <Button Style="{DynamicResource PersonalInfoButtonStyle}" Grid.Row="6" Click="PersonalInfoButton_Click" />
-                <Button Content="{DynamicResource LogoutButtonContent}" Style="{DynamicResource LogoutButtonStyle}" Grid.Row="8" Click="LogoutButton_Click" />
-                <Button Style="{DynamicResource SettingsButtonStyle}" Grid.Row="7" Click="SettingsButton_Click" />
             </Grid>
             
             <Grid Style="{DynamicResource MainContext}" DockPanel.Dock="Right" >

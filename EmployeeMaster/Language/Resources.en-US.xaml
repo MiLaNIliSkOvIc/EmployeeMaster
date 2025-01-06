@@ -82,8 +82,8 @@
 
     <System:String x:Key="FirstName">First Name</System:String>
     <System:String x:Key="LastName">Last Name</System:String>
-    <System:String x:Key="Email">Email</System:String>
-    <System:String x:Key="Phone">Phone</System:String>
+    <System:String x:Key="Email">Email { name@example.com}</System:String>
+    <System:String x:Key="Phone">Phone {0...}</System:String>
     <System:String x:Key="Username">Username</System:String>
     <System:String x:Key="Password">Password</System:String>
     <System:String x:Key="RepeatPassword">Repeat Password</System:String>
@@ -113,5 +113,7 @@
     <System:String x:Key="NotificationsHeader">Notifications</System:String>
     <System:String x:Key="MyTasksLabel">My Tasks</System:String>
     <System:String x:Key="StartDayLabel">Start working</System:String>
-
+    <System:String x:Key="from">From</System:String>
+    <System:String x:Key="To">To</System:String>
+    <System:String x:Key="close">Close</System:String>
 </ResourceDictionary>

@@ -6,6 +6,7 @@ using System.Windows;
 using EmployeeMaster.Administrator.SettingsScreen;
 using EmployeeMaster.Model;
 using EmployeeMaster.Administrator.WorkedHoursScreen;
+using System.Windows.Media;
 
 namespace EmployeeMaster.Administator.MainScreen
 {
@@ -22,6 +23,7 @@ namespace EmployeeMaster.Administator.MainScreen
             new SettingsScreen(userId, this);
           
             MainContentArea.Content = new DashBoard();
+            EmployeesButton.Foreground = new SolidColorBrush(Colors.Black);
             ChangeThemeForWindow();
         }
 
@@ -62,6 +64,8 @@ namespace EmployeeMaster.Administator.MainScreen
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
         {
             MainContentArea.Content = new DashBoard();
+            ResetButtonColors();
+            EmployeesButton.Foreground = new SolidColorBrush(Colors.Black);
             ChangeThemeForWindow();
            
         }
@@ -69,6 +73,8 @@ namespace EmployeeMaster.Administator.MainScreen
         {
            
             MainContentArea.Content = new VacationScreen.Vacation();
+            ResetButtonColors();
+            VacationButton.Foreground = new SolidColorBrush(Colors.Black);
             ChangeThemeForWindow();
 
         }
@@ -77,17 +83,23 @@ namespace EmployeeMaster.Administator.MainScreen
             
 
             MainContentArea.Content = new TaskScreen();
+            ResetButtonColors();
+            TasksButton.Foreground = new SolidColorBrush(Colors.Black);
             ChangeThemeForWindow();
 
         }
         private void BoardButton_Click(object sender, RoutedEventArgs e)
         {
             MainContentArea.Content = new Notification();
+            ResetButtonColors();
+            BoardButton.Foreground = new SolidColorBrush(Colors.Black);
             ChangeThemeForWindow();
         }
         private void WorkedHoursButton_Click(object sender, RoutedEventArgs e)
         {
             MainContentArea.Content = new WorkedHours();
+            ResetButtonColors();
+            WorkedHoursButton.Foreground = new SolidColorBrush(Colors.Black);
             
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -95,7 +107,9 @@ namespace EmployeeMaster.Administator.MainScreen
             int userId =  CurrentUser.Instance.IdUser;
             
             MainContentArea.Content = new SettingsScreen(userId,this);
-           
+            ResetButtonColors();
+            SettingsButton.Foreground = new SolidColorBrush(Colors.Black);
+
         }
         public void ChangeStyle()
         {
@@ -110,7 +124,17 @@ namespace EmployeeMaster.Administator.MainScreen
             loginWindow.Show();
             this.Close();
         }
-        
+        private void ResetButtonColors()
+        {
+            EmployeesButton.Foreground = new SolidColorBrush(Colors.White);
+            VacationButton.Foreground = new SolidColorBrush(Colors.White);
+            TasksButton.Foreground = new SolidColorBrush(Colors.White);
+            BoardButton.Foreground = new SolidColorBrush(Colors.White);
+            WorkedHoursButton.Foreground = new SolidColorBrush(Colors.White);
+            LogoutButton.Foreground = new SolidColorBrush(Colors.White);
+            SettingsButton.Foreground = new SolidColorBrush(Colors.White);
+        }
+
 
     }
 }
