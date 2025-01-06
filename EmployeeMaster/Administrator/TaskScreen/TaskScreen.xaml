@@ -36,7 +36,7 @@
                  Margin="20,65,0,0"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
-                 
+                 materialDesign:HintAssist.Hint="{DynamicResource Search}"
                  TextChanged="SearchTextBox_TextChanged"/>
 
 
@@ -134,7 +134,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
 
-                                <Button Style="{DynamicResource AcceptDenyButtonStyle}" Click="EditTaskButton_Click" Margin="5">
+                                <Button Style="{DynamicResource deleteButton}" Click="EditTaskButton_Click" Margin="5">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{DynamicResource edit}" VerticalAlignment="Center" Margin="5,0,0,0" />
                                         <materialDesign:PackIcon Kind="Pencil" Margin="5,0,5,0" />
@@ -155,7 +155,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-            <TextBlock Text="{DynamicResource NoDataAvailable}"
+            <!--<TextBlock Text="{DynamicResource NoDataAvailable}"
               HorizontalAlignment="Center"
               VerticalAlignment="Center"
               FontSize="16"
@@ -171,6 +171,6 @@
                             </Style.Triggers>
                         </Style>
                     </TextBlock.Style>  
-        </TextBlock>
+        </TextBlock>-->
     </Grid>
 </UserControl>

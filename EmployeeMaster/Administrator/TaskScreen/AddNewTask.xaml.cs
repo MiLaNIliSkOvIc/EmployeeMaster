@@ -15,6 +15,8 @@ using EmployeeMaster.Services;
 using System.Text.RegularExpressions;
 using EmployeeMaster.Administator.MainScreen;
 using EmployeeMaster.NotificationDisplay;
+using Google.Protobuf.WellKnownTypes;
+using System.Numerics;
 
 namespace EmployeeMaster.Administrator.TaskScreen
 {
@@ -62,8 +64,10 @@ namespace EmployeeMaster.Administrator.TaskScreen
             }
             catch (Exception ex)
             {
-                NotificationWindow notif = new NotificationWindow($"Error loading employees: {ex.Message}");
+               
+                NotificationWindow notif = new NotificationWindow("Error loading employees");
                 notif.Show();
+             
             }
         }
 
@@ -90,7 +94,7 @@ namespace EmployeeMaster.Administrator.TaskScreen
                 string.IsNullOrWhiteSpace(Description) ||
                 DueDate == null ||
                 AssignedEmployeeId == null ||
-                string.IsNullOrWhiteSpace(Priority)) 
+                string.IsNullOrWhiteSpace(Priority))
             {
                 NotificationWindow notif = new NotificationWindow("Please fill in all required fields correctly.");
                 notif.Show();
@@ -111,13 +115,14 @@ namespace EmployeeMaster.Administrator.TaskScreen
 
                     ) 
                 );
-
-                NotificationWindow notif = new NotificationWindow("Task added successfully.");
+             
+                NotificationWindow notif = new NotificationWindow("Task added successfully");
                 notif.Show();
             }
             catch (Exception ex)
             {
-                NotificationWindow notif = new NotificationWindow($"Error saving task: {ex.Message}");
+                
+                NotificationWindow notif = new NotificationWindow("Error saving taks");
                 notif.Show();
             }
 

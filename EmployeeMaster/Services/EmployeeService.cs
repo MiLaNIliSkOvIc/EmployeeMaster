@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using employee = EmployeeMaster.Model.Employee;
 using System.Configuration;
+using EmployeeMaster.Translator;
 
 
 public class EmployeeService
@@ -42,12 +43,15 @@ public class EmployeeService
                 {
                     while (reader.Read())
                     {
-                        employees.Add(new employee
+                    var position = reader.GetString("Position");
+                   // var translatedPosition = Translator.Translate(position);
+
+                    employees.Add(new employee
                         {
                             Id = reader.GetInt32("Id"),
                             FirstName = reader.GetString("FirstName"),
                             LastName = reader.GetString("LastName"),
-                            Position =  reader.GetString("Position"),
+                            Position = position,
                             HireDate = DateOnly.FromDateTime(reader.GetDateTime("EmploymentDate")),
                             Salary =  reader.GetInt32("Salary")
                         });

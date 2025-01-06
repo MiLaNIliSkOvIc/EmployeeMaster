@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using EmployeeMaster.Translator;
 
 namespace EmployeeMaster.Services
 {
@@ -37,10 +38,12 @@ namespace EmployeeMaster.Services
                     {
                         while (reader.Read())
                         {
+                            var position = reader.GetString("name");
+                             //var translatedPosition = Translator.Translator.Translate(position);
                             positions.Add(new Position
                             {
                                 Id = reader.GetInt32("idPosition"),
-                                Name = reader.GetString("name")
+                                Name = position//reader.GetString("name")
                             });
                         }
                     }
@@ -103,10 +106,12 @@ namespace EmployeeMaster.Services
                     {
                         if (reader.Read())
                         {
+                            var position = reader.GetString("name");
+                            //var translatedPosition = Translator.Translator.Translate(position);
                             latestPosition = new Position
                             {
                                 Id = reader.GetInt32("idPosition"),
-                                Name = reader.GetString("name")
+                                Name = position//reader.GetString("name")
                             };
                         }
                     }

@@ -146,8 +146,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Style="{DynamicResource deleteButton}" Click="DeleteButton_Click" 
-                                     Visibility="{Binding employeeId, Converter={StaticResource EmployeeIdToVisibilityConverter}, ConverterParameter=Pending}" >
-
+                                     Visibility="{Binding Id, Converter={StaticResource EmployeeIdToVisibilityConverter}}" >
+                                   
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{DynamicResource delete}" VerticalAlignment="Center" Margin="5,0,0,0" />
                                     <materialDesign:PackIcon Kind="Trash" Margin="5,0,5,0" />

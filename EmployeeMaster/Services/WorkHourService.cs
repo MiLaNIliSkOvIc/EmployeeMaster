@@ -42,13 +42,15 @@ namespace EmployeeMaster.Services
                 {
                     while (reader.Read())
                     {
+                        var shift = reader.GetString("Shift");
+                        //var translatedShift = Translator.Translator.Translate(shift);
                         workHours.Add(new WorkHour
                         {
                             Id = reader.GetInt32("idWorkHour"),
                             StartDate = reader.GetTimeSpan("Start"),
                             FinishDate = reader.GetTimeSpan("Finish"),
                             Date = DateOnly.FromDateTime(reader.GetDateTime("datum")),
-                            Shift = reader.GetString("Shift"),
+                            Shift = shift,//reader.GetString("Shift"),
                             EmployeeId = reader.GetInt32("Employee_User_idUser"),
                             fullName = reader.GetString("ime")+' '+ reader.GetString("lastname"), 
                             

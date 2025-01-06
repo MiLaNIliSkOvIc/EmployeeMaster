@@ -37,6 +37,7 @@
                       Margin="10,0"
                       SelectedIndex="0">
                 <ComboBoxItem Content="{DynamicResource lightTheme}" />
+                <ComboBoxItem Content="Custom" />
                 <ComboBoxItem Content="{DynamicResource darkTheme}" />
             </ComboBox>
         </StackPanel>

@@ -13,10 +13,11 @@ namespace EmployeeMaster.Administator.DashBoardView
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var employeeId = value as string;
+            var employeeId = value?.ToString();
 
-            //return employeeId == CurrentUser.Instance.IdUser.ToString() ? Visibility.Visible : Visibility.Collapsed;
-            return Visibility.Collapsed;
+
+            return employeeId != CurrentUser.Instance.IdUser.ToString() ? Visibility.Visible : Visibility.Collapsed;
+            //return Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

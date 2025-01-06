@@ -116,4 +116,16 @@
     <System:String x:Key="from">From</System:String>
     <System:String x:Key="To">To</System:String>
     <System:String x:Key="close">Close</System:String>
+
+
+
+
+    <System:String x:Key="Addedsuccessfully">Added successfuly</System:String>
+    <System:String x:Key="ErrorSaving">Saving error</System:String>
+    <System:String x:Key="ErrorLoading">Loading error</System:String>
+    <System:String x:Key="FillFields">Please fill in all required fields correctly.</System:String>
+    
+    
+    
+    
 </ResourceDictionary>

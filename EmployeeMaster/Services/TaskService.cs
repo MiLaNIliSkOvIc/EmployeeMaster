@@ -37,13 +37,15 @@ namespace EmployeeMaster.Services
                 {
                     while (reader.Read())
                     {
+                        var status = reader.GetString("Status");
+                        //var translatedStatus = Translator.Translator.Translate(status);
                         tasks.Add(new Model.Task
                         {
                             TaskId = reader.GetInt32("TaskId"),
                             TaskName = reader.GetString("TaskName"),
                             AssignedTo = reader.GetString("AssignedTo"),
                             DueDate = reader.GetDateTime("DueDate"),
-                            Status = reader.GetString("Status"),
+                            Status = status,//reader.GetString("Status"),
                             Description = reader.GetString("Description"),
                             AssignedToId = reader.GetInt32("Id")
                         });

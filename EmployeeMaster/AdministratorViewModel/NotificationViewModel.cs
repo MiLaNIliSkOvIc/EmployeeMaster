@@ -31,7 +31,8 @@ namespace EmployeeMaster.AdministratorViewModel
                 var newNotification = new NotificationModel
                 {
                     Content = NewNotificationContent,
-                    EmployeeId = 1 
+                    EmployeeId = CurrentUser.Instance.IdUser
+
                 };
 
                 _notificationService.AddNotification(newNotification);
@@ -40,9 +41,10 @@ namespace EmployeeMaster.AdministratorViewModel
             }
             else
             {
-                NotificationWindow notif = new NotificationWindow("Unesite tekst obavještenja prije dodavanja.");
-                
+                NotificationWindow err = new NotificationWindow("Unesite tekst obavještenja prije dodavanja.");
+                err.Show();
             }
+           
         }
 
         public void DeleteNotification(NotificationModel notification)

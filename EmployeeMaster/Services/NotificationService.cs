@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using EmployeeMaster.Translator;
 
 namespace EmployeeMaster.Services
 {
@@ -31,10 +32,12 @@ namespace EmployeeMaster.Services
                 {
                     while (reader.Read())
                     {
+                        var content = reader.GetString("content");
+                         //var translatedContent = Translator.Translator.Translate(content);
                         notifications.Add(new NotificationModel
                         {
                             Id = reader.GetInt32("idNotification"),
-                            Content = reader.GetString("content"),
+                            Content = content,//reader.GetString("content"),
                             EmployeeId = reader.GetInt32("Employee_User_idUser")
                         });
                     }

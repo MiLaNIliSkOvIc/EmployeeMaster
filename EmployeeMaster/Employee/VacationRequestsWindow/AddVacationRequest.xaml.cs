@@ -21,6 +21,7 @@ using EmployeeMaster.Services;
 using EmployeeMaster.Administator.MainScreen;
 using EmployeeMaster.Employee.EmployeeMainScreen;
 using EmployeeMaster.NotificationDisplay;
+using System.Resources;
 
 namespace EmployeeMaster.Administrator.VacationRequestsWindow
 {
@@ -67,14 +68,18 @@ namespace EmployeeMaster.Administrator.VacationRequestsWindow
                     ToDate.Value.ToString("yyyy-MM-dd"),    
                     "Pending")
                     {
-                    });
+                });
 
-                NotificationWindow notif = new NotificationWindow("Vacation added successfully");
-                notif.Show();
+                string message = this.Resources["Addedsuccessfully"]?.ToString();
                 
+                NotificationWindow notif = new NotificationWindow(message);
+                notif.Show();
+
             }
             catch (Exception ex)
             {
+                
+                string message = this.Resources["ErrorSaving"]?.ToString();
                 NotificationWindow notif = new NotificationWindow($"Error saving vacation: {ex.Message}");
                 notif.Show();
                 

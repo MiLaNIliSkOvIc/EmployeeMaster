@@ -32,7 +32,7 @@ namespace EmployeeMaster.Services
 
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Username", username);
-                command.Parameters.AddWithValue("@Password", password); // Preporučuje se hashiranje lozinki!
+                command.Parameters.AddWithValue("@Password", password); 
 
                 connection.Open();
                 using (var reader = command.ExecuteReader())

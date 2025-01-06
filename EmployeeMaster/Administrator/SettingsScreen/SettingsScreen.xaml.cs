@@ -42,7 +42,13 @@ namespace EmployeeMaster.Administrator.SettingsScreen
                 
                 ThemeComboBox.SelectedIndex = settings.Theme == "Styles1" ? 0 : 1;
 
-             
+                ThemeComboBox.SelectedIndex = settings.Theme switch
+                {
+                    "Styles1" => 0,
+                    "Styles2" => 1,
+                    "Styles3" => 2,
+
+                };
                 LanguageComboBox.SelectedIndex = settings.Language switch
                 {
                     "en-US" => 0,
@@ -60,7 +66,15 @@ namespace EmployeeMaster.Administrator.SettingsScreen
 
             var updatedSettings = new SettingModel
             {
-                Theme = ThemeComboBox.SelectedIndex == 0 ? "Styles1" : "Styles2",
+                //Theme = ThemeComboBox.SelectedIndex == 0 ? "Styles1" : "Styles2",
+                Theme = ThemeComboBox.SelectedIndex switch
+                {
+                    0 => "Styles1",
+                    1 => "Styles2",
+                    2 => "Styles3",
+               
+                },
+
                 Language = LanguageComboBox.SelectedIndex switch
                 {
                     0 => "en-US",
@@ -89,9 +103,14 @@ namespace EmployeeMaster.Administrator.SettingsScreen
                     EmployeeMainScreen.style = "Styles1";
                     _employeeMainScreen.ChangeStyle();
                 }
-                else
+                else if(theme == "Styles2")
                 {
                     EmployeeMainScreen.style = "Styles2";
+                    _employeeMainScreen.ChangeStyle();
+                }
+                else
+                {
+                    EmployeeMainScreen.style = "Styles3";
                     _employeeMainScreen.ChangeStyle();
                 }
             }
@@ -102,9 +121,14 @@ namespace EmployeeMaster.Administrator.SettingsScreen
                     MainScreen.style = "Styles1";
                     _mainScreen.ChangeStyle();
                 }
-                else
+                else if (theme == "Styles2")
                 {
                     MainScreen.style = "Styles2";
+                    _mainScreen.ChangeStyle();
+                }
+                else
+                {
+                    MainScreen.style = "Styles3";
                     _mainScreen.ChangeStyle();
                 }
             }

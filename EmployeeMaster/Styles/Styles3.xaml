@@ -38,7 +38,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -67,7 +67,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -95,7 +95,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -124,7 +124,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+      
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -154,7 +154,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -183,7 +183,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+      
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -212,7 +212,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -242,7 +242,7 @@
         <Setter Property="Margin" Value="0,0,5,5"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+ 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -271,7 +271,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -295,7 +295,7 @@
 
     <Style x:Key="LeftGridStyle" TargetType="Grid">
         <Setter Property="Background" Value="#2C2C2C"/>
-        
+
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
     <Style x:Key="MainContext" TargetType="Grid">
@@ -306,16 +306,16 @@
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="35" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
 
         <Setter Property="Padding" Value="10" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderBrush" Value="#1E1E1E" />
-        
+
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Margin" Value="15,10" />
         <Setter Property="Background" Value="#333333" />
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -330,17 +330,17 @@
         </Setter>
     </Style>
 
- 
+
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="120" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Background" Value="#333333" />
-        
+
         <Setter Property="BorderBrush" Value="#444444" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
+   
 
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Padding" Value="10" />
@@ -377,9 +377,9 @@
     </Style>
 
     <Style x:Key="MaterialDesignDataGrid" TargetType="DataGrid">
-        <Setter Property="FontFamily" Value="Roboto" />
+      
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontStyle" Value="Italic" />
+       
         <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="Background" Value="LightGray" />
 
@@ -393,7 +393,7 @@
 
         <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
 
-        
+
         <Setter Property="ColumnHeaderHeight" Value="45" />
         <Setter Property="ColumnHeaderStyle">
             <Setter.Value>
@@ -401,7 +401,7 @@
                     <Setter Property="FontWeight" Value="Bold" />
                     <Setter Property="FontSize" Value="10" />
                     <Setter Property="Foreground" Value="White" />
-                    <Setter Property="FontFamily" Value="Segoe Script" />
+                    
 
                     <Setter Property="Background" Value="#333333" />
 
@@ -427,14 +427,14 @@
             <Setter.Value>
                 <Style TargetType="DataGridCell">
                     <Setter Property="Padding" Value="10" />
-                    <Setter Property="FontFamily" Value="Segoe Script" />
+               
 
                     <Setter Property="FontSize" Value="14" />
                     <Setter Property="BorderBrush" Value="Transparent" />
                     <Setter Property="BorderThickness" Value="0" />
                     <Setter Property="HorizontalContentAlignment" Value="Left" />
                     <Setter Property="Foreground" Value="#000000" />
-             
+
                 </Style>
             </Setter.Value>
         </Setter>
@@ -445,13 +445,13 @@
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+
 
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
     </Style>
-    
+
     <Style x:Key="AcceptDenyButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="#444444"/>
         <Setter Property="Foreground" Value="#fff"/>
@@ -460,7 +460,7 @@
         <Setter Property="Width" Value="80"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="BorderBrush" Value="#555555"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+        
 
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
@@ -487,7 +487,7 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
-                            
+
                         </Border.Triggers>
                         <ContentPresenter HorizontalAlignment="Center"
                                           VerticalAlignment="Center"
@@ -497,7 +497,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="TaskButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="30"/>
@@ -508,7 +508,7 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+    
 
         <Setter Property="Padding" Value="8,0"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -519,19 +519,18 @@
     <Style x:Key="NotificationTitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
 
         <Setter Property="Foreground" Value="#333"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,0,0,20"/>
     </Style>
-    
+
     <Style x:Key="deleteButton" TargetType="Button">
         <Setter Property="Background" Value="#444444"/>
         <Setter Property="Foreground" Value="#fff"/>
         <Setter Property="Margin" Value="5"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Padding" Value="10,5"/>
         <Setter Property="Width" Value="100"/>
@@ -568,12 +567,11 @@
         </Setter>
     </Style>
 
-   
+
     <Style x:Key="NotificationTextStyle" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe Script" />
+   
 
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="#333" />
     </Style>
 
@@ -581,12 +579,12 @@
     <Style x:Key="NotificationItemStyle" TargetType="ContentPresenter">
         <Setter Property="Margin" Value="0,0,0,10" />
     </Style>
-    
-    
+
+
     <Style x:Key="PersonalInfoLabelStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
+   
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="5" />
     </Style>
@@ -595,7 +593,7 @@
     <Style x:Key="PersonalInfoValueStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
+    
         <Setter Property="Margin" Value="2" />
     </Style>
 
@@ -603,7 +601,7 @@
     <Style x:Key="BoldTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
+       
     </Style>
 
 
@@ -620,12 +618,12 @@
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    
+
     <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Margin" Value="0,0,0,10" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+   
     </Style>
 
 
@@ -633,7 +631,7 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="Gray" />
         <Setter Property="Margin" Value="0,5,0,0" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+  
 
     </Style>
 
@@ -645,7 +643,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Stroke" Value="Gray" />
         <Setter Property="StrokeThickness" Value="2" />
-        
+
     </Style>
 
 
@@ -653,14 +651,14 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+
     </Style>
 
     <Style x:Key="CurrentTimeStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="30" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="black" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+     
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="0,10,0,0" />
@@ -668,7 +666,7 @@
 
 
     <!--Stil za personal info-->
-    
+
     <Style x:Key="CardStyle" TargetType="Border">
         <Setter Property="Background" Value="#555" />
         <Setter Property="CornerRadius" Value="10" />
@@ -686,35 +684,37 @@
     <Style x:Key="SectionTitleStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="20" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+     
         <Setter Property="Margin" Value="0,0,0,20" />
     </Style>
 
     <Style x:Key="CardTitleStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+       
         <Setter Property="Foreground" Value="Gray" />
     </Style>
 
     <Style x:Key="CardContentStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+      
         <Setter Property="Margin" Value="0,10,0,0" />
     </Style>
 
     <Style x:Key="SidebarTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+       
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="SidebarTitleStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+       
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
+
+
 
 
 </ResourceDictionary>

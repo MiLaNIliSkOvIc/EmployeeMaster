@@ -103,11 +103,11 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Button Content="{DynamicResource accept}" Click="AcceptButton_Click" 
-                            Style="{DynamicResource ButtonStyle}" 
+                            Style="{DynamicResource deleteButton}" 
                                         Margin="0,0,10,0"
                             Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
                                 <Button Content="{DynamicResource deny}" Click="DenyButton_Click" 
-                            Style="{DynamicResource ButtonStyle}" 
+                            Style="{DynamicResource deleteButton}" 
                             Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
                             </StackPanel>
                         </DataTemplate>

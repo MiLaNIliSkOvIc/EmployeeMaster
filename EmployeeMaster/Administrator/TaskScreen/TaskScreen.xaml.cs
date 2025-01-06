@@ -30,6 +30,7 @@ namespace EmployeeMaster.Administrator.TaskScreen
 
             }
             viewModel.LoadTasks();
+            TaskDataGrid.ItemsSource = viewModel.FilteredTasks;
         }
 
   
