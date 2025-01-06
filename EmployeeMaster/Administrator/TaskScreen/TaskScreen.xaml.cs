@@ -38,9 +38,14 @@ namespace EmployeeMaster.Administrator.TaskScreen
         {
             if (TaskDataGrid.SelectedItem is Model.Task selectedTask)
             {
-                viewModel.EditTask(selectedTask);
-                NotificationWindow notif = new NotificationWindow("Task updated successfully.");
-                notif.Show();
+                EditTask edit = new EditTask(selectedTask);
+                if (edit.ShowDialog() == true)
+                {
+
+                }
+
+                viewModel.LoadTasks();
+                TaskDataGrid.ItemsSource = viewModel.FilteredTasks;
 
             }
            
