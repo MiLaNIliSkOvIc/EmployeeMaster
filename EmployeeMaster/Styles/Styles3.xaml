@@ -380,7 +380,7 @@
       
         <Setter Property="FontSize" Value="14" />
        
-        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Foreground" Value="Black" />
         <Setter Property="Background" Value="LightGray" />
 
         <Setter Property="RowBackground" Value="LightGray" />

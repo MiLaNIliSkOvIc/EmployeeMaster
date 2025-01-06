@@ -14,8 +14,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="ViewDashboard"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource DashBoardButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="ViewDashboard" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource DashBoardButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0" 
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -31,20 +32,20 @@
     </Style>
 
     <Style x:Key="EmployeesButtonStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="#E0E0E0"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="ViewDashboard"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource EmployeesButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="ViewDashboard" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource EmployeesButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -60,20 +61,20 @@
     </Style>
 
     <Style x:Key="VacationButtonStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="#E0E0E0"/>
+        <Setter Property="Foreground" Value="white"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Beach"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource VacationButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Beach" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource VacationButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -89,20 +90,20 @@
     </Style>
 
     <Style x:Key="TasksButtonStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="#E0E0E0"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="ClipboardList" Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource TasksButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="ClipboardList" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource TasksButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -118,20 +119,20 @@
     </Style>
 
     <Style x:Key="BoardButtonStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="#E0E0E0"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="BulletinBoard"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource BoardButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="BulletinBoard" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource BoardButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -154,13 +155,13 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Clock"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource WorkedHoursButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Clock" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource WorkedHoursButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -183,13 +184,13 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Bell"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource NotificationsButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Bell" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource NotificationsButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -212,13 +213,13 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="AccountCircle"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource PersonalInfoButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="AccountCircle" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource PersonalInfoButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -242,13 +243,13 @@
         <Setter Property="Margin" Value="0,0,5,5"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Logout"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource LogoutButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Logout" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource LogoutButtonContent}" VerticalAlignment="Center" FontSize="16" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -264,20 +265,21 @@
     </Style>
 
     <Style x:Key="SettingsButtonStyle" TargetType="Button">
-        <Setter Property="Foreground" Value="#E0E0E0"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="0,0,5,5"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <DockPanel>
-                        <materialDesign:PackIcon Kind="Settings"  Width="24" Height="24" Margin="10,0"/>
-                        <TextBlock x:Name="ButtonText" Text="{DynamicResource SettingsButtonContent}"  VerticalAlignment="Center" FontSize="16" Margin="5,0"/>
+                        <materialDesign:PackIcon Kind="Settings" x:Name="Icon" Width="24" Height="24" Margin="10,0"/>
+                        <TextBlock x:Name="ButtonText" Text="{DynamicResource SettingsButtonContent}" VerticalAlignment="Center" FontSize="20" Margin="5,0"
+                                   FontFamily="Lucida Handwriting"/>
                     </DockPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -294,35 +296,33 @@
 
 
     <Style x:Key="LeftGridStyle" TargetType="Grid">
-        <Setter Property="Background" Value="#2C2C2C"/>
-        
+        <Setter Property="Background" Value="LightBlue"/>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
+
+
     <Style x:Key="MainContext" TargetType="Grid">
-        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="Background" Value="#FFF5F5F5"/>
     </Style>
 
-    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
-        <Setter Property="Width" Value="200" />
-        <Setter Property="Height" Value="35" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
 
-        <Setter Property="Padding" Value="10" />
+    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Width" Value="160" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
+        <Setter Property="Padding" Value="8" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderBrush" Value="#1E1E1E" />
-        
-        <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="Margin" Value="15,10" />
-        <Setter Property="Background" Value="#333333" />
-        
+        <Setter Property="BorderBrush" Value="#DCDCDC" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Margin" Value="10,10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <Border Background="{TemplateBinding Background}"
+                    <Border Background="White"
                             BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="8">
+                            BorderThickness="1"
+                            CornerRadius="5">
                         <ScrollViewer x:Name="PART_ContentHost" />
                     </Border>
                 </ControlTemplate>
@@ -330,20 +330,19 @@
         </Setter>
     </Style>
 
- 
+
     <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="Width" Value="120" />
-        <Setter Property="Height" Value="40" />
-        <Setter Property="Background" Value="#333333" />
-        
-        <Setter Property="BorderBrush" Value="#444444" />
-        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Width" Value="90" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Background" Value="LightBlue" />
+        <Setter Property="BorderBrush" Value="Blue" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Padding" Value="10,2" />
 
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Padding" Value="10" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -353,22 +352,25 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="20">
+                            CornerRadius="10">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
+
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#444444" />
-                            <Setter Property="BorderBrush" Value="#555555" />
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="BorderBrush" Value="Blue" />
                         </Trigger>
+
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="#555555" />
-                            <Setter Property="BorderBrush" Value="#666666" />
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="BorderBrush" Value="Blue" />
                         </Trigger>
+
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#2C2C2C" />
-                            <Setter Property="Foreground" Value="#888888" />
-                            <Setter Property="BorderBrush" Value="#2C2C2C" />
+                            <Setter Property="Background" Value="#D3D3D3" />
+                            <Setter Property="Foreground" Value="#A9A9A9" />
+                            <Setter Property="BorderBrush" Value="#D3D3D3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -376,14 +378,71 @@
         </Setter>
     </Style>
 
-    <Style x:Key="MaterialDesignDataGrid" TargetType="DataGrid">
-        <Setter Property="FontFamily" Value="Roboto" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontStyle" Value="Italic" />
-        <Setter Property="Foreground" Value="#FFFFFF" />
-        <Setter Property="Background" Value="LightGray" />
 
-        <Setter Property="RowBackground" Value="LightGray" />
+    <Style x:Key="AcceptDenyButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="LightBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="BorderBrush" Value="LightBlue"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect x:Name="ShadowEffect" Color="Black" Direction="270" ShadowDepth="5" Opacity="0"/>
+                        </Border.Effect>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
+                                                         To="0.5" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.ShadowDepth)"
+                                                         To="2" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="Button.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                        To="LightBlue" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Opacity)"
+                                                         To="0" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.ShadowDepth)"
+                                                         To="5" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="MaterialDesignDataGrid" TargetType="DataGrid">
+
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
+
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="#FFF5F5F5" />
+
+        <Setter Property="RowBackground" Value="#FFF5F5F5" />
         <Setter Property="AlternatingRowBackground" Value="#3A3A3A" />
         <Setter Property="BorderBrush" Value="Transparent" />
 
@@ -393,15 +452,16 @@
 
         <Setter Property="VerticalGridLinesBrush" Value="Transparent" />
 
-        
+
         <Setter Property="ColumnHeaderHeight" Value="45" />
         <Setter Property="ColumnHeaderStyle">
             <Setter.Value>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="FontWeight" Value="Bold" />
                     <Setter Property="FontSize" Value="10" />
+                    <Setter Property="FontFamily" Value="Lucida Handwriting" />
                     <Setter Property="Foreground" Value="White" />
-                    <Setter Property="FontFamily" Value="Segoe Script" />
+
 
                     <Setter Property="Background" Value="#333333" />
 
@@ -427,14 +487,15 @@
             <Setter.Value>
                 <Style TargetType="DataGridCell">
                     <Setter Property="Padding" Value="10" />
-                    <Setter Property="FontFamily" Value="Segoe Script" />
+
 
                     <Setter Property="FontSize" Value="14" />
+                    <Setter Property="FontFamily" Value="Lucida Handwriting" />
                     <Setter Property="BorderBrush" Value="Transparent" />
                     <Setter Property="BorderThickness" Value="0" />
                     <Setter Property="HorizontalContentAlignment" Value="Left" />
                     <Setter Property="Foreground" Value="#000000" />
-             
+
                 </Style>
             </Setter.Value>
         </Setter>
@@ -442,125 +503,81 @@
 
 
 
+
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
-
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
     </Style>
-    
-    <Style x:Key="AcceptDenyButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="#444444"/>
-        <Setter Property="Foreground" Value="#fff"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="Padding" Value="10,5"/>
-        <Setter Property="Width" Value="80"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="BorderBrush" Value="#555555"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
 
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="10">
-                        <Border.Effect>
-                            <DropShadowEffect x:Name="ShadowEffect" Color="Black" Direction="270" ShadowDepth="5" Opacity="0"/>
-                        </Border.Effect>
-                        <Border.Triggers>
-
-                            <EventTrigger RoutedEvent="Button.MouseEnter">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                        To="#616161" Duration="0:0:0.2"/>
-
-                                        <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                                        To="#616161" Duration="0:0:0.2"/>
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            
-                        </Border.Triggers>
-                        <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          Content="{TemplateBinding Content}"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    
     <Style x:Key="TaskButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="30"/>
-        <Setter Property="Background" Value="#444444"/>
-        <Setter Property="Foreground" Value="#fff"/>
-        <Setter Property="BorderBrush" Value="#555555"/>
+        <Setter Property="Background" Value="LightBlue"/>
+        <Setter Property="BorderBrush" Value="LightBlue"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
-
         <Setter Property="Padding" Value="8,0"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,65,42,0"/>
     </Style>
+
     <Style x:Key="NotificationTitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
-
         <Setter Property="Foreground" Value="#333"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,0,0,20"/>
     </Style>
-    
-    <Style x:Key="deleteButton" TargetType="Button">
-        <Setter Property="Background" Value="#444444"/>
-        <Setter Property="Foreground" Value="#fff"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Padding" Value="10,5"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="BorderBrush" Value="#555555"/>
 
+
+
+    <Style x:Key="deleteButton" TargetType="Button">
+        <Setter Property="Background" Value="LightBlue"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="BorderBrush" Value="LightBlue"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
-                     BorderBrush="{TemplateBinding BorderBrush}"
-                     BorderThickness="{TemplateBinding BorderThickness}"
-                     CornerRadius="20">
+                 BorderBrush="{TemplateBinding BorderBrush}"
+                 BorderThickness="{TemplateBinding BorderThickness}"
+                 CornerRadius="10">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
+
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#111" />
-                            <Setter Property="BorderBrush" Value="#555555" />
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="BorderBrush" Value="Blue" />
                         </Trigger>
+
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="#222" />
-                            <Setter Property="BorderBrush" Value="#666666" />
+                            <Setter Property="Background" Value="Blue" />
+                            <Setter Property="BorderBrush" Value="Blue" />
                         </Trigger>
+
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#333" />
-                            <Setter Property="Foreground" Value="#888888" />
-                            <Setter Property="BorderBrush" Value="#2C2C2C" />
+                            <Setter Property="Background" Value="#D3D3D3" />
+                            <Setter Property="Foreground" Value="#A9A9A9" />
+                            <Setter Property="BorderBrush" Value="#D3D3D3" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -568,12 +585,10 @@
         </Setter>
     </Style>
 
-   
     <Style x:Key="NotificationTextStyle" TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe Script" />
-
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontWeight" Value="Bold" />
+
         <Setter Property="Foreground" Value="#333" />
     </Style>
 
@@ -581,12 +596,11 @@
     <Style x:Key="NotificationItemStyle" TargetType="ContentPresenter">
         <Setter Property="Margin" Value="0,0,0,10" />
     </Style>
-    
-    
+
     <Style x:Key="PersonalInfoLabelStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="5" />
     </Style>
@@ -594,24 +608,19 @@
 
     <Style x:Key="PersonalInfoValueStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="FontFamily" Value="Segoe Script" />
         <Setter Property="Margin" Value="2" />
     </Style>
 
-
     <Style x:Key="BoldTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontFamily" Value="Segoe Script" />
     </Style>
 
 
-
-
-
-
-
+ 
     <Style x:Key="DefaultBorderStyle" TargetType="Border">
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="Padding" Value="15" />
@@ -620,24 +629,23 @@
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    
+ 
     <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Margin" Value="0,0,0,10" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
     </Style>
 
-
+  
     <Style x:Key="SubHeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="Foreground" Value="Gray" />
         <Setter Property="Margin" Value="0,5,0,0" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
-
     </Style>
 
-
+  
     <Style x:Key="ProfileImageStyle" TargetType="Ellipse">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
@@ -645,36 +653,33 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Stroke" Value="Gray" />
         <Setter Property="StrokeThickness" Value="2" />
-        
     </Style>
-
 
     <Style x:Key="CurrentDateStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
     </Style>
 
     <Style x:Key="CurrentTimeStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="30" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="black" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+        <Setter Property="Foreground" Value="LightBlue" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="0,10,0,0" />
     </Style>
 
 
-    <!--Stil za personal info-->
-    
+
     <Style x:Key="CardStyle" TargetType="Border">
-        <Setter Property="Background" Value="#555" />
+        <Setter Property="Background" Value="#FFFFFF" />
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="20" />
-        <Setter Property="BorderBrush" Value="#000" />
+        <Setter Property="BorderBrush" Value="#E0E0E0" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Effect">
             <Setter.Value>
@@ -685,34 +690,34 @@
 
     <Style x:Key="SectionTitleStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
         <Setter Property="Margin" Value="0,0,0,20" />
     </Style>
 
     <Style x:Key="CardTitleStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
         <Setter Property="Foreground" Value="Gray" />
     </Style>
 
     <Style x:Key="CardContentStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="Margin" Value="0,10,0,0" />
     </Style>
 
     <Style x:Key="SidebarTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="SidebarTitleStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="Lucida Handwriting" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontFamily" Value="Segoe Script"/>
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
 

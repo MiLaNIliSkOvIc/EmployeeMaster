@@ -424,7 +424,7 @@
     
 
 
-    <!-- Stil za TextBlock -->
+  
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
@@ -534,7 +534,7 @@
     </Style>
 
 
-    <!-- Default Border Style -->
+
     <Style x:Key="DefaultBorderStyle" TargetType="Border">
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="Padding" Value="15" />
@@ -543,21 +543,21 @@
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
-    <!-- Header Text Style -->
+ 
     <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Margin" Value="0,0,0,10" />
     </Style>
 
-    <!-- SubHeader Text Style -->
+    
     <Style x:Key="SubHeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="Gray" />
         <Setter Property="Margin" Value="0,5,0,0" />
     </Style>
 
-    <!-- Profile Image Style -->
+   
     <Style x:Key="ProfileImageStyle" TargetType="Ellipse">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
@@ -567,7 +567,7 @@
         <Setter Property="StrokeThickness" Value="2" />
     </Style>
 
-    <!-- Custom Font Style for Current Date and Time -->
+  
     <Style x:Key="CurrentDateStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontWeight" Value="Bold" />
