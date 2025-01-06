@@ -55,7 +55,7 @@ namespace EmployeeMaster.Translator
             if (SettingsScreen.Language == "sr-RS")
                 targetLanguage = "hr";
 
-            string apiKey = "AIzaSyCCuUBHKVgDODtg7_p6lnWtuXodNOJGfwI";
+            string apiKey = "123";
             string url = $"https://translation.googleapis.com/language/translate/v2?key={apiKey}";
 
             
