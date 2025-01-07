@@ -28,9 +28,12 @@ public class EmployeeService
                         u.idUser AS Id, 
                         u.ime AS FirstName, 
                         u.lastname AS LastName, 
+                        u.Email AS Email,
+                        u.phone AS Phone,
                         p.name AS Position, 
                         e.employmentDate AS EmploymentDate, 
                         e.salary AS Salary
+                        
                     FROM Employee e
                     JOIN User u ON e.User_idUser = u.idUser
                     LEFT JOIN Employee_has_Position ep ON e.User_idUser = ep.Employee_User_idUser
@@ -53,8 +56,10 @@ public class EmployeeService
                             LastName = reader.GetString("LastName"),
                             Position = position,
                             HireDate = DateOnly.FromDateTime(reader.GetDateTime("EmploymentDate")),
-                            Salary =  reader.GetInt32("Salary")
-                        });
+                            Salary =  reader.GetInt32("Salary"),
+                            Email = reader.GetString("Email"),
+                            Phone = reader.GetString("Phone")
+                    });
                     }
                 }
             }
@@ -236,6 +241,63 @@ public class EmployeeService
             }
         }
     }
+
+    public void UpdateEmployee(int userId, string email, string phone, int salary, int? positionId)
+    {
+        using (var connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    
+                    var userQuery = @"
+                    UPDATE User 
+                    SET email = @Email, phone = @Phone
+                    WHERE idUser = @UserId;";
+
+                    var userCommand = new MySqlCommand(userQuery, connection, transaction);
+                    userCommand.Parameters.AddWithValue("@UserId", userId);
+                    userCommand.Parameters.AddWithValue("@Email", email);
+                    userCommand.Parameters.AddWithValue("@Phone", phone);
+                    userCommand.ExecuteNonQuery();
+
+                    
+                    var employeeQuery = @"
+                    UPDATE Employee 
+                    SET salary = @Salary
+                    WHERE User_idUser = @UserId;";
+
+                    var employeeCommand = new MySqlCommand(employeeQuery, connection, transaction);
+                    employeeCommand.Parameters.AddWithValue("@UserId", userId);
+                    employeeCommand.Parameters.AddWithValue("@Salary", salary);
+                    employeeCommand.ExecuteNonQuery();
+
+                    if (positionId.HasValue)
+                    {
+                        var positionQuery = @"
+                        INSERT INTO Employee_has_Position (Employee_User_idUser, Position_idPosition, date)
+                        VALUES (@UserId, @PositionId, NOW())
+                        ON DUPLICATE KEY UPDATE Position_idPosition = @PositionId, date = NOW();";
+                        var positionCommand = new MySqlCommand(positionQuery, connection, transaction);
+                        positionCommand.Parameters.AddWithValue("@UserId", userId);
+                        positionCommand.Parameters.AddWithValue("@PositionId", positionId.Value);
+                        positionCommand.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+    }
+
+
 
     public void DeleteEmployee(int userId)
     {

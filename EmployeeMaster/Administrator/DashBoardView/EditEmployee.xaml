@@ -26,15 +26,7 @@
 
         <StackPanel Grid.Row="1" VerticalAlignment="Top">
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox x:Name="FirstNameTextBox" 
-                         materialDesign:HintAssist.Hint="{DynamicResource FirstName}" 
-                         Width="330" 
-                         Margin="0,0,10,0" />
-                <TextBox x:Name="LastNameTextBox" 
-                         materialDesign:HintAssist.Hint="{DynamicResource LastName}" 
-                         Width="330" />
-            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10"/>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBox x:Name="EmailTextBox" 
@@ -48,58 +40,18 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox x:Name="UsernameTextBox" 
-                         materialDesign:HintAssist.Hint="{DynamicResource Username}" 
-                         Width="330" 
-                         Margin="0,0,10,0" />
-                <PasswordBox x:Name="PasswordBox" 
-                             materialDesign:HintAssist.Hint="{DynamicResource Password}" 
-                             Width="330" />
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <PasswordBox x:Name="RepeatPasswordBox" 
-                             materialDesign:HintAssist.Hint="{DynamicResource RepeatPassword}" 
-                             Margin="0,0,10,0"
-                             Width="330"/>
                 <TextBox x:Name="SalaryTextBox" 
                          materialDesign:HintAssist.Hint="{DynamicResource Salary}" 
                          Width="330" 
+                         Margin="0,0,10,0"
                          PreviewTextInput="SalaryTextBox_PreviewTextInput"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <ComboBox x:Name="PositionComboBox" 
-                          materialDesign:HintAssist.Hint="{DynamicResource Position}" 
-                          Width="330" 
-                          Margin="0,0,10,0" />
-
-                <ComboBox x:Name="RoleComboBox" 
-                          materialDesign:HintAssist.Hint="{DynamicResource Role}" 
-                          Width="330" 
-                          Margin="0,0,10,0" />
+                   materialDesign:HintAssist.Hint="{DynamicResource Position}" 
+                   Width="330" />   
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <DatePicker x:Name="DueDatePicker" 
-               materialDesign:HintAssist.Hint="Datum rodjenja " 
-               PreviewTextInput="DueDatePicker_PreviewTextInput"
-               Width="330" 
-               Margin="0,0,10,0" />
-            </StackPanel>
 
-            <StackPanel Margin="0,0,0,10">
-                <Button Content="{DynamicResource BrowsePicture}" 
-                    Width="175" 
-                    HorizontalAlignment="Left" 
-                    Click="BrowsePictureButton_Click" 
-                    Foreground="Black"
-                    Style="{DynamicResource MaterialDesignFlatButton}" 
-                    Margin="0,0,0,5" />
-                <Border BorderBrush="Gray" BorderThickness="0" MaxHeight="50" MaxWidth="50" HorizontalAlignment="Left" Margin="20,0,0,0">
-                    <Image x:Name="PicturePreview" Stretch="Uniform" />
-                </Border>
-            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <Button x:Name="SaveButton" 

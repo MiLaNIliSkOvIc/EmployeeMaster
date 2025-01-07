@@ -53,17 +53,21 @@ namespace EmployeeMaster.Administator.DashBoardView
             }
        
         }
-        
+
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (EmployeeDataGrid.SelectedItem is Model.Employee selectedEmployee)
             {
-               
-                int userId = selectedEmployee.Id;
-                _viewModel.DeleteEmployee(userId);
+
+                EditEmployee edit = new EditEmployee(selectedEmployee);
+                if (edit.ShowDialog() == true)
+                {
+                }
+                _viewModel.RefreshEmployees();
+
+
             }
-       
         }
     
 
