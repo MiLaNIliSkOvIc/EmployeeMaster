@@ -58,7 +58,30 @@ namespace EmployeeMaster.Administrator.VacationRequestsWindow
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (!FromDatePicker.SelectedDate.HasValue || !ToDatePicker.SelectedDate.HasValue)
+            {            
+                NotificationWindow notif = new NotificationWindow("Please select both start and end dates.");
+                notif.Show();
+                return;
+            }
+
+            DateTime fromDate = FromDatePicker.SelectedDate.Value;
+            DateTime toDate = ToDatePicker.SelectedDate.Value;
+
+            if (fromDate < DateTime.Today)
+            {
+                NotificationWindow notif = new NotificationWindow("Start date cannot be earlier than today.");
+                notif.Show();
+                return;
+            }
+
+            if (toDate < fromDate)
+            {
+                NotificationWindow notif = new NotificationWindow("End date cannot be earlier than start date.");
+                notif.Show();
+                return;
+            }
+
             try
             {
                 _vacationService.AddVacationRequest(new Model.Vacation(

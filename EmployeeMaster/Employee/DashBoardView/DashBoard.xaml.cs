@@ -300,6 +300,7 @@ namespace EmployeeMaster.Employee.DashBoardView
                 MessageBox.Show("You already have a work hour entry for today.");
                 return; 
             }
+            timer.Start();
             WorkButtonContent = "Finish Work";
             TimeSpan startTime = DateTime.Now.TimeOfDay;
             string shift = DetermineShift(startTime);

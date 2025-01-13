@@ -36,7 +36,7 @@
                             Margin="0,0,10,0" />
             </StackPanel>
 
-            <!-- To Date -->
+          
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <DatePicker x:Name="ToDatePicker" 
                             materialDesign:HintAssist.Hint="{DynamicResource To}" 

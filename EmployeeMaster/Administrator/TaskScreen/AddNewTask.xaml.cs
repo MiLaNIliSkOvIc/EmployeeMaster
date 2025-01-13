@@ -94,7 +94,7 @@ namespace EmployeeMaster.Administrator.TaskScreen
                 string.IsNullOrWhiteSpace(Description) ||
                 DueDate == null ||
                 AssignedEmployeeId == null ||
-                string.IsNullOrWhiteSpace(Priority))
+                string.IsNullOrWhiteSpace(Priority) || DueDate.Value < DateTime.Now)
             {
                 NotificationWindow notif = new NotificationWindow("Please fill in all required fields correctly.");
                 notif.Show();

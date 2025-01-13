@@ -42,7 +42,13 @@ namespace EmployeeMaster.Administator.VacationScreen
             }
             VacationDataGrid.ItemsSource = viewModel.VacationRequests; ;
         }
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
+            string searchText = (sender as TextBox)?.Text;
+            viewModel.FilterVacationRequests(searchText);
+            VacationDataGrid.ItemsSource = viewModel.VacationRequests;
+        }
         private void DenyButton_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;

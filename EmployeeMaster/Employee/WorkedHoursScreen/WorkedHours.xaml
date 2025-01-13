@@ -38,7 +38,7 @@
 
             <Button x:Name="ShowAllButton" Style="{DynamicResource ButtonStyle}" Content="{DynamicResource ShowAll}" Click="OnShowAllClick" Margin="5,0,10,0" />
 
-            <Button x:Name="ShowFilteredButton" Style="{DynamicResource ButtonStyle}" Content="{DynamicResource ShowByDate}" Click="OnShowFilteredClick" />
+            <Button x:Name="ShowFilteredButton" Style="{DynamicResource ButtonStyle}" Content="{DynamicResource ShowByDate}" Click="OnShowFilteredClick" Width="150" />
         </StackPanel>
 
         <DataGrid x:Name="WorkHoursList" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" Grid.Row="2" Margin="10" HorizontalAlignment="Stretch" AutoGenerateColumns="False">

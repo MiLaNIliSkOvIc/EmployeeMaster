@@ -33,7 +33,17 @@
             <DatePicker Name="FilterDatePicker" Width="150" Margin="0,0,10,0" />
             <Button Content="{DynamicResource Search}" Width="100" Click="FilterTable_Click" Margin="0,0,10,0" Style="{DynamicResource ButtonStyle}" />
             <Button x:Name="ShowAllButton" Width="100" Style="{DynamicResource ButtonStyle}" Content="{DynamicResource ShowAll}" Click="OnShowAllClick" Margin="5,0,10,0" />
-            <Button Content="{DynamicResource AddNewRequest}" Width="150" Click="AddNewRequest_Click" Style="{DynamicResource ButtonStyle}" />
+            <Button 
+                Width="150" 
+                Click="AddNewRequest_Click" 
+                Style="{DynamicResource ButtonStyle}">
+                        <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="PlusCircle" Width="20" Height="20" Margin="0,0,5,0"/>
+                        <TextBlock Text="{DynamicResource AddNewRequest}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
         </StackPanel>
 
     

@@ -39,19 +39,30 @@ namespace EmployeeMaster.Administator.DashBoardView
             _viewModel.RefreshEmployees();
         }
 
-        
 
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            
             if (EmployeeDataGrid.SelectedItem is Model.Employee selectedEmployee)
             {
                
-                int userId = selectedEmployee.Id;
-                _viewModel.DeleteEmployee(userId);
+                string message = $"Are you sure you want to delete the employee: {selectedEmployee.FullName}?";
+                string translatedMessage = await EmployeeMaster.Translator.Translator.TranslateAsync(message);
+
+             
+                var result = MessageBox.Show(
+                    translatedMessage,
+                    await EmployeeMaster.Translator.Translator.TranslateAsync("Confirm Delete"),
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    int userId = selectedEmployee.Id;
+                    _viewModel.DeleteEmployee(userId);
+                }
             }
-       
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)

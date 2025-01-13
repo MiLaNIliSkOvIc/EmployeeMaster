@@ -3,7 +3,7 @@ using EmployeeMaster.Services;
 using EmployeeMaster.Model;
 using employee = EmployeeMaster.Model.Employee;
 using System.Windows;
-
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.AdministratorViewModel
 {
@@ -51,6 +51,8 @@ namespace EmployeeMaster.AdministratorViewModel
               
                 MessageBox.Show("Error deleting employee: " + ex.Message);
             }
+            NotificationWindow win = new NotificationWindow("Uspjesno obrisan zaposlenik");
+            win.Show();
         }
     }
     

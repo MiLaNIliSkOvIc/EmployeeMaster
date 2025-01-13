@@ -20,6 +20,7 @@
         <!-- Title -->
         <TextBlock Text="{DynamicResource settingsTitle}"
                    FontSize="24"
+                    Style="{DynamicResource NotificationTitleTextBlockStyle}"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
@@ -31,6 +32,7 @@
             <TextBlock Text="{DynamicResource chooseTheme}"
                        VerticalAlignment="Center"
                        Width="120"
+                        Style="{DynamicResource SidebarTextStyle}"
                        FontSize="14" />
             <ComboBox x:Name="ThemeComboBox"
                       Width="200"
@@ -45,9 +47,11 @@
         <!-- Language Selection -->
         <StackPanel Orientation="Horizontal" Margin="0,0,0,20" Grid.Row="2">
             <TextBlock Text="{DynamicResource chooseLanguage}"
+                        Style="{DynamicResource SidebarTextStyle}"
                        VerticalAlignment="Center"
                        Width="120"
                        FontSize="14" 
+
                        />
             <ComboBox x:Name="LanguageComboBox"
                       Width="200"

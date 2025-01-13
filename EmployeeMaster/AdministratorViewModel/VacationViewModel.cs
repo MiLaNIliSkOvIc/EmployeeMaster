@@ -51,6 +51,24 @@ namespace EmployeeMaster.AdministratorViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public void FilterVacationRequests(string searchText)
+        {
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                
+                VacationRequests = new ObservableCollection<Model.Vacation>(vacationService.GetVacationRequests());
+            }
+            else
+            {
+                
+                VacationRequests = new ObservableCollection<Model.Vacation>(
+                    vacationService.GetVacationRequests().Where(request =>
+                        request.FirstName.ToLower().Contains(searchText.ToLower()) ||
+                        request.LastName.ToLower().Contains(searchText.ToLower()) ||
+                        request.Status.ToLower().Contains(searchText.ToLower()))
+                );
+            }
+        }
 
 
 

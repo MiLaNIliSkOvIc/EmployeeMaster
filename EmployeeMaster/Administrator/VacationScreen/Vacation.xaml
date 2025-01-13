@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:EmployeeMaster.Administator.VacationScreen"
+             xmlns:local="clr-namespace:EmployeeMaster.Administator.VacationScreen" xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Height="auto" Width="auto">
 
@@ -20,10 +20,36 @@
     </UserControl.Resources>
 
     <Grid>
-        <!-- Primena stila na TextBlock -->
-        <TextBlock Text="{DynamicResource vacationRequests}" Style="{DynamicResource TitleTextBlockStyle}"/>
+     
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+         
+            <RowDefinition Height="Auto" />
+            
+            <RowDefinition Height="*" />
+      
+        </Grid.RowDefinitions>
 
-        <DataGrid x:Name="VacationDataGrid" 
+        
+        <TextBlock Text="{DynamicResource vacationRequests}" 
+               Style="{DynamicResource TitleTextBlockStyle}" 
+               Grid.Row="0" 
+               Margin="20,10,20,0" />
+
+        <TextBox x:Name="SearchTextBox" 
+         Width="200" 
+         Height="30" 
+         Grid.Row="1"
+         Margin="20,0,20,10" 
+         VerticalAlignment="Top" 
+         HorizontalAlignment="Left" 
+         TextChanged="SearchTextBox_TextChanged"
+         Style="{StaticResource MaterialDesignTextBox}"
+         MaterialDesign:HintAssist.Hint="{DynamicResource Search}">
+       
+        </TextBox>
+
+        <DataGrid x:Name="VacationDataGrid" Grid.Row="1" 
                    Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False"
                   HorizontalAlignment="Stretch"

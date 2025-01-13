@@ -120,10 +120,7 @@
                 <PasswordBox x:Name="PasswordBox" Style="{StaticResource RoundedPasswordBoxStyle}" Password="Password"
                              Foreground="Gray" GotFocus="ClearPasswordPlaceholder" LostFocus="RestorePasswordPlaceholder"/>
 
-                <TextBlock Style="{StaticResource TextBlockLinkStyle}" Margin="80,0,0,10">
-                    <Run Text="Don't have an account?"/>
-                    <Run Text="Sign up!" Foreground="#303F9F"/>
-                </TextBlock>
+              
                 <Button Content="LOGIN" Style="{StaticResource ButtonStyle}" Margin="0,25" Click="Login"/>
             </StackPanel>
         </Grid>
