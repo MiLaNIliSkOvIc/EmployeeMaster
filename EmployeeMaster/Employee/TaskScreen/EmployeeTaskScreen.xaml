@@ -27,7 +27,7 @@
             </ComboBox>
             <DatePicker x:Name="FilterDatePicker" Width="150" Height="35" Margin="5"
             materialDesign:HintAssist.Hint="{DynamicResource FilterbyDate}" 
-            Language="en-US" />
+            Language="en-GB" />
             <Button Content="{DynamicResource applyFilters}" Width="120" Height="35" Margin="10" 
                     Style="{DynamicResource ButtonStyle}" Foreground="White" Click="OnApplyFiltersClick"/>
         </StackPanel>
@@ -62,10 +62,15 @@
                     </DataGridTemplateColumn.HeaderTemplate>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding DueDate}" />
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <Binding Path="DueDate" StringFormat="{}{0:dd.MM.yyyy}" />
+                                </TextBlock.Text>
+                            </TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
 
                 <DataGridTemplateColumn Header="{DynamicResource priority}">
                     <DataGridTemplateColumn.HeaderTemplate>

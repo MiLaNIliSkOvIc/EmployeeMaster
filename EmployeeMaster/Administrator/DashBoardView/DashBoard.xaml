@@ -82,7 +82,7 @@
                   VerticalScrollBarVisibility="Disabled"
                   >
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="*" Header="{DynamicResource ime}">
+                <DataGridTemplateColumn  Header="{DynamicResource ime}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{DynamicResource ime}" />
@@ -129,12 +129,16 @@
                     </DataGridTemplateColumn.HeaderTemplate>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding HireDate}" />
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <Binding Path="HireDate" StringFormat="{}{0:dd.MM.yyyy}" />
+                                </TextBlock.Text>
+                            </TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="*" Header="{DynamicResource Salary}">
+                <DataGridTemplateColumn  Header="{DynamicResource Salary}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{DynamicResource Salary}" />
