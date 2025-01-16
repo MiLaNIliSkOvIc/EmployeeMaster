@@ -124,8 +124,9 @@
     <System:String x:Key="ErrorSaving">Saving error</System:String>
     <System:String x:Key="ErrorLoading">Loading error</System:String>
     <System:String x:Key="FillFields">Please fill in all required fields correctly.</System:String>
-    
-    
-    
-    
+
+    <System:String x:Key="yes">Yes</System:String>
+    <System:String x:Key="no">No</System:String>
+
+
 </ResourceDictionary>

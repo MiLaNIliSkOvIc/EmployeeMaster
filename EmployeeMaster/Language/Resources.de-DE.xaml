@@ -113,5 +113,6 @@
     <System:String x:Key="from">Von</System:String>
     <System:String x:Key="To">Bis</System:String>
     <System:String x:Key="close">Schließen</System:String>
-
+    <System:String x:Key="yes">Ja</System:String>
+    <System:String x:Key="no">Nein</System:String>
 </ResourceDictionary>

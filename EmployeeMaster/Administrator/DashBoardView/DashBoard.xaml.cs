@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using EmployeeMaster.Model;
 using System.Globalization;
 using System.Windows.Data;
+using EmployeeMaster.YesNoWindow;
 
 namespace EmployeeMaster.Administator.DashBoardView
 {
@@ -48,16 +49,12 @@ namespace EmployeeMaster.Administator.DashBoardView
             {
                
                 string message = $"Are you sure you want to delete the employee: {selectedEmployee.FullName}?";
-                string translatedMessage = await EmployeeMaster.Translator.Translator.TranslateAsync(message);
+          
+                var dialog = new YesNoDialog(message);
+  
+                var result = dialog.ShowDialog();
 
-             
-                var result = MessageBox.Show(
-                    translatedMessage,
-                    await EmployeeMaster.Translator.Translator.TranslateAsync("Confirm Delete"),
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Warning);
-
-                if (result == MessageBoxResult.Yes)
+                if (result == true)
                 {
                     int userId = selectedEmployee.Id;
                     _viewModel.DeleteEmployee(userId);

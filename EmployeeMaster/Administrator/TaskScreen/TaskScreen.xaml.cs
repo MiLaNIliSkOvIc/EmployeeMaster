@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using EmployeeMaster.NotificationDisplay;
+using EmployeeMaster.YesNoWindow;
 
 namespace EmployeeMaster.Administrator.TaskScreen
 {
@@ -52,17 +53,26 @@ namespace EmployeeMaster.Administrator.TaskScreen
             TaskDataGrid.ItemsSource = viewModel.FilteredTasks;
         }
 
-      
+
         private void DeleteTaskButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedTask = TaskDataGrid.SelectedItem as Model.Task;
+
             if (selectedTask != null)
             {
-                viewModel.DeleteTask(selectedTask);
+                string message = "Are you sure you want to delete this task?";
+                var dialog = new YesNoDialog(message);
+                var result = dialog.ShowDialog();
+
+                if (result == true)
+                {
+
+                    viewModel.DeleteTask(selectedTask);
+                }
+               
             }
-             
-                TaskDataGrid.ItemsSource = viewModel.FilteredTasks;  
-           
+       
+            TaskDataGrid.ItemsSource = viewModel.FilteredTasks;
         }
 
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EmployeeMaster.Model;
+using EmployeeMaster.NotificationDisplay;
 
 namespace EmployeeMaster.AdministratorViewModel
 {
@@ -86,6 +87,8 @@ namespace EmployeeMaster.AdministratorViewModel
             {
                 FilteredTasks.Remove(taskToDelete);
             }
+            NotificationWindow win = new NotificationWindow("Uspjesno obrisan zadatak");
+            win.Show();
 
         }
 

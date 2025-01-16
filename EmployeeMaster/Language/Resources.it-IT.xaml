@@ -115,4 +115,7 @@
     <System:String x:Key="To">A</System:String>
     <System:String x:Key="close">Chiudi</System:String>
 
+    <System:String x:Key="yes">Si</System:String>
+    <System:String x:Key="no">No</System:String>
+    
 </ResourceDictionary>

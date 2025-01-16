@@ -11,6 +11,7 @@ using EmployeeMaster.Model;
 using EmployeeMaster.Administrator.TaskScreen;
 using EmployeeMaster.Administrator.VacationRequestsWindow;
 using EmployeeMaster.NotificationDisplay;
+using EmployeeMaster.YesNoWindow;
 
 namespace EmployeeMaster.Employee
 {
@@ -53,19 +54,23 @@ namespace EmployeeMaster.Employee
         }
         private void DeleteRequest_Click(object sender, RoutedEventArgs e)
         {
-          
-                var result = MessageBox.Show(
-                    "Are you sure you want to delete this vacation request?",
-                    "Confirm Deletion",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Warning);
+           
+            string message = "Are you sure you want to delete this vacation request?";
+            var dialog = new YesNoDialog(message);
+            var result = dialog.ShowDialog();
 
-            var selectedVacation = VacationRequestsTable.SelectedItem as Model.Vacation;
-            if (result == MessageBoxResult.Yes)
+            if (result == true)
             {
-                _viewModel.DeleteVacationRequest(selectedVacation);
+   
+                var selectedVacation = VacationRequestsTable.SelectedItem as Model.Vacation;
+
+                if (selectedVacation != null)
+                {
+                   
+                    _viewModel.DeleteVacationRequest(selectedVacation);
+                }
+               
             }
-            
         }
         private void OnShowAllClick(object sender, RoutedEventArgs e)
         {

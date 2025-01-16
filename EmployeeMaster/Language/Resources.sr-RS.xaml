@@ -114,5 +114,7 @@
     <System:String x:Key="To">Do</System:String>
 
     <System:String x:Key="close">Zatvori</System:String>
+    <System:String x:Key="yes">Da</System:String>
+    <System:String x:Key="no">Ne</System:String>
 
 </ResourceDictionary>
