@@ -93,7 +93,7 @@ namespace EmployeeMaster.Administrator.VacationRequestsWindow
                     {
                 });
 
-                string message = this.Resources["Addedsuccessfully"]?.ToString();
+                string message = "Vacation added succesfully";
                 
                 NotificationWindow notif = new NotificationWindow(message);
                 notif.Show();
@@ -102,7 +102,7 @@ namespace EmployeeMaster.Administrator.VacationRequestsWindow
             catch (Exception ex)
             {
                 
-                string message = this.Resources["ErrorSaving"]?.ToString();
+                
                 NotificationWindow notif = new NotificationWindow($"Error saving vacation: {ex.Message}");
                 notif.Show();
                 

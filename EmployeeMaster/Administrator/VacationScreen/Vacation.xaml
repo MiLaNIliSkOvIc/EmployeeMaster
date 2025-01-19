@@ -128,13 +128,23 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="{DynamicResource accept}" Click="AcceptButton_Click" 
-                            Style="{DynamicResource deleteButton}" 
-                                        Margin="0,0,10,0"
-                            Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
-                                <Button Content="{DynamicResource deny}" Click="DenyButton_Click" 
-                            Style="{DynamicResource deleteButton}" 
-                            Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}" />
+                                <Button Click="AcceptButton_Click"
+        Style="{DynamicResource deleteButton}"
+        Margin="0,0,10,0"
+        Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <MaterialDesign:PackIcon Kind="Check" Width="16" Height="16" Margin="0,0,5,0" />
+                                        <TextBlock Text="{DynamicResource accept}" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="DenyButton_Click"
+                                    Style="{DynamicResource deleteButton}"
+            Visibility="{Binding Status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter=Pending}">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <MaterialDesign:PackIcon Kind="Close" Width="16" Height="16" Margin="0,0,5,0" />
+                                        <TextBlock Text="{DynamicResource deny}" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -51,7 +51,7 @@ namespace EmployeeMaster.AdministratorViewModel
                 var workHour = WorkHours[i];
 
 
-                if (workHour.Date.Day == date.Month && workHour.Date.Month == date.Day && workHour.Date.Year == date.Year)
+                if (workHour.Date.Day == date.Day && workHour.Date.Month == date.Month && workHour.Date.Year == date.Year)
                 {
                     FilteredWorkHours.Add(workHour);
                 }

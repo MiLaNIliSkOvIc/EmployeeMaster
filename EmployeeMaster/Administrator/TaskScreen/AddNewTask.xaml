@@ -57,9 +57,9 @@
                           materialDesign:HintAssist.Hint="{DynamicResource Priority}" 
                           Width="330" 
                           Margin="0,0,10,0">
-                    <ComboBoxItem Content="{DynamicResource High}" />
-                    <ComboBoxItem Content="{DynamicResource Medium}" />
-                    <ComboBoxItem Content="{DynamicResource Low}" />
+                    <ComboBoxItem Content="High" />
+                    <ComboBoxItem Content="Medium" />
+                    <ComboBoxItem Content="Low" />
                 </ComboBox>
             </StackPanel>
 
