@@ -34,6 +34,7 @@ namespace EmployeeMaster.YesNoWindow
             this.Resources.MergedDictionaries.Clear();
             this.Resources.MergedDictionaries.Add(newResourceDictionary);
             this.Resources.MergedDictionaries.Add(newResourceDictionary2);
+            this.Topmost = true;
         }
         private async Task<string> TranslateMessageAsync(string message)
         {

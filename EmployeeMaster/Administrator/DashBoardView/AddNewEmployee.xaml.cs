@@ -127,6 +127,24 @@ namespace EmployeeMaster.Administrator.DashBoardView
                
             }
 
+            if (DueDate.HasValue)
+            {
+                DateTime birthDate = DueDate.Value;
+                int age = DateTime.Now.Year - birthDate.Year;
+                if (DateTime.Now.Month < birthDate.Month || (DateTime.Now.Month == birthDate.Month && DateTime.Now.Day < birthDate.Day))
+                {
+                    age--; 
+                }
+
+                if (age < 16)
+                {
+                    NotificationWindow err = new NotificationWindow("Employee must be at least 16 years old.");
+                    err.Show();
+                    return;
+                }
+            }
+         
+
             try
             {
                

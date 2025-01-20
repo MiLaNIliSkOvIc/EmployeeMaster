@@ -63,9 +63,13 @@ public class EmployeeService
                     }
                 }
             }
+        var distinctEmployees = employees
+         .GroupBy(e => e.Id)                
+         .Select(g => g.Last())              
+         .ToList();                         
 
-            return employees;
-        }
+        return distinctEmployees;
+    }
 
         public List<employee> SearchEmployees(string searchTerm)
         {

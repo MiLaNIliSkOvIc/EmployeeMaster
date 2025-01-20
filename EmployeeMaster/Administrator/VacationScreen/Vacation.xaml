@@ -24,9 +24,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
          
-            <RowDefinition Height="Auto" />
-            
             <RowDefinition Height="*" />
+            
+            <RowDefinition Height="Auto" />
       
         </Grid.RowDefinitions>
 
@@ -53,10 +53,11 @@
                    Style="{DynamicResource MaterialDesignDataGrid}"
                   AutoGenerateColumns="False"
                   HorizontalAlignment="Stretch"
-                  VerticalAlignment="Top"
+                    VerticalAlignment="Stretch"
                   Margin="20,50,20,20"
                   CanUserAddRows="False"
-                  
+                  VerticalScrollBarVisibility="Hidden"
+                    HorizontalScrollBarVisibility="Hidden"
                   >
             <DataGrid.Columns>
                 <DataGridTemplateColumn  Header="{DynamicResource ime}">

@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using EmployeeMaster.EmployeeViewModel;
 using EmployeeMaster.NotificationDisplay;
 using EmployeeMaster.Model;
+using EmployeeMaster.YesNoWindow;
 
 namespace EmployeeMaster.Employee.TaskScreen
 {
@@ -25,16 +26,28 @@ namespace EmployeeMaster.Employee.TaskScreen
         {
             if (TasksDataGrid.SelectedItem is Model.Task selectedTask)
             {
-                _viewModel.MarkTaskAsDone(selectedTask);
+                
+                var confirmationDialog = new YesNoDialog(
+                    "Are you sure you want to mark this task as Done?"
+                 );
+                var result = confirmationDialog.ShowDialog();
 
-                NotificationWindow win = new NotificationWindow($"Task marked as Done.");
-                win.Show();
-                TasksDataGrid.ItemsSource = _viewModel.Tasks;
-                CompletedTasksTextBlock.Text = _viewModel.completedTask.ToString();
+                if (result == true) 
+                {
+                    _viewModel.MarkTaskAsDone(selectedTask); 
 
+               
+                    NotificationWindow win = new NotificationWindow($"Task marked as Done.");
+                    win.Show();
+
+                  
+                    TasksDataGrid.ItemsSource = _viewModel.Tasks;
+                    CompletedTasksTextBlock.Text = _viewModel.completedTask.ToString();
+                }
+         
             }
-          
         }
+
 
         private void OnDescriptionClick(object sender, RoutedEventArgs e)
         {
