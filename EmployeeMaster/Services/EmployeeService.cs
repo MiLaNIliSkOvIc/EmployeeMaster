@@ -236,7 +236,8 @@ public class EmployeeService
                 {
 
                     transaction.Rollback();
-                    throw;
+
+                    throw new Exception("Username exists");
                 }
             }
         }

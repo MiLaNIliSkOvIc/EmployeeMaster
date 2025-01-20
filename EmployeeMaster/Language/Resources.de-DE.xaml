@@ -115,4 +115,11 @@
     <System:String x:Key="close">Schließen</System:String>
     <System:String x:Key="yes">Ja</System:String>
     <System:String x:Key="no">Nein</System:String>
+
+    <System:String x:Key="PersonalInformation">Persönliche Daten</System:String>
+    <System:String x:Key="YourPersonalInfo">Ihre persönlichen Daten:</System:String>
+    <System:String x:Key="Name">Name</System:String>
+    <System:String x:Key="DateOfBirth">Geburtsdatum</System:String>
+    <System:String x:Key="Language">Sprache</System:String>
+    <System:String x:Key="ContactableAt">Kontakttelefon</System:String>
 </ResourceDictionary>

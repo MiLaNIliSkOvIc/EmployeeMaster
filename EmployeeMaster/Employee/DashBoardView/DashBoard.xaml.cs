@@ -14,6 +14,8 @@ using System.IO;
 using System.Windows.Threading;
 using System.Diagnostics.Eventing.Reader;
 using EmployeeMaster.Services.EmployeeMaster.Services;
+using EmployeeMaster.NotificationDisplay;
+using EmployeeMaster.YesNoWindow;
 
 
 namespace EmployeeMaster.Employee.DashBoardView
@@ -133,8 +135,8 @@ namespace EmployeeMaster.Employee.DashBoardView
             DataContext = this;
            
             WorkHour hours = _workHourService.GetWorkHourByEmployeeIdAndDate(CurrentUser.Instance.IdUser, DateTime.Now.Date);
-
-            if(hours==null || hours.FinishDate!=null)
+            
+            if (hours==null || hours.FinishDate!=null)
                 WorkButtonContent = "Start Work";
             else
                 WorkButtonContent = "Finish Work";
@@ -297,7 +299,9 @@ namespace EmployeeMaster.Employee.DashBoardView
            
             if (workHourService.IsWorkHourExist(employeeId, date))
             {
-                MessageBox.Show("You already have a work hour entry for today.");
+                NotificationWindow notif = new NotificationWindow("You already have a work hour entry for today.");
+                notif.Show();
+          
                 return; 
             }
             timer.Start();
@@ -330,23 +334,26 @@ namespace EmployeeMaster.Employee.DashBoardView
                 MessageBox.Show("Niste poceli raditi");
                 return;
             }
-         
 
-         
-            var result = MessageBox.Show("Are you sure you want to finish your work?", "Finish Work", MessageBoxButton.YesNo);
 
-            if (result == MessageBoxResult.Yes)
+
+            string message = "Are you sure you want to finish your work?";
+          
+
+            var dialog = new YesNoDialog(message);
+            var result = dialog.ShowDialog();
+
+            if (result == true) 
             {
-               
-                workHourService.UpdateWorkHourFinishByDate(CurrentUser.Instance.IdUser,currentDate, finishTime);
-
                 
-                MessageBox.Show("Work finished!");
+                workHourService.UpdateWorkHourFinishByDate(CurrentUser.Instance.IdUser, currentDate, finishTime);
+
+                NotificationWindow notif = new NotificationWindow("Work finished");
+                notif.Show();
             }
-            else
+            else 
             {
                 
-                MessageBox.Show("Work not finished.");
             }
         }
 

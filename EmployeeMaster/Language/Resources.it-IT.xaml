@@ -117,5 +117,12 @@
 
     <System:String x:Key="yes">Si</System:String>
     <System:String x:Key="no">No</System:String>
-    
+
+    <System:String x:Key="PersonalInformation">Informazioni personali</System:String>
+    <System:String x:Key="YourPersonalInfo">Le tue informazioni personali:</System:String>
+    <System:String x:Key="Name">Nome</System:String>
+    <System:String x:Key="DateOfBirth">Data di nascita</System:String>
+    <System:String x:Key="Language">Lingua</System:String>
+    <System:String x:Key="ContactableAt">Telefono di contatto</System:String>
+
 </ResourceDictionary>

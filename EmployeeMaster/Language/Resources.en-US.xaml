@@ -128,5 +128,14 @@
     <System:String x:Key="yes">Yes</System:String>
     <System:String x:Key="no">No</System:String>
 
+    <System:String x:Key="PersonalInformation">Personal Information</System:String>
+    <System:String x:Key="YourPersonalInfo">Your personal information:</System:String>
+    <System:String x:Key="Name">Name</System:String>
+    <System:String x:Key="DateOfBirth">Date of Birth</System:String>
+   
+    <System:String x:Key="Language">Language</System:String>
+    <System:String x:Key="ContactableAt">Contactable at</System:String>
+   
+
 
 </ResourceDictionary>

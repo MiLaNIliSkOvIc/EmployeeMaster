@@ -27,7 +27,7 @@ namespace EmployeeMaster.Employee.TaskScreen
             {
                 _viewModel.MarkTaskAsDone(selectedTask);
 
-                NotificationWindow win = new NotificationWindow($"Task '{selectedTask.TaskName}' marked as Done.");
+                NotificationWindow win = new NotificationWindow($"Task marked as Done.");
                 win.Show();
                 TasksDataGrid.ItemsSource = _viewModel.Tasks;
                 CompletedTasksTextBlock.Text = _viewModel.completedTask.ToString();

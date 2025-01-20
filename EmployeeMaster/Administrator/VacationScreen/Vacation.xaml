@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              Height="auto" Width="auto">
 
-    <!-- Povezivanje sa stilovima -->
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

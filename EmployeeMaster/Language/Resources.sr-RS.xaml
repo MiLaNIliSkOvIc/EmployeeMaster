@@ -117,4 +117,11 @@
     <System:String x:Key="yes">Da</System:String>
     <System:String x:Key="no">Ne</System:String>
 
+
+    <System:String x:Key="PersonalInformation">Lični podaci</System:String>
+    <System:String x:Key="YourPersonalInfo">Vaši lični podaci:</System:String>
+    <System:String x:Key="Name">Ime</System:String>
+    <System:String x:Key="DateOfBirth">Datum rođenja</System:String>
+    <System:String x:Key="Language">Jezik</System:String>
+    <System:String x:Key="ContactableAt">Kontakt telefon</System:String>
 </ResourceDictionary>
