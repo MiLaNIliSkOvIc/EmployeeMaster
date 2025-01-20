@@ -43,7 +43,8 @@ Korisnici unose svoje kredencijale (*korisničko ime* i *lozinku*) kako bi prist
 
 ## **Početni ekran**
 
-![Početni ekran](https://github.com/user-attachments/assets/3e96d84f-8e2e-400c-9f50-fabcdf28d394)  
+![image](https://github.com/user-attachments/assets/b9045c80-17da-48d5-8533-899d344f7ebc)
+
 
 Nakon uspešne prijave na radnički profil, korisnik dolazi na početni ekran gde se prikazuju:  
 
@@ -122,6 +123,10 @@ Tab **Obaveštenja** prikazuje poruke i obaveštenja koja su dodali menadžeri.
 
 ---
 
+## **Lične informacije**
+![LicneInformacije](https://github.com/user-attachments/assets/787e65b8-31cd-45b6-a54e-a8f9b6cef186)
+
+Tab **Lične informacije** prikazuje podatke o trenutno ulogovan korisniku.
 ## **Podešavanja**
 
 ![Podešavanja](https://github.com/user-attachments/assets/4ab9cf02-d4ac-4065-93c5-c2cd59b7438f)  
