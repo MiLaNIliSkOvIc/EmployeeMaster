@@ -122,7 +122,7 @@ Tab **Obaveštenja** prikazuje poruke i obaveštenja koja su dodali menadžeri.
 
 ---
 
-## Lične informacije**
+## **Lične informacije**
 ![LicneInformacije](https://github.com/user-attachments/assets/787e65b8-31cd-45b6-a54e-a8f9b6cef186)
 
 Tab **Lične informacije** prikazuje podatke o trenutno ulogovan korisniku.
