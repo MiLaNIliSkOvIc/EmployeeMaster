@@ -43,7 +43,8 @@ Korisnici unose svoje kredencijale (*korisničko ime* i *lozinku*) kako bi prist
 
 ## **Početni ekran**
 
-![Početni ekran](https://github.com/user-attachments/assets/3e96d84f-8e2e-400c-9f50-fabcdf28d394)  
+![image](https://github.com/user-attachments/assets/b9045c80-17da-48d5-8533-899d344f7ebc)
+
 
 Nakon uspešne prijave na radnički profil, korisnik dolazi na početni ekran gde se prikazuju:  
 
